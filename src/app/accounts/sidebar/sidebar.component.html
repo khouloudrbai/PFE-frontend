@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+  <header style="position: relative; ">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center  justify-content-lg-end">
+      
+        <div class="dropdown text-end"style="left: 1150;">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/assets/homme.png"  class="rounded-circle" >
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" >
+          
+            <li><a class="dropdown-item" (click)="onclick()">Profile </a> </li>
+            <li><hr class="dropdown-divider" (click)="logout()"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>
+
+  <div
+       id="sidebarMenu"
+       class="collapse d-lg-block sidebar collapse bg-white"
+       > 
+       <div class="d-flex flex-wrap align-items-center  justify-content-lg-start">
+       <img src="/assets/cb.png" class="logo"/>
+      </div>
+
+      <div class="list-group list-group-flush mx-3 mt-4">
+         
+        <a
+        href="http://localhost:4200/acceuil"
+           class="list-group-item list-group-item-action py-2 ripple--- active"
+           >
+          <i class="fas fa-chart-area fa-fw me-3"></i
+            ><span>Dashboard</span>
+        </a>
+    
+        <a
+        href="http://localhost:4200/listuser"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-user-circle fa-fw me-3" ></i
+          ><span>Users </span>
+        </a>
+        <a
+        href=""
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas  fa-regular fa-gamepad fa-fw me-3" ></i
+          ><span>Services</span></a
+          >
+        <a
+        href="http://localhost:4200/table"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-regular fa-users fa-fw me-3" ></i
+          ><span>Players</span></a
+          >
+       
+        <a
+           href="http://localhost:4200/outbox"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-regular fa-table fa-fw me-3"></i><span>Out Box</span></a>
+       
+        <a
+           href="http://localhost:4200/sms"
+           class="list-group-item list-group-item-action py-2 ripple"
+           ><i class="fas fa-paper-plane fa-fw me-3"></i
+          ><span>Send SMS</span></a
+          >
+       
+      </div>
+    
+  </div>
