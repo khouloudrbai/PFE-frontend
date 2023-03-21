@@ -21,6 +21,7 @@ import { MotdepasseComponent } from './accounts/motdepasse/motdepasse.component'
 import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
+import { JeuxComponent } from './accounts/jeux/jeux.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
     ListuserComponent,
     UserprofileComponent,
     ConsulteuserComponent,
+    JeuxComponent,
            
   ],
   imports: [
