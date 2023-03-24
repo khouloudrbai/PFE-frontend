@@ -22,6 +22,15 @@ export class PlayerService {
        res.data
        return res;
      }));    };
+
+  get_list_player(){
+    return this.http.post<any>(this.url + '/player/list', {}).pipe(map(res => {
+      console.log(res);
+      console.log(res.data);
+      res.data
+      return res;
+    })); 
+  }
   
 
   

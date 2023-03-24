@@ -6,7 +6,7 @@
 
     <section  class="vh-100" >
     <div  class=" container py-5 h-100" >
-            <form>
+            <form [formGroup]="form">
     <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
@@ -18,8 +18,8 @@
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
                     </div>
                     <h5 class="user-name"> </h5>
-                    <input type="text" readonly class="form-control-plaintext"  value="Full Name ">
-                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email ">
+                    <input type="text" readonly class="form-control-plaintext" formControlName="firstname" value="Full Name ">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail"  formControlName="email"value="email ">
 
                 </div>
                 <div class="about">
@@ -39,7 +39,7 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="fullName">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter full name">
+                        <input type="text" class="form-control" id="fullName" formControlName="firstname" placeholder="Enter full name">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -69,14 +69,14 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="password">New Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="new password">
+                        <input type="password" class="form-control"  placeholder="new password">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="password">Verify new password
                         </label>
-                        <input type="password" class="form-control" id="password" placeholder="verify new password">
+                        <input type="password" class="form-control" placeholder="verify new password">
                     </div>
                 </div>
                 
@@ -85,8 +85,8 @@
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="text-right">
-                        <button type="button" id="submit" name="submit" class="btn btn-secondary" style="margin-right: 20px;" >Cancel</button>
-                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+                        <button type="button"  name="submit" class="btn btn-secondary" style="margin-right: 20px;" >Cancel</button>
+                        <button type="button"  name="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
             </div>

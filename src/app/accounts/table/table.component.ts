@@ -39,6 +39,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.onclick();
     this.getservice();
+    this.get_player();
   }
 
   onclick():void{ 
@@ -69,4 +70,13 @@ export class TableComponent implements OnInit {
       console.log(respond.code);
     }
       )}
+    get_player(){
+      this.playerservice.get_list_player().subscribe(respond => {
+        this.players = respond.data ;
+        console.log(respond);
+        console.log(respond.isFailed);
+        console.log(respond.code);
+      }
+        )
+    }
 }

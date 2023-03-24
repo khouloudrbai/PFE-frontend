@@ -9,13 +9,16 @@ import { UserService } from '../services/user.service';
 })
 export class ListuserComponent implements OnInit{
   users: any=[];
+  user:any;
   constructor(private userService: UserService ,private router:Router) {
   }
   ngOnInit() {
-    this.getuser(); }
+    this.getuser();
+   }
   getuser(){ 
     this.userService.get_user().subscribe(respond => {
     this.users = respond.data ;
+
     console.log(respond);
     console.log(respond.isFailed);
     console.log(respond.code);
@@ -32,10 +35,16 @@ export class ListuserComponent implements OnInit{
 
   }
   
- 
-  
   consulter():void{
-    this.router.navigate(['./consulteruser'])
+    
+     { 
+      this.userService.get_user().subscribe(respond => {
+        if(respond.isFailed == false && respond.code === '201' && respond.data){
+
+        sessionStorage.setItem('user',JSON.stringify(this.users.data));
+
+      this.router.navigate(['./consulteruser'])}
+    })}
   }
   modifier():void{
     this.router.navigate(['./userprofile'])

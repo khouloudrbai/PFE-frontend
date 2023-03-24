@@ -37,7 +37,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     let user = sessionStorage.getItem('user');
     console.log(user);
-    console.log(user)
     if(user )
     {
       this.form.patchValue({
