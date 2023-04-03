@@ -2,10 +2,28 @@
 
 <div class="main-content">
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
+		<form  [formGroup]="form">
 			<div class="text-center"> 
 				 <h2>Games</h2> 
 			</div> 
 		   <br>
+			<div class="row bootstrap snippets bootdeys"> 
+				
+			 <div class="col-md-3" > 
+			   
+			   <input type="text" class="form-control"  formControlName="shortcode" name="s" id="search-input" placeholder="ShortCode"> 
+			 </div> 
+			
+			
+			 
+			
+		<div class="col-md-3" > 
+			<button type="submit"  name="submit" class="btn btn-primary" style="width: 100px;" (click)="onclick()" >
+				  Search 
+			 </button>
+	</div>
+		</div>
+	</form>
   <br>
 		<div >
 			<div class="row">
@@ -51,7 +69,7 @@
 		 
 		  
 	</tbody>
-  </table>
+  </table> 
   <footer>
   <div class="text-center mt-3 mt-sm-3">
 	<ul class="pagination justify-content-center mb-0">

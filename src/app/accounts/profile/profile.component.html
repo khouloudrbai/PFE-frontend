@@ -74,14 +74,14 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="password">New Password</label>
-                        <input type="password" class="form-control"  placeholder="new password">
+                        <input type="password" class="form-control"  placeholder="new password" formControlName="pwd">
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="password">Verify new password
                         </label>
-                        <input type="password" class="form-control"  placeholder="verify new password">
+                        <input type="password" class="form-control"  placeholder="verify new password" formControlName="pwd">
                     </div>
                 </div>
                 
@@ -90,9 +90,10 @@
             <div class="row gutters">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                     <div class="text-right">
-                        <button type="button"  name="submit" class="btn btn-secondary " style="margin-right: 20px;" >Cancel</button>
-                        <button type="button"  name="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary " style="margin-right: 20px;" >Cancel</button>
+                        <button type="submit" class="btn btn-primary" >Update</button>
                     </div>
+
                 </div>
             </div>
         </div>

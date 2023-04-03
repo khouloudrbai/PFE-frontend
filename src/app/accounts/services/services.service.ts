@@ -14,14 +14,28 @@ export class ServicesService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  get_service()
+  
+  get_service(shortcode:any,id_service:any)
+  {  
+    return this.http.post<any>(this.url + '/service/getlist', {shortcode,id_service}).pipe(map(res => {
+       console.log(res);
+       console.log(res.data);
+       res.data
+       return res;
+     }));    };
+
+
+
+  get_service_list()
   {  
     return this.http.post<any>(this.url + '/service/getservice', {}).pipe(map(res => {
        console.log(res);
        console.log(res.data);
        res.data
        return res;
-     }));    };
+     })); 
+       };
+  
   
 
   

@@ -1,0 +1,22 @@
+<div>
+    <form [formGroup]="form">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Value</th>
+        <th>Unit of Mesure</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let member of members, let i=index">
+        <td>{{ member.dataLimit }}</td>
+        <td><input type="text" value="{{ member.value }}" formControlName="field{{i}}" /></td>
+        <td>{{ member.uom }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </form>
+  </div>
+  <br>
+  FORM VALUE: {{ form.value | json }}

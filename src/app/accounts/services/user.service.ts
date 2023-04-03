@@ -31,5 +31,12 @@ export class UserService {
       return res;
     }));
   }
+  get_one_user(id_user:any){
+    console.log(id_user)
+    return this.http.post<any>(this.url + '/User/getuser', {id_user}).pipe(map(res => {
+     // console.log(res);
+      return res;
+    }));
+  }
   
 }

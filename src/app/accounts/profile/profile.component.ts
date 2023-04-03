@@ -35,6 +35,8 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onSubmit();
+
     let user = sessionStorage.getItem('user');
     console.log(user);
     if(user )
@@ -70,12 +72,12 @@ export class ProfileComponent implements OnInit {
      
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
-      this.router.navigate(['/profile']);
-
+      this.router.navigate(['/acceuil']);
+      
       
      }
  })   
-    
+     
     console.log(JSON.stringify(this.form.value, null, 2));
   }
   

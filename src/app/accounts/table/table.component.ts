@@ -58,12 +58,13 @@ export class TableComponent implements OnInit {
     }
   }
     )}
+    
     consulter():void{
       this.router.navigate(['./details'])
     }
 
     getservice(){ 
-      this.servicesService.get_service().subscribe(respond => {
+      this.servicesService.get_service_list().subscribe(respond => {
       this.services = respond.data ;
       console.log(respond);
       console.log(respond.isFailed);

@@ -1,4 +1,3 @@
-import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
@@ -22,6 +21,11 @@ export class ListuserComponent implements OnInit{
     console.log(respond);
     console.log(respond.isFailed);
     console.log(respond.code);
+    if(respond.isFailed == false && respond.code === '201' && respond.data){
+
+    sessionStorage.setItem('user',JSON.stringify(respond.data));}
+    
+
   }
     )}
 
@@ -29,24 +33,35 @@ export class ListuserComponent implements OnInit{
     console.log(id_user)
       this.userService.delete_user(id_user).subscribe(respond => {
         console.log(respond);
+        this.ngOnInit();
 
-        this.getuser();
       });
+
 
   }
   
   consulter():void{
     
      { 
+
       this.userService.get_user().subscribe(respond => {
         if(respond.isFailed == false && respond.code === '201' && respond.data){
 
-        sessionStorage.setItem('user',JSON.stringify(this.users.data));
+
 
       this.router.navigate(['./consulteruser'])}
     })}
   }
-  modifier():void{
+  modifier(id_user:any):void{
+    console.log(id_user)
+    this.userService.get_one_user(id_user).subscribe(respond => {
+      console.log(respond);
+      sessionStorage.setItem('user',JSON.stringify(respond.id_user));
+      
+
+    });
+    
+
     this.router.navigate(['./userprofile'])
   }
 }
