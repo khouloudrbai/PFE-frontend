@@ -1,79 +1,44 @@
 <my-sidebar></my-sidebar>
       
-    <div class="main-content">
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<main class="col-md-2 ms-sm-auto col-lg-10 px-md-6"  >
 
-    <section class="vh-100" style="background-color: #d9d9d9;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="card" style="border-radius: 1rem;">
-          <h2 class="h1-responsive font-weight-bold text-center my-4">Envoi SMS </h2>
-     
-          <!--Grid column-->
-          <div class="col col-xl-10">
-            
-              <form >
-  
-  
-                  <!--Grid row-->
-                  <div class="row">
-  
-                      <!--Grid column-->
-                      <div class="col-md-12">
-  
-                          <div class="md-form">
-                              <label for="sms">SMS</label>
-                              <textarea type="text" id="sms" name="sms"  rows="2" class="form-control md-textarea"></textarea>
-                              
-                           </div>
-  
-                      </div>
-                  </div>
-                  <br>
-                   <!--Grid row-->
-                  <div class="row row-cols-3">
-                    <div class="col">
-                     <div class="button" style="  width: 50%;">
-                       <button type="button" class="btn btn-secondary dropdown-toggle"  id="deroulant" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mobile</button>
-                       <!--<div class="dropdown-menu" aria-labelledby="deroulant">
-                       <div class="button-divider">
-                        <a class="dropdown-item" href="#">578745</a>
-                        <a class="dropdown-item" href="#">454887</a></div>
-                    
-                       </div>-->
-                      </div>
-                   </div>
-                
-                  
-                   
-                  
-                   <div class="col">
-                    <div class="data-toggle">
-                      Date: <input type="date">
-  
-                 
-                    </div></div></div>
-             <br>
-             <div class="text-center text-md-left" style="  justify-content: center ;">
-              <button class="btn btn-primary" type="submit" (click)="alertWithSuccess()">Envoi</button>
-             </div>
-  
-            
-          
-  
-            
-              </form></div></div></div>
-            </div>
-          </section>
-      </main>
+  <section  class="row d-flex justify-content-center align-items-center h-25">
+    <div class="col col-xl-10 " >
+<div id="contact" class="contact-area section-padding">
+	<div class="container mb-0  bg-white p-4 shadow-sm">									
+    <br>	
+		<div class="section-title text-center">
+			<h2>SEND SMS</h2>
+		</div>					
+    <div class="row">
+      <div class="col-md-12">
+				<div class="contact ">
+					<form class="form"  >
+						<div class="row">
+							<div class="form-group col-md-12">
+								<input type="text" name="title" class="form-control" placeholder="Title" required="required">
+							</div>
+							<div class="form-group col-md-12">
+								<input type="email" name="mobile" class="form-control" placeholder="Mobile" required="required">
+							</div>
+							<div class="form-group col-md-12">
+								<input type="datetime-local" name="date" class="form-control" placeholder="Date" required="required">
+							</div>
+							<div class="form-group col-md-12">
+								<textarea rows="6" name="content" class="form-control" placeholder="Your Message" required="required"></textarea>
+							</div>
+							<div class="col-md-12 text-center">
+								<button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			
+		</div><!--- END ROW -->
+	</div><!--- END CONTAINER -->	
+</div>
+</div>
     </div>
-  
-            
-  
-          
-          
-  
-  
-      
-      
-            
+  </section>
+</main>

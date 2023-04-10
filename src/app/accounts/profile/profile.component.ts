@@ -1,6 +1,6 @@
 import {Component, OnInit, TemplateRef} from '@angular/core';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import {  BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
 @Component({
@@ -59,11 +59,11 @@ export class ProfileComponent implements OnInit {
  
   onSubmit(): void {
     this.submitted = true;
- 
+    console.log(this.form.value)
+
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value)
     this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
     (respond=>{
      console.log(respond);
@@ -73,7 +73,6 @@ export class ProfileComponent implements OnInit {
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
       this.router.navigate(['/acceuil']);
-      
       
      }
  })   

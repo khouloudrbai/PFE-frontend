@@ -7,42 +7,19 @@ import { PlayerService } from '../services/playerservice';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit  {
-  form!: FormGroup;
+export class TestComponent   {
 
-  members = [
-    {
-      dataLimit: 'Package 1: Voice',
-      value: 0,
-      uom: 'Minutes',
-    },
-    {
-      dataLimit: 'Package 2: SMS',
-      value: 0,
-      uom: 'Units',
-    },
-  ];
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    const myFields = this.buildFormFieldsFormGroup();
-    console.log('myFields: ', myFields);
-
-    this.form = myFields;
+  constructor(private fb: FormBuilder,private router:Router) {}
+  
+onclick():void{
+  this.router.navigate(['./profile']);
+  }
+  logout():void{
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['./login'])
   }
 
-  private buildFormFieldsFormGroup(): FormGroup {
-    const membersLength = this.members.length;
-    let response: FormGroup = this.fb.group({ dummy: ['', []] });
-
-    for (let i = 0; i < membersLength; i++) {
-      response.addControl(`field${i}`, new FormControl());
-    }
-    console.log('response: ', response);
-
-    return response;
-  }
 }
 
 
