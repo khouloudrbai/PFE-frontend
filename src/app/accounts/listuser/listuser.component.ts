@@ -14,7 +14,7 @@ export class ListuserComponent implements OnInit{
   }
   ngOnInit() {
     this.getuser();
- }
+   }
   getuser(){ 
     this.userService.get_user().subscribe(respond => {
     this.users = respond.data ;
@@ -24,7 +24,10 @@ export class ListuserComponent implements OnInit{
     console.log(respond.code);
     if(respond.isFailed == false && respond.code === '201' && respond.data){
 
-  }}
+    sessionStorage.setItem('user',JSON.stringify(respond.data));}
+    
+
+  }
     )}
 
   deleteItem(id_user:any) {
@@ -46,8 +49,10 @@ export class ListuserComponent implements OnInit{
     this.userService.get_one_user(id_user).subscribe(respond => {
       console.log(respond);
       sessionStorage.setItem('id',JSON.stringify(respond.data));
+      
     });
     
+
     this.router.navigate(['./userprofile'])
   }
 }
