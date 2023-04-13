@@ -14,9 +14,9 @@ export class UserService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  get_user()
+  get_user(id_user:any)
   {  
-    return this.http.post<any>(this.url + '/User/list', {}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/User/list', {id_user}).pipe(map(res => {
        console.log(res);
        res.data
        return res;

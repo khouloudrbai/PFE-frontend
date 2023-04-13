@@ -10,23 +10,24 @@ import { UserService } from '../services/user.service';
 export class ListuserComponent implements OnInit{
   users: any=[];
   user:any;
+  id_user:any = '';
   constructor(private userService: UserService ,private router:Router) {
   }
   ngOnInit() {
     this.getuser();
+    this.onSubmit();
    }
+
   getuser(){ 
-    this.userService.get_user().subscribe(respond => {
-    this.users = respond.data ;
+    this.userService.get_user(this.id_user.toString()).subscribe(respond => {
 
     console.log(respond);
     console.log(respond.isFailed);
     console.log(respond.code);
     if(respond.isFailed == false && respond.code === '201' && respond.data){
+      this.users = respond.data ;
 
-    sessionStorage.setItem('user',JSON.stringify(respond.data));}
-    
-
+  }
   }
     )}
 
@@ -38,12 +39,17 @@ export class ListuserComponent implements OnInit{
       });
   }
   
-  consulter():void{
-      this.userService.get_user().subscribe(respond => {
-        if(respond.isFailed == false && respond.code === '201' && respond.data){
-      this.router.navigate(['./consulteruser'])}
-    })
+  consulter(id_user:any):void{
+    console.log(id_user)
+    this.userService.get_one_user(id_user).subscribe(respond => {
+      console.log(respond);
+      sessionStorage.setItem('id',JSON.stringify(respond.data));
+      
+    });
+    this.router.navigate(['./consulteruser'])
+
   }
+
   modifier(id_user:any){
     console.log(id_user)
     this.userService.get_one_user(id_user).subscribe(respond => {
@@ -51,8 +57,8 @@ export class ListuserComponent implements OnInit{
       sessionStorage.setItem('id',JSON.stringify(respond.data));
       
     });
-    
-
-    this.router.navigate(['./userprofile'])
+    this.router.navigate(['./userprofile/'+ id_user])
+  }
+  onSubmit(){
   }
 }

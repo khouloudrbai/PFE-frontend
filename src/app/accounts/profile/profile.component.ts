@@ -17,6 +17,8 @@ export class ProfileComponent implements OnInit {
   pwd!:string;
   id_user:any;
  firstname!:any;
+ lastname!:any;
+
  picture!:any;
 
 
@@ -29,6 +31,8 @@ export class ProfileComponent implements OnInit {
         mobile: [ '',[Validators.required,]],
         address: [ '',[Validators.required,]],
         firstname:['',[Validators.required],],
+        lastname:['',[Validators.required],],
+
         picture:['',[Validators.required],]
 
       })
@@ -46,7 +50,9 @@ export class ProfileComponent implements OnInit {
         mobile:JSON.parse(user).mobile,
         address:JSON.parse(user).address,
         firstname:JSON.parse(user).firstname,
-        picture:JSON.parse(user).firstname,
+        lastname:JSON.parse(user).lastname,
+
+        picture:JSON.parse(user).picture,
 
 
       })

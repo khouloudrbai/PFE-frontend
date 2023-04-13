@@ -30,7 +30,7 @@ const routes: Routes = [
   {  path:  'sidebar', component:  SidebarComponent},
   {  path:  'motdepasse', component:  MotdepasseComponent},
   {  path:  'listuser', component:  ListuserComponent},
-  {  path:  'userprofile', component:  UserprofileComponent},
+  {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
 
