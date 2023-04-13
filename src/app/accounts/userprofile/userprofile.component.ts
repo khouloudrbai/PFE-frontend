@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-userprofile',
@@ -19,9 +20,10 @@ export class UserprofileComponent implements OnInit {
   id_user:any;
  firstname!:any;
  picture!:any;
+user_id:any;
 
-
-  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,private formbuilder:FormBuilder) {
+  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,
+    private formbuilder:FormBuilder,public route : ActivatedRoute, public userService : UserService) {
     this.form = this.formbuilder.group(
       {
        
@@ -36,28 +38,34 @@ export class UserprofileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onSubmit();
+  this.user_id = this.route.snapshot.params['id_user'];
 
-    let id = sessionStorage.getItem('id');
-    console.log(id);
-    if(id )
-    {
-      this.form.patchValue({
-        email: JSON.parse(id).mail ,
-        mobile:JSON.parse(id).mobile,
-        address:JSON.parse(id).address,
-        firstname:JSON.parse(id).firstname,
-        picture:JSON.parse(id).firstname,
+  console.log('this.user_id  ' + this.user_id)
+  this.getuser();
 
-
-      })
-      
-      this.id_user = JSON.parse(id).id_user ;
-    }
-   
   }
 
- 
+  getuser(){ 
+
+    this.userService.get_user(this.user_id.toString()).subscribe(respond => {
+
+    console.log(respond);
+
+    if(respond.isFailed == false && respond.code === '201' && respond.data)
+      {
+
+        this.form.patchValue({
+           email: respond.data[0].mail ,
+          mobile:respond.data[0].mobile,
+          address:respond.data[0].address,
+          firstname:respond.data[0].firstname,
+          picture:respond.data[0].firstname,
+        })
+  
+      
+    }}
+    )}
+
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value)
@@ -79,5 +87,8 @@ export class UserprofileComponent implements OnInit {
  })   
      
     console.log(JSON.stringify(this.form.value, null, 2));
+  }
+  return(){
+    this.router.navigate(['./listuser'])
   }
 }
