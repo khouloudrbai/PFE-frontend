@@ -55,12 +55,19 @@ export class TableComponent implements OnInit {
     if(respond.isFailed == false && respond.code === '201' && respond.data){
       this.players = respond.data ;
 
-    }
+    } 
   }
     )}
     
-    consulter():void{
-      this.router.navigate(['./details'])
+    consulter(id_player:any){
+      console.log(id_player)
+      this.playerservice.get_joueur(id_player).subscribe(respond => {
+        console.log(respond);
+        sessionStorage.setItem('id',JSON.stringify(respond.data));
+        
+      });
+      this.router.navigate(['./details/'+ id_player])
+  
     }
 
     getservice(){ 
@@ -80,4 +87,7 @@ export class TableComponent implements OnInit {
       }
         )
     }
+    onSubmit(){
+    }
+
 }

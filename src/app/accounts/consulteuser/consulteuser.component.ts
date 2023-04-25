@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormControl,FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { ProfileService } from '../services/profile.service';
 @Component({
   selector: 'app-consulteuser',
   templateUrl: './consulteuser.component.html',
@@ -16,9 +19,11 @@ export class ConsulteuserComponent implements OnInit {
   id_user:any;
  firstname!:any;
  picture!:any;
+user_id:any;
 
-  constructor(private router:Router,private formBuilder:FormBuilder){
-    this.form = this.formBuilder.group(
+  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,
+    private formbuilder:FormBuilder,public route : ActivatedRoute, public userService : UserService) {
+    this.form = this.formbuilder.group(
       {
        
         email: ['', [Validators.required, Validators.email]],
@@ -30,28 +35,35 @@ export class ConsulteuserComponent implements OnInit {
 
       })
   }
+ 
   ngOnInit(): void {
-    this.onSubmit();
-
-    let id = sessionStorage.getItem('id');
-    console.log(id);
-    if(id )
-    {
-      this.form.patchValue({
-        email: JSON.parse(id).mail ,
-        mobile:JSON.parse(id).mobile,
-        address:JSON.parse(id).address,
-        firstname:JSON.parse(id).firstname,
-        picture:JSON.parse(id).firstname,
-
-
-      })
-      
-      this.id_user = JSON.parse(id).id_user ;
+    this.user_id = this.route.snapshot.params['id_user'];
+  
+    console.log('this.user_id  ' + this.user_id)
+    this.getuser();
+  
     }
-   
-  }
-
+  
+    getuser(){ 
+  
+      this.userService.get_user(this.user_id.toString()).subscribe(respond => {
+  
+      console.log(respond); 
+  
+      if(respond.isFailed == false && respond.code === '201' && respond.data)
+        {
+  
+          this.form.patchValue({
+             email: respond.data[0].mail ,
+            mobile:respond.data[0].mobile,
+            address:respond.data[0].address,
+            firstname:respond.data[0].firstname,
+            picture:respond.data[0].picture,
+          })
+    
+        
+      }}
+      )}
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value)

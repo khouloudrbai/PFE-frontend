@@ -32,6 +32,14 @@ export class PlayerService {
     })); 
   }
   
-
+  get_joueur(id_player:any)
+  {  
+    return this.http.post<any>(this.url + '/player/joueur', {id_player}).pipe(map(res => {
+       console.log(res);
+       console.log(res.data);
+       return res;
+     })); 
+       };
+  
   
 }

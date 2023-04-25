@@ -25,13 +25,13 @@ const routes: Routes = [
   {  path:  'test', component:  TestComponent},
   {  path:  'addadmin', component:  AddadminComponent},
   {  path:  'sms', component:  SmsComponent},
-  {  path:  'details', component:  DetailsComponent},
+  {  path:  'details/:id_player', component:  DetailsComponent},
   {  path:  'outbox', component:  OutboxComponent},
   {  path:  'sidebar', component:  SidebarComponent},
   {  path:  'motdepasse', component:  MotdepasseComponent},
   {  path:  'listuser', component:  ListuserComponent},
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
-  {  path:  'consulteruser', component:  ConsulteuserComponent},
+  {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
 
 

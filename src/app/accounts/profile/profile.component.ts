@@ -3,6 +3,7 @@ import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import {  BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
+import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,9 +21,9 @@ export class ProfileComponent implements OnInit {
  lastname!:any;
 
  picture!:any;
-
-
-  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,private formbuilder:FormBuilder) {
+ imageToShow:any;
+ user_id:any;
+  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,private formbuilder:FormBuilder,public userService:UserService) {
     this.form = this.formbuilder.group(
       {
        
@@ -61,7 +62,7 @@ export class ProfileComponent implements OnInit {
     }
    
   }
-
+  
  
   onSubmit(): void {
     this.submitted = true;
@@ -69,6 +70,7 @@ export class ProfileComponent implements OnInit {
 
     if (this.form.invalid) {
       return;
+      
     }
     this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
     (respond=>{
@@ -78,6 +80,7 @@ export class ProfileComponent implements OnInit {
      
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
+
       this.router.navigate(['/acceuil']);
       
      }
@@ -89,6 +92,7 @@ export class ProfileComponent implements OnInit {
   onclick():void{
     this.router.navigate(['/addadmin']);
   }
+
 }
 
 

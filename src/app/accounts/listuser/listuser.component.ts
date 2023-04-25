@@ -39,14 +39,14 @@ export class ListuserComponent implements OnInit{
       });
   }
   
-  consulter(id_user:any):void{
+  consulter(id_user:any){
     console.log(id_user)
     this.userService.get_one_user(id_user).subscribe(respond => {
       console.log(respond);
       sessionStorage.setItem('id',JSON.stringify(respond.data));
-      
+       
     });
-    this.router.navigate(['./consulteruser'])
+    this.router.navigate(['./consulteruser/'+ id_user])
 
   }
 

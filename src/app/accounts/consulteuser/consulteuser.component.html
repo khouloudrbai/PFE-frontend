@@ -6,8 +6,8 @@
 
     <section  class="vh-100" >
     <div  class=" container py-5 h-100" >
-    <form [formGroup]="form">
-    <div class="row gutters">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row gutters">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
     <div class="card h-100">
         <div class="card-body">
@@ -15,7 +15,7 @@
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Maxwell Admin">
+                        <img src="" formControlName="picture"alt="">
                     </div>
                     <h5 class="user-name"> </h5>
                     <input type="text" readonly class="form-control-plaintext"  value="Full Name " formControlName="firstname">
