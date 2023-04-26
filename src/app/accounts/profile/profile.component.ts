@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
  picture!:any;
  imageToShow:any;
  user_id:any;
+ image:any;
   constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,private formbuilder:FormBuilder,public userService:UserService) {
     this.form = this.formbuilder.group(
       {
@@ -57,6 +58,8 @@ export class ProfileComponent implements OnInit {
 
 
       })
+      this.image=JSON.parse(user).picture;
+
       
       this.id_user = JSON.parse(user).id_user ;
     }

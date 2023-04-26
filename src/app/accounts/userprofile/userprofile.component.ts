@@ -21,6 +21,7 @@ export class UserprofileComponent implements OnInit {
  firstname!:any;
  picture!:any;
 user_id:any;
+image:any;
 
   constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,
     private formbuilder:FormBuilder,public route : ActivatedRoute, public userService : UserService) {
@@ -59,10 +60,10 @@ user_id:any;
           mobile:respond.data[0].mobile,
           address:respond.data[0].address,
           firstname:respond.data[0].firstname,
-          picture:respond.data[0].firstname,
+          picture:respond.data[0].picture,
         })
   
-      
+      this.image=respond.data[0].picture;
     }}
     )}
 
