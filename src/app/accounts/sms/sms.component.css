@@ -10,7 +10,7 @@
       height: 60px;
       padding: 10px;
       width: 100%;
-      font-family: 'poppins', sans-serif;
+      font-family: sans-serif;
       padding-left: 30px;
       -webkit-transition: all 0.3s ease 0s;
       -o-transition: all 0.3s ease 0s;
@@ -24,11 +24,12 @@
       border-radius: 3px;
       -webkit-box-shadow: none;
       box-shadow:inset;
-      color: #868ce0;
+      color: #000000;
       font-size: 16px;
       padding: 10px;
       width: 100%;
-      font-family: 'poppins', sans-serif;
+      font-family:  sans-serif;
+
     
   }
   
