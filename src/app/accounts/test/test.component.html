@@ -1,0 +1,58 @@
+<section class="vh-100" style="background-color: #D9D9D9;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10" >
+          <div class="card" >
+            <div class="row g-0" style="border-radius: 27px; background-color: #005A87;">
+              <div class="col-md-6 col-lg-5 d-flex align-items-center" style="border-radius: 27px; background-color: white;   ">
+                <img src="/assets/3.png" 
+                alt="login form" class="img-fluid"  />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center" >
+                <div class="card-body p-4 p-lg-5 text-white" >
+                  <div class="register-form" >
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;text-align: center;">Sign into your account</h5>
+  
+                    <div class="form-outline mb-4">
+                      <input  type="email" formControlName="email"  class="form-control form-control-lg" style="border-radius: 15px;
+                      "[ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+                      <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="f['email'].errors">Email is required</div>
+                        <!-- <div *ngIf="f.email.errors.email">Email is invalid</div> -->
+                      </div>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input  type="password" formControlName="pwd" id="form2Example27" class="form-control form-control-lg" formControlName="pwd" style="border-radius: 15px;
+                      "
+                       [ngClass]="{ 'is-invalid': submitted && f['pwd'].errors }"
+                      />
+                      <div *ngIf="submitted && f['pwd'].errors" class="invalid-feedback">
+                        <div *ngIf="f['pwd'].errors">Password is required</div>
+                        <!-- <div *ngIf="f[password].errors.minlength"> -->
+                          Password must be at least 6 characters
+                        </div>
+                      
+                    </div>
+                    <a class="small text-white" (click)="forget()">Forgot password?</a>
+
+                    <div class="pt-1 mb-4">
+                      
+
+                      <button class="btn text-white btn-lg " type="submit" style="background-color: #A0A0A0; width: 232px;border-radius: 15px;position: relative; left: 90px;">
+                        Login 
+                      </button>                 
+                   </div>
+                  </form>
+                    
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
