@@ -51,5 +51,12 @@ name = "Angular Toggle Show Hide";
     }
    
   }
+onmodifie(){
+  this.router.navigate(['./modifierprofil']);
 
+}
+motdpass(){
+  this.router.navigate(['./modifiermotdepasse']);
+
+}
 }

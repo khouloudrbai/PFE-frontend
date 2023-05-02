@@ -22,6 +22,8 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
+import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
+import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,9 @@ import { JeuxComponent } from './accounts/jeux/jeux.component';
     UserprofileComponent,
     ConsulteuserComponent,
     JeuxComponent,
+    ModifierprofilComponent,
+    ModifiermotdepasseComponent
+    
            
   ],
   imports: [
