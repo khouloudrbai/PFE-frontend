@@ -74,7 +74,7 @@ image:any;
     if (this.form.invalid) {
       return;
     }
-    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
+    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.firstname,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
     (respond=>{
      console.log(respond);
      console.log(respond.isFailed);

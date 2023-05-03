@@ -41,41 +41,55 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.onSubmit();
 
-    let user = sessionStorage.getItem('user');
-    console.log(user);
-    if(user )
-    {
-      this.form.patchValue({
-        email: JSON.parse(user).mail ,
-        mobile:JSON.parse(user).mobile,
-        address:JSON.parse(user).address,
-        firstname:JSON.parse(user).firstname,
-        lastname:JSON.parse(user).lastname,
-
-        picture:JSON.parse(user).picture,
-
-
-      })
-      this.image=JSON.parse(user).picture;
-
-      
-      this.id_user = JSON.parse(user).id_user ;
-    }
+   this.GetUserInfo();
    
   }
   
- 
+ GetUserInfo()
+ {
+ let user=sessionStorage.getItem('user')
+  if(user )
+  {
+    this.id_user = JSON.parse(user).id_user ;
+  }
+  console.log(this.id_user)
+  this.userService.get_one_user(this.id_user).subscribe
+  (respond=>{
+   console.log(respond);
+   console.log(respond.isFailed);
+   console.log(respond.code);
+   console.log(respond.mail)
+   if(respond.isFailed == false && respond.code === '201' && respond.data)
+   {
+
+     this.form.patchValue({
+        email: respond.data[0].mail ,
+       mobile:respond.data[0].mobile,
+       address:respond.data[0].address,
+       firstname:respond.data[0].firstname,
+       picture:respond.data[0].picture,
+     })
+
+   this.image=respond.data[0].picture;
+ }
+}) 
+}
   onSubmit(): void {
     this.submitted = true;
     console.log(this.form.value)
 
     if (this.form.invalid) {
       return;
-      
     }
-    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
+    console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  cancel(){
+    this.router.navigate(['/acceuil']);
+  }
+  save(){
+    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.firstname,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
     (respond=>{
      console.log(respond);
      console.log(respond.isFailed);
@@ -83,19 +97,13 @@ export class ProfileComponent implements OnInit {
      
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
+    
+         this.GetUserInfo();
 
-      this.router.navigate(['/acceuil']);
       
      }
- })   
-     
-    console.log(JSON.stringify(this.form.value, null, 2));
+ }) 
   }
-  
-  onclick():void{
-    this.router.navigate(['/addadmin']);
-  }
-
 }
 
 

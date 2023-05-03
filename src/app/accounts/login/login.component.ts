@@ -17,11 +17,11 @@ export class LoginComponent implements OnInit {
  
   email!: string;
   pwd!:string;
- form!: FormGroup;
- submitted = false;
-
+  loginForm!: FormGroup;
+  submitted = false;
+  alertErrorPwd = false
  constructor(private formBuilder: FormBuilder,private router: Router,private loginService:LoginService) { 
-    this.form = this.formBuilder.group(
+    this.loginForm = this.formBuilder.group(
   {
    
     email: ['', [Validators.required, Validators.email]],
@@ -36,36 +36,40 @@ export class LoginComponent implements OnInit {
  ngOnInit(): void {
  }
  get f(): { [key: string]: AbstractControl } {
-   return this.form.controls;
+   return this.loginForm.controls;
  }
 
- onSubmit(): void {
+ onLoginSubmit(): void {
    this.submitted = true;
 
-   if (this.form.invalid) {
+   if (this.loginForm.invalid) {
      return;
    }
-   console.log(this.form.value)
-   this.loginService.Contact_auth(this.form.value.email,this.form.value.pwd).subscribe(respond=>{
+   console.log(this.loginForm.value)
+   this.loginService.Contact_auth(this.loginForm.value.email,this.loginForm.value.pwd).subscribe(respond=>{
     console.log(respond)
     console.log(respond.isFailed);
     console.log(respond.code);
     
-    if(respond.isFailed == false && respond.code === '201' && respond.data)
+    if(respond.isFailed == false && respond.code === '201' && respond.data.id_user > 0)
     {
+      this.alertErrorPwd = false ;
       this.router.navigate(['/acceuil']);
 
       sessionStorage.setItem('user',JSON.stringify(respond.data));
     }
+    else{
+      this.alertErrorPwd = true ;
+    }
 })   
    
-   console.log(JSON.stringify(this.form.value, null, 2));
+   console.log(JSON.stringify(this.loginForm.value, null, 2));
  }
  
 
  onReset(): void {
    this.submitted = false;
-   this.form.reset();
+   this.loginForm.reset();
  }
 
  forget():void {
