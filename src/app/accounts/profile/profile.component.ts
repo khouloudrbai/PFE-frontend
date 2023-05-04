@@ -4,6 +4,7 @@ import {  BsModalService } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
 import { UserService } from '../services/user.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -41,9 +42,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
    this.GetUserInfo();
-   
+  }
+  alertWithSuccess(){
+    Swal.fire('Profile updated ')
   }
   
  GetUserInfo()
@@ -97,8 +99,9 @@ export class ProfileComponent implements OnInit {
      
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
-    
+         
          this.GetUserInfo();
+         this.alertWithSuccess()
 
       
      }

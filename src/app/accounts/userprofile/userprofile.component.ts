@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal';
 import { UserService } from '../services/user.service';
+
 
 @Component({
   selector: 'app-userprofile',

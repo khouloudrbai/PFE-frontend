@@ -25,6 +25,7 @@ import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
 import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
