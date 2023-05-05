@@ -14,9 +14,9 @@ export class ProfileService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Contact_update(id_user:any, mobile:any,email:any,address:any,pwd:any )
+  Contact_update(id_user:any, mobile:any,firstname:any,email:any,address:any,pwd:any)
   {  
-    return this.http.post<any>(this.url + '/User/update', {id_user,mobile,email,address,pwd}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/User/update', {id_user,mobile,firstname,email,address,pwd}).pipe(map(res => {
      // console.log(res);
       return res;
     }));

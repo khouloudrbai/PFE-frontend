@@ -76,19 +76,8 @@ export class ModifierprofilComponent implements OnInit {
       return;
       
     }
-    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
-    (respond=>{
-     console.log(respond);
-     console.log(respond.isFailed);
-     console.log(respond.code);
-     
-     if(respond.isFailed == false && respond.code === '201' && respond.data)
-     {
-
-      this.router.navigate(['/acceuil']);
-      
-     }
- })   
+    
+  
      
     console.log(JSON.stringify(this.form.value, null, 2));
   }
@@ -96,5 +85,8 @@ export class ModifierprofilComponent implements OnInit {
   onclick():void{
     this.router.navigate(['/addadmin']);
   }
+  cancel(){
+    this.router.navigate(['/profile']);
 
+  }
 }
