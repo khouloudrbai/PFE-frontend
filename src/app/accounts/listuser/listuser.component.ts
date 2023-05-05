@@ -61,4 +61,7 @@ export class ListuserComponent implements OnInit{
   }
   onSubmit(){
   }
+  add(){
+    this.router.navigate(['./addadmin'])
+  }
 }
