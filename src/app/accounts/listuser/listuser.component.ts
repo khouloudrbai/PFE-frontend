@@ -96,4 +96,7 @@ export class ListuserComponent implements OnInit{
       this.currentPage--;
     }
   }
+  add(){
+    this.router.navigate(['./addadmin'])
+  }
 }
