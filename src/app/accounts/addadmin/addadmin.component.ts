@@ -1,7 +1,6 @@
 import { Component, TemplateRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
 
 import { AddadminService } from '../services/addadmin.service';
 
@@ -67,9 +66,7 @@ constructor(private router:Router,private Addadmin:AddadminService,private formB
     
     console.log(JSON.stringify(this.form.value, null, 2));
   }
-  alertWithSuccess(){
-    Swal.fire('Thank you...', 'You added a user  succesfully!', 'success')
-  }
+  
 }
 
 

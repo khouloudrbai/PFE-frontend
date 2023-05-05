@@ -16,22 +16,13 @@ export class ListuserComponent implements OnInit{
   id_user: any = '';
   pageSize: number = 3;
   currentPage: number = 1;
-
-  constructor(private userService: UserService ,private router: Router,private modalService: BsModalService) {}
+  IsmodelShow:any;
+    // {1}
+  constructor(private userService: UserService ,private router: Router,private modalService: BsModalService,public modalRef: BsModalRef) {}
 
   ngOnInit() {
     this.getuser();
   }
-  alertWithSuccess(){
-    Swal.fire('Profile updated ')
-  }
-  
-  public modalRef!: BsModalRef; // {1}
-
-  public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template); // {3}
-  }
-
 
   getuser() { 
     this.userService.get_user(this.id_user.toString()).subscribe(respond => {
@@ -43,17 +34,7 @@ export class ListuserComponent implements OnInit{
       }
     });
   }
-
-  deleteItem(id_user: any) {
-    console.log(id_user)
-    this.userService.delete_user(id_user).subscribe(respond => {
-      console.log(respond);
-      this.ngOnInit();
-      this.alertWithSuccess();
-    });
-  }
-
-
+  
   consulter(id_user: any) {
     console.log(id_user)
     this.userService.get_one_user(id_user).subscribe(respond => {
@@ -62,7 +43,7 @@ export class ListuserComponent implements OnInit{
     });
     this.router.navigate(['./consulteruser/'+ id_user])
   }
-
+ 
   modifier(id_user: any) {
     console.log(id_user)
     this.userService.get_one_user(id_user).subscribe(respond => {
@@ -72,6 +53,28 @@ export class ListuserComponent implements OnInit{
     this.router.navigate(['./userprofile/'+ id_user])
   }
 
+  public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template); 
+  } 
+
+  deleteItem(id_user: any) {
+    console.log(id_user)
+    this.userService.delete_user(id_user).subscribe(respond => {
+      console.log(respond);
+      this.ngOnInit();
+      this.alertWithSuccess();
+    });
+  }
+  alertWithSuccess(){
+    Swal.fire('Profile deleted')
+  }
+  
+  close() {
+    this.modalService.hide(); 
+}
+
+ 
+//pagination des pages 
   get totalPages(): number {
     return Math.ceil(this.users.length / this.pageSize);
   }
@@ -92,8 +95,5 @@ export class ListuserComponent implements OnInit{
     if (this.currentPage > 1) {
       this.currentPage--;
     }
-  }
-  add(){
-    this.router.navigate(['./addadmin'])
   }
 }
