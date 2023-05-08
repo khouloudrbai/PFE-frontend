@@ -22,8 +22,13 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
+<<<<<<< HEAD
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+=======
+
+import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
+>>>>>>> c43223121e2702547fd53f55d28d0e00ce573669
 
 @NgModule({
   declarations: [
@@ -45,7 +50,10 @@ import { NgApexchartsModule } from "ng-apexcharts";
     JeuxComponent,
 
     StatistiquesComponent
+<<<<<<< HEAD
     
+=======
+>>>>>>> c43223121e2702547fd53f55d28d0e00ce573669
     
            
   ],
@@ -55,7 +63,6 @@ import { NgApexchartsModule } from "ng-apexcharts";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgApexchartsModule,
     RouterModule.forChild([
       { path: '', component: LoginComponent },
     ])

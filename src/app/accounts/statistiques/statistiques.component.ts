@@ -1,26 +1,5 @@
-import { Component } from '@angular/core';
-import { NgApexchartsModule } from "ng-apexcharts";
-import {
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexTitleSubtitle,
-  ApexStroke,
-  ApexGrid
-} from "ng-apexcharts";
-import { ViewChild } from '@angular/core'
-
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  grid: ApexGrid;
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-};
+import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 
 
@@ -29,58 +8,74 @@ export type ChartOptions = {
   templateUrl: './statistiques.component.html',
   styleUrls: ['./statistiques.component.css']
 })
-export class StatistiquesComponent {
-  form!:any;
-  
-  @ViewChild("chart") chart: StatistiquesComponent | undefined;
-  public chartOptions: Partial<ChartOptions>| any;
+export class StatistiquesComponent implements OnInit{
+   
+  chart: any;
+  chartline:any;
+  createChart(){
 
-  constructor() {
-    this.chartOptions =  {
-      series: [
-        {
-          name: "Desktops",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
-        }
-      ],
-      chart: {
-        height: 350,
-        type: "line",
-        zoom: {
-          enabled: false
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "straight"
-      },
-      title: {
-        text: "Product Trends by Month",
-        align: "left"
-      },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5
-        }
-      },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep"
-        ]
-      }
-    };
-  }
+   this.chart = new Chart("MyChart", {
+     type: 'pie', //this denotes tha type of chart
+
+     data: {// values on X-Axis
+       labels: ['Red', 'Pink','Green','Yellow','Orange','Blue', ],
+        datasets: [{
+   label: 'My First Dataset',
+   data: [300, 240, 100, 432, 253, 34],
+   backgroundColor: [
+     'red',
+     'pink',
+     'green',
+     'yellow',
+     'orange',
+     'blue',			
+   ],
+   hoverOffset: 4
+ }],
+     },
+     options: {
+       aspectRatio:2.5
+     }
+
+   });
+ }
+ngOnInit(): void {
+ this.createChart();
+ this.createChartline();
+}
+//chartline 
+createChartline(){
+ 
+ this.chartline = new Chart("MyChartt", {
+   type: 'line', //this denotes tha type of chart
+
+   data: {// values on X-Axis
+     labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
+              '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+      datasets: [
+       {
+         label: "Sales",
+         data: ['467','576', '572', '79', '92',
+              '574', '573', '576'],
+         backgroundColor: 'blue'
+       },
+       {
+         label: "Profit",
+         data: ['542', '542', '536', '327', '17',
+                '0.00', '538', '541'],
+         backgroundColor: 'limegreen'
+       }  
+     ]
+   },
+   options: {
+     aspectRatio:2.5
+   }
+   
+ });
+}
+
+
+
 }
   
 
