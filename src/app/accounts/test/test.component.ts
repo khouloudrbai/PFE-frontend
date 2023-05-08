@@ -1,55 +1,78 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { Router } from '@angular/router';
-import { DashboardService } from '../services/dashboard.service';
+import Chart from 'chart.js/auto';
+
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent implements OnInit {
-  player_count:any;
-  service_count:any;
-  services: any = [];
-  constructor(public dashboardService:DashboardService){
-}
+export class TestComponent  implements OnInit{
+   
+   chart: any;
+   chartline:any;
+   createChart(){
 
-ngOnInit(): void {
-  this.get_top10();
-  this.get_number_players();
-    this.get_number_services();
-}
-  get_number_players(){
-   this.dashboardService.get_number_players().subscribe(respond=>{
-    console.log(respond)
-    console.log(respond.data)
-    if(respond.isFailed == false && respond.code === '201' && respond.data)
-     { 
-      this.player_count = respond.data;
+    this.chart = new Chart("MyChart", {
+      type: 'pie', //this denotes tha type of chart
 
-     }
-   })
+      data: {// values on X-Axis
+        labels: ['Red', 'Pink','Green','Yellow','Orange','Blue', ],
+	       datasets: [{
+    label: 'My First Dataset',
+    data: [300, 240, 100, 432, 253, 34],
+    backgroundColor: [
+      'red',
+      'pink',
+      'green',
+			'yellow',
+      'orange',
+      'blue',			
+    ],
+    hoverOffset: 4
+  }],
+      },
+      options: {
+        aspectRatio:2.5
+      }
+
+    });
   }
-  get_number_services(){
-    this.dashboardService.get_number_services().subscribe(respond=>{
-     console.log(respond)
-     console.log(respond.data)
-     if(respond.isFailed == false && respond.code === '201' && respond.data)
-      { 
-        this.service_count = respond.data;
+ngOnInit(): void {
+  this.createChart();
+  this.createChartline();
+}
+//chartline 
+createChartline(){
+  
+  this.chartline = new Chart("MyChartt", {
+    type: 'line', //this denotes tha type of chart
 
-      }
-    })
-   }
-   get_top10(){
-    this.dashboardService.get_top10().subscribe(respond=>{
-     console.log(respond)
-     console.log(respond.data)
-     if(respond.isFailed == false && respond.code === '201' && respond.data)
-      { 
-        this.services = respond.data;
+    data: {// values on X-Axis
+      labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
+               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+       datasets: [
+        {
+          label: "Sales",
+          data: ['467','576', '572', '79', '92',
+               '574', '573', '576'],
+          backgroundColor: 'blue'
+        },
+        {
+          label: "Profit",
+          data: ['542', '542', '536', '327', '17',
+                 '0.00', '538', '541'],
+          backgroundColor: 'limegreen'
+        }  
+      ]
+    },
+    options: {
+      aspectRatio:2.5
+    }
+    
+  });
+}
 
-      }
-    })
-   }
+
+
 }

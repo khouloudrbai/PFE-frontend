@@ -2,24 +2,16 @@
 
 <div class="main-content"  style="background-color: #f1f0f0;" >
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-        <header><div style="height: 40px;"></div></header>
-		<form  [formGroup]="form">
-			<div class="card-title ml-3 mb-2"> 
-				 <h2>Statistics</h2> 
-			</div> 
-			
-			<div id="chart">
-				<apx-chart
-				  [series]="chartOptions.series"
-				  [chart]="chartOptions.chart"
-				  [xaxis]="chartOptions.xaxis"
-				  [dataLabels]="chartOptions.dataLabels"
-				  [grid]="chartOptions.grid"
-				  [stroke]="chartOptions.stroke"
-				  [title]="chartOptions.title"
-				></apx-chart>
-			  </div>
+<div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div>
 
+<div class="chart-container">
+    <canvas  id="MyChartt" >{{ chartline }}</canvas>
+</div>
+
+
+    </main></div>
 
 
 

@@ -16,13 +16,9 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
-<<<<<<< HEAD
-import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
-import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
-import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
-=======
 
->>>>>>> c35547db84bfdb59d179efa016bf29e4c368b52b
+import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent},
@@ -40,12 +36,8 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-<<<<<<< HEAD
-  {  path:  'modifierprofil', component:  ModifierprofilComponent},
-  {  path:  'modifiermotdepasse', component:  ModifiermotdepasseComponent},
+ 
   {  path:  'statistiques', component:  StatistiquesComponent},
-=======
->>>>>>> c35547db84bfdb59d179efa016bf29e4c368b52b
 
 
 
