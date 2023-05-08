@@ -36,7 +36,6 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
- 
   {  path:  'statistiques', component:  StatistiquesComponent},
 
 

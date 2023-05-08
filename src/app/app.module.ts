@@ -22,7 +22,6 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
-
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 
 @NgModule({
@@ -45,6 +44,7 @@ import { StatistiquesComponent } from './accounts/statistiques/statistiques.comp
     JeuxComponent,
 
     StatistiquesComponent
+    
     
            
   ],
