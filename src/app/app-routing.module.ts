@@ -19,10 +19,6 @@ import { JeuxComponent } from './accounts/jeux/jeux.component';
 
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c43223121e2702547fd53f55d28d0e00ce573669
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent},
@@ -40,11 +36,6 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> c43223121e2702547fd53f55d28d0e00ce573669
   {  path:  'statistiques', component:  StatistiquesComponent},
 
 
