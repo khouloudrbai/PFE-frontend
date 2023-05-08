@@ -14,8 +14,7 @@ export class TestComponent  implements OnInit{
    createChart(){
 
     this.chart = new Chart("MyChart", {
-      type: 'pie', //this denotes tha type of chart
-
+      type: 'pie',
       data: {// values on X-Axis
         labels: ['Red', 'Pink','Green','Yellow','Orange','Blue', ],
 	       datasets: [{
@@ -35,8 +34,7 @@ export class TestComponent  implements OnInit{
       options: {
         aspectRatio:2.5
       }
-
-    });
+});
   }
 ngOnInit(): void {
   this.createChart();

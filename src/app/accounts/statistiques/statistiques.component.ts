@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
-
-
+import { StatistiqueService } from '../services/statistique.service';
 
 @Component({
   selector: 'app-statistiques',
@@ -12,32 +11,50 @@ export class StatistiquesComponent implements OnInit{
    
   chart: any;
   chartline:any;
+  label: string[] = [];
+  num: any[] = [];
+
+
+constructor(public statistiqueService:StatistiqueService){}
+
+
   createChart(){
 
-   this.chart = new Chart("MyChart", {
-     type: 'pie', //this denotes tha type of chart
+    this.statistiqueService.Get_joueur_perservice().subscribe(response => { 
+  console.log(response.data); 
+  this.label = response.data.map((game: { libelle: string }) => game.libelle); 
+  this.num = response.data.map((game: { number_gamers : string }) => game.number_gamers); 
+  console.log(this.num);
+  console.log(this.label);
 
-     data: {// values on X-Axis
-       labels: ['Red', 'Pink','Green','Yellow','Orange','Blue', ],
-        datasets: [{
-   label: 'My First Dataset',
-   data: [300, 240, 100, 432, 253, 34],
-   backgroundColor: [
-     'red',
-     'pink',
-     'green',
-     'yellow',
-     'orange',
-     'blue',			
-   ],
-   hoverOffset: 4
- }],
-     },
-     options: {
-       aspectRatio:2.5
-     }
+  
+  this.chart = new Chart("MyChart", {
+    type: 'pie', //this denotes tha type of chart
 
-   });
+    data: {// values on X-Axis
+      labels: this.label,
+       datasets: [{
+  label: 'Number gamers of service ',
+  data: this.num,
+  backgroundColor: [
+    'red',
+    'pink',
+    'green',
+          
+  ],
+  hoverOffset: 4
+}],
+    },
+    options: {
+      aspectRatio:2.5
+    }
+
+  });
+  })
+ 
+
+
+
  }
 ngOnInit(): void {
  this.createChart();
@@ -73,8 +90,6 @@ createChartline(){
    
  });
 }
-
-
 
 }
   
