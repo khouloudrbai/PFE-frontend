@@ -22,10 +22,13 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
+<<<<<<< HEAD
 import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
 import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 import { NgApexchartsModule } from "ng-apexcharts";
+=======
+>>>>>>> c35547db84bfdb59d179efa016bf29e4c368b52b
 
 @NgModule({
   declarations: [
@@ -45,9 +48,13 @@ import { NgApexchartsModule } from "ng-apexcharts";
     UserprofileComponent,
     ConsulteuserComponent,
     JeuxComponent,
+<<<<<<< HEAD
     ModifierprofilComponent,
     ModifiermotdepasseComponent,
     StatistiquesComponent
+=======
+    
+>>>>>>> c35547db84bfdb59d179efa016bf29e4c368b52b
     
            
   ],

@@ -1,119 +1,70 @@
-@media (min-width: 991.98px) {
-  main {
-    padding-left: 240px;
-  }
+.content-area {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.sidebarMenu{
-  color: black;
-  position:fixed;
-  top: -50px;
-  bottom: 0;
-  left: 0px;
-  right: inherit;
-  padding: 58px  0px 0px 0px; /* Height of navbar */
-  width: -20px;
-
-}
-.genisSideBar{
-  width: 200px;
-  transition: .40s;
-}
-.darSideBar{
-  width: 80px;
-  transition: .40s;
+.box {
+  background-color: #2B2D3E;
+  padding: 25px 20px;
 }
 
-header {
-  height: 70px;
+.shadow {
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+}
+.sparkboxes .box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 1px 1px #666;
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
   position: relative;
-  width:100%;
-
+  border-radius: 5px;
 }
 
- .rounded-circle{
-  width: 100%;
-  transform: (.7);
-  left: 1150px;
-  padding-top: 10px;}
-  
- #dropdownUser1{
-  width: 50px;
-  height: 50px;
- }
 
-
-.logo{
-display: inline-block;
-font-weight: bold;
-font-size: 16px;
-color: #fff;
-border: 2px solid #fff;
-border-radius: 4px;
-line-height: normal;
-padding: 4px 8px;
-}
-.userFoto{
-display: inline-flex;
-justify-content: center;
-align-items: center;
-font-weight: bold;
-color: #088afe;
-background-color: #fff;
-line-height: normal;
-}
-.nav li a{
-  color: #fff !important;
-  font-size: 14px;
-  
-}
-.navIcon{
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 26px;
-  height: 26px;
-  font-weight: bold;
-  background-color: #ffbb00;
+.sparkboxes strong {
+  position: relative;
+  z-index: 3;
+  top: -8px;
   color: #fff;
-  margin-right: 6px;
-  border-radius: 4px;
 }
 
-.userFotoGenis{
-  width: 60px;
-  height: 60px;
-  border-radius: 38px;
-  font-size: 20px;
-  transition: .40s;
-}
-.userFotoDar{
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  font-size: 16px;
-  transition: .40s;
+
+.sparkboxes .box1 {
+  background-image: linear-gradient( 135deg, #ABDCFF 10%, #0396FF 100%);
 }
 
-.userNameGenis{
-  display: block;
-}
-.userNameDar{
-  display: none;
+.sparkboxes .box2 {
+  background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
 }
 
-.navLinkGenis{
-  display: inline-block;
-  visibility: visible;
-}
-.navLinkDar{
-  display: none;
-  visibility: hidden;
+.sparkboxes .box3 {
+  background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
-.genisSideBarAlt{
-  width: 160px;
+
+html,
+body,
+.intro {
+  height: 100%;
 }
-.darSideBarAlt{
-  width: 60px;
+
+table td,
+table th {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th,
+tbody th {
+  color: #fff;
+}
+
+tbody td {
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+}
+
+.card {
+  border-radius: .5rem;
 }

@@ -29,6 +29,8 @@ constructor(private router:Router,private Addadmin:AddadminService,private formB
      
       email: ['', [Validators.required, Validators.email]],
       pwd: [ '',[Validators.required,]],
+      v_pwd: [ '',[Validators.required,]],
+
       FirstName: [ '',[Validators.required,]],
       LastName: [ '',[Validators.required,]],
       mobile: [ '',[Validators.required,]],

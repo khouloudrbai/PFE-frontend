@@ -2,12 +2,11 @@
       
 <div class="main-content"  style="background-color: #f1f0f0;" >
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-
     <section >
     <div class="container py-5 h-100" >
-      <div class="row d-flex justify-content-center align-items-center h-100" >
-        <div class="col col-xl-10" >
-          <div class="card" style="border-radius: 27px" >
+      <div class="row d-flex justify-content-center align-items-center h-100 " >
+        <div class="col col-xl-10 mb-0 bg-white p-4 shadow-sm" >
+          <div  >
             <div class="row g-0" >
               <div class=" d-flex align-items-center" >
                 <div class="card-body text-black" >
@@ -17,32 +16,32 @@
                     <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;text-align: center;">Add New User</h5>
                     <div class="form-outline mb-4">
                         <label> LastName</label>
-                      <input  type="text" formControlName="LastName"  class="form-control form-control-lg" style="border-radius: 15px;"
+                      <input  type="text" formControlName="LastName"  class="form-control form-control-lg" 
                        />
                     </div>
                     <div class="form-outline mb-4">
                       <label> FirstName</label>
-                    <input  type="text" formControlName="FirstName"  class="form-control form-control-lg" style="border-radius: 15px;"
+                    <input  type="text" formControlName="FirstName"  class="form-control form-control-lg" 
                      />
                   </div>
                     <div class="form-outline mb-4">
                         <label>Email</label>
-                      <input  type="email" formControlName="email"  class="form-control form-control-lg" style="border-radius: 15px;"
+                      <input  type="email" formControlName="email"  class="form-control form-control-lg" 
                        />
                     </div>
                     <div class="form-outline mb-4">
                         <label>Mobile</label>
-                      <input  type="text" formControlName="mobile"  class="form-control form-control-lg" style="border-radius: 15px;"
+                      <input  type="text" formControlName="mobile"  class="form-control form-control-lg"
                        />
                     </div>  
                     <div class="form-outline mb-4">
                       <label>Entry Date</label>
-                    <input  type="date" formControlName="entry_date"  class="form-control form-control-lg" style="border-radius: 15px;"
+                    <input  type="date" formControlName="entry_date"  class="form-control form-control-lg" 
                      />
                   </div>
                     <div class="form-outline mb-4">
                       <label for="exampleDataList" class="form-label">Job </label>
-                      <input class="form-control" list="datalistOptions" id="jobDataList" placeholder="Type to search...">
+                      <input class="form-control form-control-lg" list="datalistOptions" placeholder="Type to search...">
                       <datalist id="datalistOptions">
                         <option value="Web developer">
                         <option value="UI/UX designer">
@@ -53,20 +52,25 @@
                     
                     <div class="form-outline mb-4">
                         <label> Address</label>
-                      <input  type="text" formControlName="address"  class="form-control form-control-lg" style="border-radius: 15px;"
+                      <input  type="text" formControlName="address"  class="form-control form-control-lg" 
                        />
                     </div>
                     <div class="form-outline mb-4">
                         <label> Password</label>
-                      <input  type="password" formControlName="pwd"  class="form-control form-control-lg" style="border-radius: 15px;"
+                      <input  type="password" formControlName="pwd"  class="form-control form-control-lg" 
                        />
                     </div>
+                    <div class="form-outline mb-4">
+                      <label> Verify Password</label>
+                    <input  type="password" formControlName="v_pwd"  class="form-control form-control-lg" 
+                     />
+                  </div>
                     <div class="mb-3">
-                        <label for="formFile" class="form-label">Add a photo</label>
-                        <input class="form-control" type="file" id="formFile" formControlName="picture" >
+                        <label for="formFile" class="form-label">Add a photo URL</label>
+                        <input class="form-control form-control-lg" type="text"  formControlName="picture" >
                       </div>
                     <div class="form-button mt-3">
-                        <button class="btn text-white btn-lg  btn-primary" type="submit"   style=" width: 232px;border-radius: 15px;position: relative; left: 275px;">
+                        <button class="btn text-white btn-lg  btn-primary" type="submit"   style=" width: 232px;position: relative; left: 275px;">
                           Add 
                         </button> 
                     </div>
