@@ -19,13 +19,13 @@ export class AcceuilComponent implements OnInit {
   constructor(public dashboardService:DashboardService){}
 
 ngOnInit(): void {
-  this.get_number_players();
+    this.get_number_players();
     this.get_number_services();
     this.get_number_players_ajr();
     this.get_top10();
     this.get_top10_players();
-
 }
+
   get_number_players(){
    this.dashboardService.get_number_players().subscribe(respond=>{
     console.log(respond)
@@ -36,6 +36,7 @@ ngOnInit(): void {
      }
    })
   }
+
   get_number_services(){
     this.dashboardService.get_number_services().subscribe(respond=>{
      console.log(respond)
@@ -47,6 +48,7 @@ ngOnInit(): void {
       }
     })
    }
+
    get_number_players_ajr(){
     this.dashboardService.get_number_players_ajr().subscribe(respond=>{
      console.log(respond)
@@ -57,6 +59,7 @@ ngOnInit(): void {
       }
     })
    }
+   
    get_top10(){
     this.dashboardService.get_top10().subscribe(respond=>{
      console.log(respond)
