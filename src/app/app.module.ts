@@ -24,7 +24,8 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
 import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
-
+import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modif
     ConsulteuserComponent,
     JeuxComponent,
     ModifierprofilComponent,
-    ModifiermotdepasseComponent
+    ModifiermotdepasseComponent,
+    StatistiquesComponent
     
            
   ],
@@ -55,6 +57,7 @@ import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modif
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgApexchartsModule,
     RouterModule.forChild([
       { path: '', component: LoginComponent },
     ])

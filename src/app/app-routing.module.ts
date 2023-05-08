@@ -18,6 +18,7 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
 import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
+import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent},
@@ -37,6 +38,7 @@ const routes: Routes = [
   {  path:  'jeux', component:  JeuxComponent},
   {  path:  'modifierprofil', component:  ModifierprofilComponent},
   {  path:  'modifiermotdepasse', component:  ModifiermotdepasseComponent},
+  {  path:  'statistiques', component:  StatistiquesComponent},
 
 
 
