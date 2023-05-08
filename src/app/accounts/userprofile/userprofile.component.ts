@@ -4,6 +4,7 @@ import { ProfileService } from '../services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal';
 import { UserService } from '../services/user.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -17,9 +18,9 @@ export class UserprofileComponent implements OnInit {
   mobile!:string;
   email!:string;
   address!:string;
-  pwd!:string;
   id_user:any;
  firstname!:any;
+ lastname:any;
  picture!:any;
 user_id:any;
 image:any;
@@ -30,10 +31,11 @@ image:any;
       {
        
         email: ['', [Validators.required, Validators.email]],
-        pwd: [ '',[Validators.required,]],
         mobile: [ '',[Validators.required,]],
         address: [ '',[Validators.required,]],
         firstname:['',[Validators.required],],
+        lastname:['',[Validators.required],],
+
         picture:['',[Validators.required],]
 
       })
@@ -61,34 +63,33 @@ image:any;
           mobile:respond.data[0].mobile,
           address:respond.data[0].address,
           firstname:respond.data[0].firstname,
+          lastname:respond.data[0].lastname,
+
           picture:respond.data[0].picture,
         })
-  
+      this.id_user=respond.data[0].id_user;
       this.image=respond.data[0].picture;
     }}
     )}
 
-  onSubmit(): void {
-    this.submitted = true;
-    console.log(this.form.value)
-
-    if (this.form.invalid) {
-      return;
+    alertWithSuccess(){
+      Swal.fire('User Updated')
     }
-    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.firstname,this.form.value.email,this.form.value.address,this.form.value.pwd).subscribe
+  save(){
+    console.log(this.user_id)
+    console.log(this.form.value)
+    this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.firstname,this.form.value.email,this.form.value.address,this.form.value.picture).subscribe
     (respond=>{
      console.log(respond);
      console.log(respond.isFailed);
      console.log(respond.code);
      
      if(respond.isFailed == false && respond.code === '201' && respond.data)
-     {
-      this.router.navigate(['/acceuil']);
-      
+     {   
+      this.alertWithSuccess();
+      this.getuser()
      }
- })   
-     
-    console.log(JSON.stringify(this.form.value, null, 2));
+ }) 
   }
   return(){
     this.router.navigate(['./listuser'])

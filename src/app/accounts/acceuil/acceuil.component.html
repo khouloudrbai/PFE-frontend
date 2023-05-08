@@ -3,5 +3,107 @@
 <div class="main-content"  style="background-color: #f1f0f0;" >
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
 <h2>Dashboard</h2>
-</main>
+<div id="wrapper">
+    <div class="content-area">
+      <div class="container-fluid">
+        <div class="main">
+            <div class="row sparkboxes mt-4">
+            <div class="col-md-4">
+                <div class="box box1">
+                <div class="details">
+                    <h3 >{{player_count}}</h3>
+                    <h4>Players</h4>
+                </div>
+                <div id="spark1"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box2">
+                <div class="details">
+                    <h3>{{service_count}}</h3>
+                    <h4>Services</h4>
+
+                </div>
+                <div id="spark2"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="box box3">
+                <div class="details">
+                    <h3>{{player_count_ajr}}</h3>
+                    <h4>Number of Players Today</h4>
+                </div>
+                <div id="spark3"></div>
+                </div>
+            </div>
+           
+    </div>
 </div>
+</div>
+</div>
+</div>
+<section class="intro">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+
+                <div class="card-body">
+                    <h2 >TOP 10 SERVICES</h2>
+
+                  <div class="table-responsive">
+                    <table class="table table-dark table-borderless mb-0 shadow-sm">
+                      <thead>
+                        <tr>
+                          <th scope="col">ORDER</th>
+                          <th scope="col">LIBELLE</th>
+                          <th scope="col">NUMBER OF PLAYERS </th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let service of services;let index = index   ">
+                          <th scope="row"> {{index}}</th>
+                          <td>{{service.libelle}}</td>
+                          <td>{{service.number_gamers}}</td>
+                        
+                        </tr>
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h2 >TOP 10 PLAYERS</h2>
+
+                <div class="table-responsive">
+                  <table class="table table-dark table-borderless mb-0 shadow-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">ORDER</th>
+                        <th scope="col">MOBILE</th>
+                        <th scope="col">FIRSTNAME</th>
+                        <th scope="col">LASTNAME</th>
+                        <th scope="col">NUMBER OF SMS SENT </th>
+                       
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let player of players;let index = index  ">
+                        <th scope="row"> {{index}}</th>
+                        <td>{{player.mobile}}</td>
+                        <td>{{player.firstname}}</td>
+                        <td>{{player.lastname}}</td>
+                        <td>{{player.num_sms}}</td>
+
+                      
+                      </tr>
+          
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+  
+  </section></main></div>

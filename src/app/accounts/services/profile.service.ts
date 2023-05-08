@@ -14,9 +14,16 @@ export class ProfileService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Contact_update(id_user:any, mobile:any,firstname:any,email:any,address:any,pwd:any)
+  Contact_update(id_user:any, mobile:any,firstname:any,email:any,address:any,picture:any)
   {  
-    return this.http.post<any>(this.url + '/User/update', {id_user,mobile,firstname,email,address,pwd}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/User/update', {id_user,mobile,firstname,email,address,picture}).pipe(map(res => {
+     // console.log(res);
+      return res;
+    }));
+  }
+  password_update(id_user:any,old_pwd:any,new_pwd:any)
+  {  
+    return this.http.post<any>(this.url + '/User/updatepwd', {id_user,old_pwd,new_pwd}).pipe(map(res => {
      // console.log(res);
       return res;
     }));

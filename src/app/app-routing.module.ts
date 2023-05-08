@@ -16,8 +16,7 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
-import { ModifierprofilComponent } from './accounts/modifierprofil/modifierprofil.component';
-import { ModifiermotdepasseComponent } from './accounts/modifiermotdepasse/modifiermotdepasse.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent},
@@ -35,8 +34,6 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-  {  path:  'modifierprofil', component:  ModifierprofilComponent},
-  {  path:  'modifiermotdepasse', component:  ModifiermotdepasseComponent},
 
 
 
