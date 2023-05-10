@@ -20,6 +20,8 @@ export class TableComponent implements OnInit {
   libelle:any;
   entry_date:any;
   date_end:any;
+  pageSize: number = 3;
+  currentPage: number = 1;
  
 
   constructor(private router:Router,private playerservice:PlayerService,private formBuilder:FormBuilder,private servicesService:ServicesService){
@@ -87,7 +89,27 @@ export class TableComponent implements OnInit {
       }
         )
     }
-    onSubmit(){
+    //pagination des pages 
+    get totalPages(): number {
+      return Math.ceil(this.players.length / this.pageSize);
+    }
+  
+    get paginatedItems(): any[] {
+      const startIndex = (this.currentPage - 1) * this.pageSize;
+      const endIndex = startIndex + this.pageSize;
+      return this.players.slice(startIndex, endIndex);
+    }
+  
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    }
+  
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
     }
 
 }

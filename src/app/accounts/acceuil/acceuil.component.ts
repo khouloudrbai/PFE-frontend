@@ -8,22 +8,24 @@ import { DashboardService } from '../services/dashboard.service';
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit {
-  player_count:any;
-  service_count:any;
-  player_count_ajr:any;
+  player_count:any = 0;
+  service_count:any = 0;
+  player_count_ajr:any =0;
   services: any = [];
   players: any = [];
-  index=1;
-
 
   constructor(public dashboardService:DashboardService){}
 
-ngOnInit(): void {
+  currentDate: Date = new Date();
+
+  
+   ngOnInit(): void {
     this.get_number_players();
     this.get_number_services();
     this.get_number_players_ajr();
     this.get_top10();
     this.get_top10_players();
+    
 }
 
   get_number_players(){

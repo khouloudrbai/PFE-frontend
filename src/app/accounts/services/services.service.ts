@@ -15,9 +15,9 @@ export class ServicesService {
   constructor(private http: HttpClient) { }
 
   
-  get_service(shortcode:any,id_service:any)
+  get_service(keyword:any,entry_date:any,end_date:any)
   {  
-    return this.http.post<any>(this.url + '/service/getlist', {shortcode,id_service}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/service/getlist', {keyword,entry_date,end_date}).pipe(map(res => {
        console.log(res);
        console.log(res.data);
        res.data

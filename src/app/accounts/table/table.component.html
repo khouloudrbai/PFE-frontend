@@ -2,125 +2,96 @@
 <div class="main-content"  style="background-color: #f1f0f0;" >
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
 		<form [formGroup]="form">
-			<div class="text-center"> 
-				 <h2>Players</h2> 
-			</div> 
-		   <br>
-			<div class="row bootstrap snippets bootdeys"> 
-				
-			 <div class=" col-md-3 " > 
+            <h1> <i class="fas fa-regular fa-users fa-fw me-3" ></i>Players</h1>
+			<div class="row bootstrap snippets bootdeys "> 
+				<div class=" col-md-3 " > 
 					<input class="form-control" formControlName="libelle" list="datalistOptions" id="Services" placeholder="Services">
 					<datalist id="datalistOptions">
-						<table><tbody>
+						<table>
+							<tbody>
 							<tr class="candidates-list" *ngFor="let item of services"> 
 								<td>
 									<option value="{{item.libelle}}">
 
 								</td>
-                            </tr>
-
-						</tbody></table>
-
-					 
+							</tr>
+						    </tbody>
+					    </table>
 					</datalist>
-				
-			 </div> 
-			
-			 <div class="col-md-2" > 
-			   
-			   <input type="text" class="form-control"  formControlName="Keyword" name="s" id="search-input" placeholder="Keyword"> 
-			 </div> 
-			 
-			<div class="col-md-2" > 
-	
-			   <input type="date" class="form-control" formControlName="entry_date" name="s" id="search-input" placeholder="entry date"> 
-			 </div>
-			 <div class="col-md-2" > 
-		
-				<input type="date" class="form-control"  formControlName="date_end" name="s"  id="search-input" placeholder="date end"> 
-			</div> 
-		<div class="col-md-3" > 
-			<button type="submit"  name="submit" class="btn btn-primary" style="width: 100px;" (click)="onclick()" >
-				  Search 
-			 </button>
-		</div> 
-		</div>
-	</form>
-  <br>
-		<div >
-			<div class="row">
-			  <div class="col-md-12">
-				<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-				  <table class="table manage-candidates-top mb-0">
-	<thead class="thead">
-	  <tr>
-		<th>User Name</th>
-		<th >LastName</th>
-    <th >Email</th>
-		<th> Mobile</th>
-		<th >Services</th>
-		<th>Entry Date</th>
-    <th class="action text-right">Detail</th>
-
-	  </tr>
-	</thead>
-
-	<tbody >
-
-
-		   <tr class="candidates-list" *ngFor="let group of players"> 
-			<td class="title">
-				
-				<div class="candidate-list-details">
-				  <div class="candidate-list-info">
-					<div class="candidate-list-title">
-              {{group.firstname}}
-					</div>
-					
-				  </div>
+				</div> 
+				<div class="col-md-2" > 
+				  <input type="text" class="form-control"  formControlName="Keyword" name="s" id="search-input" placeholder="Keyword"> 
+				</div> 
+				<div class="col-md-2" > 
+				  <input type="date" class="form-control" formControlName="entry_date" name="s" id="search-input" placeholder="entry date"> 
 				</div>
-			  </td>
-        <td>
-          <div class="candidate-list-option">
-          {{group.lastname}}
-          </div>
-      </td>
-			  <td class="candidate-list-favourite-time text-center">
-          <i class="fa fa-envelope pr-1"></i>
-          				{{group.mail}}
-			  </td>
-				<td>{{group.mobile}}</td>
-				<td>
-				<i class=" fa fa-gamepad "></i>{{group.service}}
-			</td>
-				<td>{{group.entry_date}}</td>
-        <td>
-					<ul class="list-unstyled mb-0 d-flex justify-content-end">
-					  <li><a  class="text-primary" data-toggle="tooltip" title="" data-original-title="view" (click)="consulter(group.id_player)" ><i class="far fa-eye"></i></a></li>
-					</ul>
-				  </td>
+				<div class="col-md-2" > 
+				  <input type="date" class="form-control"  formControlName="date_end" name="s"  id="search-input" placeholder="date end"> 
+			    </div> 
+			    <div class="col-md-3" > 
+			      <button type="submit"  name="submit" class="btn btn-primary" style="width: 100px;" (click)="onclick()" >
+					<i  class="fa fa-search fa-fw me-1"></i>Search 
+				   </button>
+			    </div> 
+			</div>
+	    </form>
+		<div class="row mt-4">
+			<div class="col-md-12">
+				<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+					<table class="table manage-candidates-top mb-0">
+						<thead class="thead">
+							<tr>
+								<th>User Name</th>
+								<th >LastName</th>
+								<th >Email</th>
+								<th> Mobile</th>
+								<th >Services</th>
+								<th>Entry Date</th>
+								<th class="action text-right">Detail</th>
 
-		  </tr>
-		 
-		  
-	</tbody>
-  </table>
-  <footer>
-  <div class="text-center mt-3 mt-sm-3">
-	<ul class="pagination justify-content-center mb-0">
-	  <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
-	  <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
-	  <li class="page-item"><a class="page-link" href="#">2</a></li>
-	  <li class="page-item"><a class="page-link" href="#">3</a></li>
-	  <li class="page-item"><a class="page-link" href="#">...</a></li>
-	  <li class="page-item"><a class="page-link" href="#">25</a></li>
-	  <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
-	</ul>
-  </div></footer>
+							</tr>
+						</thead>
+						<tbody >
+							<tr class="candidates-list" *ngFor="let group of players"> 
+								<td class="title">
+									<div class="candidate-list-details">
+										<div class="candidate-list-info">
+											<div class="candidate-list-title">
+											  {{group.firstname}}
+											</div>
+
+										</div>
+									</div>
+								</td>
+								<td>
+									<div class="candidate-list-option">
+									{{group.lastname}}
+									</div>
+								</td>
+								<td class="candidate-list-favourite-time text-center">
+								    <i class="fa fa-envelope pr-1"></i>
+									{{group.mail}}
+								</td>
+								<td>{{group.mobile}}</td>
+								<td>
+								   <i class=" fa fa-gamepad "></i>{{group.service}}
+								</td>
+								<td>{{group.entry_date}}</td>
+								<td>
+									<ul class="list-unstyled mb-0 d-flex justify-content-end">
+										<li><a  class="text-primary" data-toggle="tooltip" title="" data-original-title="view" (click)="consulter(group.id_player)" ><i class="far fa-eye"></i></a></li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class=" mt-3 " style="margin-left: 800px;">
+						<button [disabled]="currentPage === 1" (click)="prevPage()"><i class="fa fa-angle-double-left" aria-hidden="true"></i>
+							Previous</button>
+						<button [disabled]="currentPage === totalPages"  (click)="nextPage()">Next<i class="fa fa-angle-double-right	" aria-hidden="true"></i></button>
+					  </div>
 				</div>
 			</div>
 		</div>
-</div>
 	</main>
-
 </div>

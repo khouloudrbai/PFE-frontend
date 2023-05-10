@@ -2,108 +2,122 @@
 
 <div class="main-content"  style="background-color: #f1f0f0;" >
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-<h2>Dashboard</h2>
-<div id="wrapper">
-    <div class="content-area">
-      <div class="container-fluid">
-        <div class="main">
-            <div class="row sparkboxes mt-4">
-            <div class="col-md-4">
-                <div class="box box1">
-                <div class="details">
-                    <h3 >{{player_count}}</h3>
-                    <h4>Players</h4>
-                </div>
-                <div id="spark1"></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box box2">
-                <div class="details">
-                    <h3>{{service_count}}</h3>
-                    <h4>Services</h4>
+       <h1 ><i class="fas fa-tachometer-alt fa-fw me-3"></i>Dashboard</h1>
+      <div id="wrapper">
+          <div class="content-area">
+            <div class="container-fluid">
+              <div class="main">
+                  <div class="row sparkboxes mt-4">
+                  <div class="col-md-4">
+                    <div class="box1 shadow-lg">
+                        <div class="box">
+                            <h3 >{{player_count}}</h3>
+                            <h4> <i class="fas fa-regular fa-users fa-fw me-3" ></i> Players</h4>                      
+                        </div>
+                        <div class="card-footer  "> 
+                          <i class="fa fa-list-alt fa-fw me-3"></i>All
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="box2 shadow-lg">
+                        <div class="box shadow-lg">
+                          <div class="details">
+                              <h3>{{service_count}}</h3>
+                              <h4><i class="fas  fa-regular fa-gamepad fa-fw me-3" ></i>Services</h4>
+                          </div>
+                        </div>
+                        <div class="card-footer  "> <i class="fa fa-list-alt fa-fw me-3 "></i>All</div>
 
-                </div>
-                <div id="spark2"></div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="box box3">
-                <div class="details">
-                    <h3>{{player_count_ajr}}</h3>
-                    <h4>Number of Players Today</h4>
-                </div>
-                <div id="spark3"></div>
-                </div>
-            </div>
-           
-    </div>
-</div>
-</div>
-</div>
-</div>
-<section class="intro">
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="box3 shadow-lg">
+                      <div class="box  ">
+                        <div class="details">
+                            <h3>{{player_count_ajr}}</h3>
+                            <h4><i class="fas fa-regular fa-users fa-fw me-3" ></i>Players Today</h4>
+                        </div>
+                      </div>
+                      <div class="card-footer  "> <i class="fa fa-calendar-o fa-fw me-3 " ></i>
+                        {{ currentDate | date:'yyyy-MM-dd' }}
+
+                      </div>
+                    </div>
+                  </div>
+                
+          </div>
+      </div>
+      </div>
+          </div>
+      </div>
+      <section class="intro mt-4">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-12">
+              <div class="card">
+                  <div class="card-body">
+                      <h3 >TOP 10 SERVICES</h3>
 
+                    <div class="table-responsive">
+                      <table class="table table-borderless mb-0 shadow-sm">
+                        <thead>
+                          <tr>
+                            <th scope="col">Service</th>
+                            <th scope="col">Shortcode</th>
+                            <th scope="col">Create date </th>
+                            <th scope="col">Players </th>
+
+                          
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let service of services; ">
+                            <td>{{service.libelle}}</td>
+                            <td>{{service.shortcode}}</td>
+                            <td>{{service.entry_date}}</td>
+                            <td>{{service.number_gamers}}</td>
+                          
+                          </tr>
+              
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+              <div class="card mt-4">
                 <div class="card-body">
-                    <h2 >TOP 10 SERVICES</h2>
-
+                  <h3 >TOP 10 PLAYERS</h3>
                   <div class="table-responsive">
-                    <table class="table table-dark table-borderless mb-0 shadow-sm">
+                    <table class="table table-borderless mb-0 shadow-sm">
                       <thead>
                         <tr>
-                          <th scope="col">ORDER</th>
-                          <th scope="col">LIBELLE</th>
-                          <th scope="col">NUMBER OF PLAYERS </th>
-                         
+                          <th scope="col">MOBILE</th>
+                          <th scope="col">FIRSTNAME</th>
+                          <th scope="col">LASTNAME</th>
+                          <th scope="col">NUMBER OF SMS </th>
+                          
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let service of services;let index = index   ">
-                          <th scope="row"> {{index}}</th>
-                          <td>{{service.libelle}}</td>
-                          <td>{{service.number_gamers}}</td>
+                        <tr *ngFor="let player of players">
+                          <td>{{player.mobile}}</td>
+                          <td>{{player.firstname}}</td>
+                          <td>{{player.lastname}}</td>
+                          <td>{{player.num_sms}}</td>
+
                         
                         </tr>
-            
+
                       </tbody>
                     </table>
                   </div>
                 </div>
-                <div class="card-body">
-                  <h2 >TOP 10 PLAYERS</h2>
-
-                <div class="table-responsive">
-                  <table class="table table-dark table-borderless mb-0 shadow-sm">
-                    <thead>
-                      <tr>
-                        <th scope="col">ORDER</th>
-                        <th scope="col">MOBILE</th>
-                        <th scope="col">FIRSTNAME</th>
-                        <th scope="col">LASTNAME</th>
-                        <th scope="col">NUMBER OF SMS SENT </th>
-                       
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let player of players;let index = index  ">
-                        <th scope="row"> {{index}}</th>
-                        <td>{{player.mobile}}</td>
-                        <td>{{player.firstname}}</td>
-                        <td>{{player.lastname}}</td>
-                        <td>{{player.num_sms}}</td>
-
-                      
-                      </tr>
-          
-                    </tbody>
-                  </table>
-                </div>
-              </div>
               </div>
             </div>
           </div>
-  
-  </section></main></div>
+        </div>
+
+      </section>
+    </main>
+</div>

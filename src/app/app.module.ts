@@ -23,6 +23,9 @@ import { UserprofileComponent } from './accounts/userprofile/userprofile.compone
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 @NgModule({
   declarations: [
@@ -43,13 +46,14 @@ import { StatistiquesComponent } from './accounts/statistiques/statistiques.comp
     ConsulteuserComponent,
     JeuxComponent,
 
-    StatistiquesComponent
+    StatistiquesComponent,
     
-    
+     
            
   ],
   imports: [
     AppBoostrapModule,
+    FontAwesomeModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

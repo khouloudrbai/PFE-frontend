@@ -9,34 +9,26 @@
 
             <br>
 			<div _ngcontent-hgq-c6="" class="card-body"><form _ngcontent-hgq-c6="" novalidate="" class="ng-untouched ng-pristine ng-valid">
-                <div _ngcontent-hgq-c6="" class="col-md-12 col-lg-12 col-xl-12">
-                <div _ngcontent-hgq-c6="" class="form-group row">
-                    <label _ngcontent-hgq-c6="" class="col-sm-3 col-md-2 col-lg-1 col-xl-1 col-form-label">Date du</label>
-                    <div _ngcontent-hgq-c6="" class="col-9 col-sm-9 col-md-4 col-lg-3 col-xl-2">
-                        <div _ngcontent-hgq-c6="" class="d-flex flex-row align-items-center wrapper action-bar">
-                            <input _ngcontent-hgq-c6="" class="form-control ng-untouched ng-pristine ng-valid" id="todayStart" name="todayStart" placeholder="Entrez date début.." type="date" ng-reflect-name="todayStart" ng-reflect-model="2023-04-28">
-                        </div></div>
-                        <label _ngcontent-hgq-c6="" class="col-sm-3 col-md-2 col-lg-1 col-xl-1 col-form-label">au</label>
-                        <div _ngcontent-hgq-c6="" class="col-9 col-sm-9 col-md-4 col-lg-3 col-xl-2">
-                            <div _ngcontent-hgq-c6="" class="d-flex flex-row align-items-center wrapper action-bar">
-                                <input _ngcontent-hgq-c6="" class="form-control ng-untouched ng-pristine ng-valid" id="todayEnd" name="todayEnd" placeholder="Entrez date fin.." type="date" ng-reflect-name="todayEnd" ng-reflect-model="2023-04-28">
-                            </div></div>
-                            <label _ngcontent-hgq-c6="" class="col-sm-3 col-md-2 col-lg-1 col-xl-1 col-form-label">Mot-clé</label>
-                        <div _ngcontent-hgq-c6="" class="col-9 col-sm-9 col-md-4 col-lg-3 col-xl-2">
-                            <div _ngcontent-hgq-c6="" class="d-flex flex-row align-items-center wrapper action-bar">
-                                <input _ngcontent-hgq-c6="" class="form-control ng-untouched ng-pristine ng-valid" >
-                            </div></div>
-                            <label _ngcontent-hgq-c6="" class="col-3 col-md-2 col-lg-2 col-xl-1 col-form-label"></label>
-                            <div _ngcontent-hgq-c6="" class="col-9 col-sm-9 col-md-4 col-lg-3 col-xl-2"><button _ngcontent-hgq-c6="" class="form-control btn btn-primary" type="submit">
-                                <i _ngcontent-hgq-c6="" class="fa fa-search"></i> Visualiser </button>
-                            </div>
-                            </div></div>
-                            
+                <div class="form-group row">
+                    <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Keyword</label>
+                    <div  class=" col-xl-2">
+                      <input type="text" class="form-control"  formControlName="shortcode" name="s" id="search-input" placeholder="Keyword"> 
+                    </div>
+                    <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2 ">FROM</label>
+                    <div  class=" col-xl-2">
+                      <input type="date" class="form-control"  formControlName="entry_date" name="s" id="search-input" > 
+                    </div>
+                    <label  class=" col-sm-3 col-md-2 col-lg-1  mt-2">TO</label>
+                    <div  class=" col-xl-2 ">
+                      <input type="date" class="form-control"  formControlName="end_date" name="s" id="search-input" > 
+                    </div>
 
-                <div _ngcontent-hgq-c6="" class="form-group row">
-                         
-</div>
-
+                    <div  class=" col-xl-2  ">
+                        <button _ngcontent-hgq-c6="" class="form-control btn btn-primary" type="submit">
+                        <i  class="fa fa-search"></i> Visualiser 
+                         </button>
+                    </div>
+                </div>
 
 <div _ngcontent-hgq-c6="" class="card-header header-sm d-flex justify-content-between align-items-center">
     <div _ngcontent-hgq-c6="" class="wrapper d-flex align-items-center media-info text-facebook" ngbtooltip="Visualisez les résultats." placement="top" ng-reflect-placement="top" ng-reflect-ngb-tooltip="Visualisez les résultats.">

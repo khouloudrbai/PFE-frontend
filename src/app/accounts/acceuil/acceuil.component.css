@@ -4,7 +4,7 @@
 }
 
 .box {
-  background-color: #2B2D3E;
+ /* background-color: #2B2D3E; */
   padding: 25px 20px;
 }
 
@@ -37,34 +37,9 @@
   background-image: linear-gradient( 135deg, #EE9AE5 10%, #5961F9 100%);
 }
 
+
 .sparkboxes .box3 {
   background-image: linear-gradient( 135deg, #FFD3A5 10%, #FD6585 100%);
 }
 
 
-html,
-body,
-.intro {
-  height: 100%;
-}
-
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-thead th,
-tbody th {
-  color: #fff;
-}
-
-tbody td {
-  font-weight: 500;
-  color: rgba(255,255,255,.65);
-}
-
-.card {
-  border-radius: .5rem;
-}
