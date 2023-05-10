@@ -13,6 +13,8 @@ export class StatistiquesComponent implements OnInit{
   chartline:any;
   label: string[] = [];
   num: any[] = [];
+  services: any = [];
+  index=1;
 
 
 constructor(public statistiqueService:StatistiqueService){}
@@ -59,8 +61,10 @@ constructor(public statistiqueService:StatistiqueService){}
 ngOnInit(): void {
  this.createChart();
  this.createChartline();
+this.createChartline2();
+this.get_service_statistics();
 }
-//chartline 
+//chartline 1
 createChartline(){
  
  this.chartline = new Chart("MyChartt", {
@@ -71,17 +75,11 @@ createChartline(){
               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
       datasets: [
        {
-         label: "Sales",
+         label: "SMS",
          data: ['467','576', '572', '79', '92',
               '574', '573', '576'],
          backgroundColor: 'blue'
-       },
-       {
-         label: "Profit",
-         data: ['542', '542', '536', '327', '17',
-                '0.00', '538', '541'],
-         backgroundColor: 'limegreen'
-       }  
+       }
      ]
    },
    options: {
@@ -90,6 +88,52 @@ createChartline(){
    
  });
 }
+//chartline 2
+createChartline2(){
+ 
+  this.chartline = new Chart("MyCharttt", {
+    type: 'line', //this denotes tha type of chart
+ 
+    data: {// values on X-Axis
+      labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
+               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+       datasets: [
+        {
+          label: "Players",
+          data: ['467','576', '572', '79', '92',
+               '574', '573', '576'],
+          backgroundColor: 'red'
+        }
+      ]
+    },
+    options: {
+      aspectRatio:2.5
+    }
+    
+  });
+ }
+
+
+
+
+ get_service_statistics(){
+  this.statistiqueService.get_service_statistics().subscribe(respond=>{
+   console.log(respond)
+   console.log(respond.data)
+   if(respond.isFailed == false && respond.code === '201' && respond.data)
+    { 
+      this.services = respond.data;
+
+    }
+  })
+ }
+
+
+
+
+
+
+
 
 }
   
