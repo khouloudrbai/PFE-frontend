@@ -1,15 +1,81 @@
 <my-sidebar></my-sidebar>
-
 <div class="main-content"  style="background-color: #f1f0f0;" >
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-<div class="chart-container">
-    <canvas  id="MyChart" >{{ chart }}</canvas>
-</div>
-
+<h2>Statistics</h2>
+<div id="wrapper">
+    <div class="content-area">
+      <div class="container-fluid">
+        <div class="main">
+            <div class="row sparkboxes mt-4">
+            <div class="col-md-6">
 <div class="chart-container">
     <canvas  id="MyChartt" >{{ chartline }}</canvas>
+</div></div>
+<div class="col-md-6">
+
+<div class="chart-container">
+    <canvas  id="MyCharttt" >{{ chartline }}</canvas>
+</div></div></div>
+
+<br>
+<div class="row sparkboxes mt-4">
+    <div class="col-md-6">
+
+<div class="chart-container">
+    <canvas  id="MyChart" >{{ chart }}</canvas>
+</div></div> 
+
+
+
+<div class="col-md-6">
+    <section class="intro">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12">
+
+                <div class="card-body">
+                    <h2 ></h2>
+
+                  <div class="table-responsive">
+                    <table class="table table-dark table-borderless mb-0 shadow-sm">
+                      <thead>
+                        <tr>
+                          <th scope="col">Id_service</th>
+                          <th scope="col">Services</th>
+                          <th scope="col">NUMBER OF PLAYERS </th>
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let service of services;let index = index  ">
+                            <th scope="row"> {{index}}</th>
+                            
+                            <td>{{service.libelle}}</td>
+                          <td>{{service.number_gamers}}</td>
+                          
+                          </tr>
+
+
+                       
+            
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                
+             
+ 
+
+
+
+
+
+
+
 </div>
-</main></div> 
+
+
+</div> 
 
 
 

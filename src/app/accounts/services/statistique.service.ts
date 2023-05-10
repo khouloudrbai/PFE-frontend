@@ -22,4 +22,17 @@ export class StatistiqueService {
        return res;
      }));    
   };
+
+  get_service_statistics()
+  {  
+    return this.http.post<any>(this.url + '/Service/getserviceStat', {}).pipe(map(res => {
+       console.log(res);
+       res.data
+       return res;
+     }));    
+  };
+
+
+
+
 } 
