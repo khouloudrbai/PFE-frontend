@@ -10,7 +10,9 @@ import { TableComponent } from './accounts/table/table.component';
 import {HttpClientModule} from'@angular/common/http';
 import { LoginService } from './accounts/services/login.service';
 import { ProfileComponent } from './accounts/profile/profile.component';
-import { TestComponent } from './accounts/test/test.component';
+//import { TestComponent } from './accounts/test/test.component';
+import { FormsModule } from '@angular/forms';
+
 import { AppBoostrapModule } from './accounts/app-bootstrap/app-bootstrap.module';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
@@ -24,6 +26,7 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TestComponent } from './accounts/test/test.component';
 
 
 
@@ -34,7 +37,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TableComponent,
     AcceuilComponent,
     ProfileComponent,
-    TestComponent,
+   // TestComponent,
     AddadminComponent,
     SmsComponent,
     DetailsComponent,
@@ -47,6 +50,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     JeuxComponent,
 
     StatistiquesComponent,
+      TestComponent,
     
      
            
@@ -57,6 +61,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forChild([
       { path: '', component: LoginComponent },

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import Swal from 'sweetalert2';
 import { SmsService } from '../services/sms.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-sms',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 })
 export class SmsComponent implements OnInit{
   form!:FormGroup;
-  constructor(private smsService:SmsService,private formBuilder:FormBuilder,private router:Router){this.form = this.formBuilder.group(
+  constructor(private smsService:SmsService,private formBuilder:FormBuilder,private router:Router,public modalRef: BsModalRef,private modalService: BsModalService)
+  {this.form = this.formBuilder.group(
     {
      
       myMobile: ['', [ Validators.required,]],
@@ -38,5 +40,12 @@ ngOnInit(): void {}
       } 
     })
   }
+  public openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template); 
+  } 
+  close() {
+    this.modalService.hide(); 
+}
+
 }
  

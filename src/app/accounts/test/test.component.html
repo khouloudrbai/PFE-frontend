@@ -1,14 +1,66 @@
-<my-sidebar></my-sidebar>
-
-<div class="main-content"  style="background-color: #f1f0f0;" >
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
-<div class="chart-container">
-    <canvas  id="MyChart" >{{ chart }}</canvas>
-</div>
-
-<div class="chart-container">
-    <canvas  id="MyChartt" >{{ chartline }}</canvas>
-</div>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://www.smsmode.com/wp-content/uploads/2022/06/Mail2sms.png"
+            class="img-fluid" alt="Sample image">
+        </div>
 
 
-    </main></div>
+
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <div class=" d-flex align-items-center justify-content-center">    
+                <img src ="/assets/cb.png" >
+          </div>
+  
+            <!-- Email input -->
+            <div class="form-outline mb-4 mt-3 ">
+              <input type="email" formControlName="email" placeholder="Enter a valid mail" class="form-control form-control-lg" style="border-radius: 15px;
+              "[ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+              <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                <div *ngIf="f['email'].errors">Email is required</div>
+              </div>
+              <label class="form-label" for="form3Example3">Email address</label>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input type="password" formControlName="pwd" id="form2Example27" placeholder ="Enter password"class="form-control form-control-lg" formControlName="pwd" style="border-radius: 15px;
+              "
+               [ngClass]="{ 'is-invalid': submitted && f['pwd'].errors }"
+              />
+              <div *ngIf="submitted && f['pwd'].errors" class="invalid-feedback">
+                <div *ngIf="f['pwd'].errors">Password is required</div>
+                  Password must be at least 6 characters
+                </div>
+              <label class="form-label" for="form3Example4">Password</label>
+            </div>
+            <div class="alert alert-danger" *ngIf="alertErrorPwd">
+              Vérifier votre  login ou votre mot de passe
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Checkbox -->
+              <div class="form-check mb-0">
+                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                <label class="form-check-label" for="form2Example3">
+                  Remember me
+                </label>
+              </div>
+              <a href="#!" class="text-body">Forgot password?</a>
+            </div>
+  
+            <div class=" d-flex align-items-center justify-content-center mt-4">    
+                <button  type="submit" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+             
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    
+  </section>

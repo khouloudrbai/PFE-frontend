@@ -1,76 +1,74 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import Chart from 'chart.js/auto';
-
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent  implements OnInit{
+export class TestComponent implements OnInit {
+ 
+  email!: string;
+  pwd!:string;
+  loginForm!: FormGroup;
+  submitted = false;
+  alertErrorPwd = false
+ constructor(private formBuilder: FormBuilder,private router: Router,private loginService:LoginService) { 
+    this.loginForm = this.formBuilder.group(
+  {
    
-   chart: any;
-   chartline:any;
-   createChart(){
-
-    this.chart = new Chart("MyChart", {
-      type: 'pie',
-      data: {// values on X-Axis
-        labels: ['Red', 'Pink','Green','Yellow','Orange','Blue', ],
-	       datasets: [{
-    label: 'My First Dataset',
-    data: [300, 240, 100, 432, 253, 34],
-    backgroundColor: [
-      'red',
-      'pink',
-      'green',
-			'yellow',
-      'orange',
-      'blue',			
+    email: ['', [Validators.required, Validators.email]],
+    pwd: [
+      '',
+      [
+        Validators.required,]
     ],
-    hoverOffset: 4
-  }],
-      },
-      options: {
-        aspectRatio:2.5
-      }
-});
   }
-ngOnInit(): void {
-  this.createChart();
-  this.createChartline();
-}
-//chartline 
-createChartline(){
-  
-  this.chartline = new Chart("MyChartt", {
-    type: 'line', //this denotes tha type of chart
+);}
 
-    data: {// values on X-Axis
-      labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
-       datasets: [
-        {
-          label: "Sales",
-          data: ['467','576', '572', '79', '92',
-               '574', '573', '576'],
-          backgroundColor: 'blue'
-        },
-        {
-          label: "Profit",
-          data: ['542', '542', '536', '327', '17',
-                 '0.00', '538', '541'],
-          backgroundColor: 'limegreen'
-        }  
-      ]
-    },
-    options: {
-      aspectRatio:2.5
-    }
+ ngOnInit(): void {
+ }
+ get f(): { [key: string]: AbstractControl } {
+   return this.loginForm.controls;
+ }
+
+ onLoginSubmit(): void {
+   this.submitted = true;
+
+   if (this.loginForm.invalid) {
+     return;
+   }
+   console.log(this.loginForm.value)
+   this.loginService.Contact_auth(this.loginForm.value.email,this.loginForm.value.pwd).subscribe(respond=>{
+    console.log(respond)
+    console.log(respond.isFailed);
+    console.log(respond.code);
     
-  });
-}
+    if(respond.isFailed == false && respond.code === '201' && respond.data.id_user > 0)
+    {
+      this.alertErrorPwd = false ;
+      this.router.navigate(['/acceuil']);
 
+      sessionStorage.setItem('user',JSON.stringify(respond.data));
+    }
+    else{
+      this.alertErrorPwd = true ;
+    }
+})   
+   
+   console.log(JSON.stringify(this.loginForm.value, null, 2));
+ }
+ 
 
+ onReset(): void {
+   this.submitted = false;
+   this.loginForm.reset();
+ }
 
+ forget():void {
+  this.router.navigate(['/motdepasse']);
+ }
+ 
 }

@@ -22,7 +22,7 @@
 
 
 .sparkboxes strong {
-  position: relative;
+  position: relative; 
   z-index: 3;
   top: -8px;
   color: #fff;

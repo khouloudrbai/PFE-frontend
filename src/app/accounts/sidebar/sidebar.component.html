@@ -13,9 +13,12 @@
           </a>
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" >
           
-			<li><a class="dropdown-item" (click)="onclick()" >Profile </a> </li>
+			<li> <a class="dropdown-item" (click)="onclick()" > <i class="fa fa-user" ></i>
+				Profile </a> </li>
 
-            <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
+            <li><a class="dropdown-item" (click)="logout()"> <i class="fa fa-sign-out "></i>
+
+				Sign out</a></li>
           </ul>
         </div>
       </div>
@@ -60,8 +63,7 @@
 
 			<li class="nav-item">
 				<a class="nav-link"  href="http://localhost:4200/listuser">
-					<i class="fas fa-user-circle fa-fw me-3" ></i
-                        >
+					<i class="fas fa-user-circle fa-fw me-3" ></i>
                        
 					<span [ngClass]="statusLink ? 'navLinkDar' : 'navLinkGenis animated fadeInRight'">Users</span>
 				</a>

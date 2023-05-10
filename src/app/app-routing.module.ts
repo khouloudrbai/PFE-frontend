@@ -5,7 +5,7 @@ import { LoginComponent } from './accounts/login/login.component';
 import { AppComponent } from './app.component';
 import { TableComponent } from './accounts/table/table.component';
 import { ProfileComponent } from './accounts/profile/profile.component';
-import { TestComponent } from './accounts/test/test.component';
+//import { TestComponent } from './accounts/test/test.component';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
 import { DetailsComponent } from './accounts/details/details.component';
@@ -18,14 +18,14 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 
 import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
-
+import { TestComponent } from './accounts/test/test.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent},
   {  path:  'acceuil', component:  AcceuilComponent},
   {  path:  'table', component:  TableComponent},
   {  path:  'profile', component:  ProfileComponent},
-  {  path:  'test', component:  TestComponent},
+ // {  path:  'test', component:  TestComponent},
   {  path:  'addadmin', component:  AddadminComponent},
   {  path:  'sms', component:  SmsComponent},
   {  path:  'details/:id_player', component:  DetailsComponent},
@@ -38,6 +38,7 @@ const routes: Routes = [
   {  path:  'jeux', component:  JeuxComponent},
   {  path:  'statistiques', component:  StatistiquesComponent},
 
+  {  path:  'test', component:  TestComponent},
 
 
 

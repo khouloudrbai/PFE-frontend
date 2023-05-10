@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+import Chart from 'chart.js/auto';
 import { StatistiqueService } from '../services/statistique.service';
 
 @Component({
@@ -31,32 +31,28 @@ constructor(public statistiqueService:StatistiqueService){}
 
   
   this.chart = new Chart("MyChart", {
-    type: 'pie', //this denotes tha type of chart
+    type: 'pie', 
 
-    data: {// values on X-Axis
+    data: {
       labels: this.label,
        datasets: [{
-  label: 'Number gamers of service ',
-  data: this.num,
-  backgroundColor: [
-    'red',
-    'pink',
-    'green',
-          
-  ],
-  hoverOffset: 4
+        label: 'Number gamers of service ',
+        data: this.num,
+        backgroundColor: [
+          "rgba(255, 0, 0, 0.5)",
+          "rgba(100, 255, 0, 0.5)",
+            "rgba(200, 50, 255, 0.5)",
+            "rgba(0, 100, 255, 0.5)"
+        ],
+        hoverOffset: 4
 }],
     },
+
     options: {
       aspectRatio:2.5
     }
-
   });
   })
- 
-
-
-
  }
 ngOnInit(): void {
  this.createChart();
@@ -69,7 +65,6 @@ createChartline(){
  
  this.chartline = new Chart("MyChartt", {
    type: 'line', //this denotes tha type of chart
-
    data: {// values on X-Axis
      labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
@@ -78,12 +73,14 @@ createChartline(){
          label: "SMS",
          data: ['467','576', '572', '79', '92',
               '574', '573', '576'],
-         backgroundColor: 'blue'
-       }
+              backgroundColor:"rgba(0,0,255,1.0)",
+              borderColor: "rgba(0,0,255,0.1)",
+               }
      ]
    },
    options: {
-     aspectRatio:2.5
+     aspectRatio:2.5,
+     
    }
    
  });
@@ -115,7 +112,6 @@ createChartline2(){
 
 
 
-
  get_service_statistics(){
   this.statistiqueService.get_service_statistics().subscribe(respond=>{
    console.log(respond)
@@ -127,11 +123,6 @@ createChartline2(){
     }
   })
  }
-
-
-
-
-
 
 
 
