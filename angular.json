@@ -29,7 +29,10 @@
               "node_modules/sweetalert2/src/sweetalert2.scss"
               
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "@angular/google-maps"
+            ]
           },
           "configurations": {
             "production": {
@@ -58,13 +61,17 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
+
+          "options": {
+            
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
@@ -75,6 +82,7 @@
             }
           },
           "defaultConfiguration": "development"
+          
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

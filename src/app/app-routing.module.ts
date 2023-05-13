@@ -17,7 +17,6 @@ import { UserprofileComponent } from './accounts/userprofile/userprofile.compone
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 
-import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 import { TestComponent } from './accounts/test/test.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -36,7 +35,6 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-  {  path:  'statistiques', component:  StatistiquesComponent},
 
   {  path:  'test', component:  TestComponent},
 

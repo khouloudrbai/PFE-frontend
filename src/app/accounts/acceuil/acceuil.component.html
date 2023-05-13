@@ -52,68 +52,78 @@
           </div>
       </div>
       <section class="intro mt-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <div class="card">
-                  <div class="card-body">
-                      <h3 >TOP 10 SERVICES</h3>
+        <div id="wrapper">
+          <div class="content-area">
+            
+            <div class="container-fluid">
 
-                    <div class="table-responsive">
-                      <table class="table table-borderless mb-0 shadow-sm">
-                        <thead>
-                          <tr>
-                            <th scope="col">Service</th>
-                            <th scope="col">Shortcode</th>
-                            <th scope="col">Create date </th>
-                            <th scope="col">Players </th>
-
-                          
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let service of services; ">
-                            <td>{{service.libelle}}</td>
-                            <td>{{service.shortcode}}</td>
-                            <td>{{service.entry_date}}</td>
-                            <td>{{service.number_gamers}}</td>
-                          
-                          </tr>
-              
-                        </tbody>
-                      </table>
+              <!-- first row --------------------------------------------------------------->
+              <div class="row">
+                <!-- Area Chart -------------------------------------------------------->
+                <div class="col-xl-12 col-lg-12">
+                  <div class="card shadow mb-4">
+                    <!-- Card Header - Dropdown -->
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">SMS Overview</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="chart-area">
+                        <div class="chartjs-size-monitor">
+                          <div class="chartjs-size-monitor-expand">
+                            <div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                      <canvas  id="MyChartt" >{{ chartline }}</canvas>
+                      </div>
                     </div>
                   </div>
+                </div>
+
+                
               </div>
-              <div class="card mt-4">
+              <!-- 2ndrow ----------------------------------------------------------->
+              <div class="row  ">
+                <div class="col-lg-12 mb-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+                  </div>
                 <div class="card-body">
-                  <h3 >TOP 10 PLAYERS</h3>
-                  <div class="table-responsive">
-                    <table class="table table-borderless mb-0 shadow-sm">
-                      <thead>
-                        <tr>
-                          <th scope="col">MOBILE</th>
-                          <th scope="col">FIRSTNAME</th>
-                          <th scope="col">LASTNAME</th>
-                          <th scope="col">NUMBER OF SMS </th>
+                  <canvas   id="MyCharttt" ></canvas>
+                </div>
+              
+              </div>
+              </div>
+                <!-- Pie chart ------------------------------------------------------------------>
+                <div class="col-xl-6 col-lg-6">
+                  <div class="card shadow mb-4">
+                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                          <h6 class="m-0 font-weight-bold text-primary"> Players per Service</h6>
                           
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let player of players">
-                          <td>{{player.mobile}}</td>
-                          <td>{{player.firstname}}</td>
-                          <td>{{player.lastname}}</td>
-                          <td>{{player.num_sms}}</td>
-
+                      </div>
+                      <div class="card-body" style="min-height:400px;" >
+                              <canvas id="MyChart"  ></canvas>
                         
-                        </tr>
-
-                      </tbody>
-                    </table>
+                      </div>
+                  </div>
+              </div>
+                <div class="col-lg-6 mb-4">
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+                  </div>
+                    <div class="card-body">
+                          
+                    </div>
                   </div>
                 </div>
+              
+
+
+
+
+
               </div>
+
+          
             </div>
           </div>
         </div>

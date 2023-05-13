@@ -24,10 +24,8 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
-import { StatistiquesComponent } from './accounts/statistiques/statistiques.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestComponent } from './accounts/test/test.component';
-
 
 
 @NgModule({
@@ -37,7 +35,6 @@ import { TestComponent } from './accounts/test/test.component';
     TableComponent,
     AcceuilComponent,
     ProfileComponent,
-   // TestComponent,
     AddadminComponent,
     SmsComponent,
     DetailsComponent,
@@ -49,7 +46,6 @@ import { TestComponent } from './accounts/test/test.component';
     ConsulteuserComponent,
     JeuxComponent,
 
-    StatistiquesComponent,
       TestComponent,
     
      
@@ -63,6 +59,7 @@ import { TestComponent } from './accounts/test/test.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+  
     RouterModule.forChild([
       { path: '', component: LoginComponent },
     ])

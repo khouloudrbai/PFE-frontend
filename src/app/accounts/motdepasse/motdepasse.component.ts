@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./motdepasse.component.css']
 })
 export class MotdepasseComponent {
+submitted: any;
+f: any;
 
 }

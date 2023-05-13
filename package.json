@@ -19,7 +19,7 @@
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
     "@fortawesome/angular-fontawesome": "^0.12.1",
-    "@fortawesome/fontawesome-svg-core": "0.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@mdi/font": "^5.9.55",
     "@mdi/light-font": "^0.2.63",
     "bootstrap": "^5.2.3",
