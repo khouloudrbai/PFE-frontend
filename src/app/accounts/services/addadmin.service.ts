@@ -14,9 +14,9 @@ export class AddadminService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Contact_add( LastName:any,FirstName:any,mobile:any ,email:any,address:any ,pwd:any,statuts:any,entry_date:any,picture:any)
+  Contact_add( id_user:any,LastName:any,FirstName:any,mobile:any ,email:any,address:any ,pwd:any,statuts:any,entry_date:any,picture:any)
   {  
-    return this.http.post<any>(this.url + '/User/add', {LastName,FirstName,mobile,email,address,pwd,statuts,entry_date,picture}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/User/add', {id_user,LastName,FirstName,mobile,email,address,pwd,statuts,entry_date,picture}).pipe(map(res => {
      // console.log(res);
       return res;
     }));

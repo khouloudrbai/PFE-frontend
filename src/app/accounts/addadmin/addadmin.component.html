@@ -13,7 +13,7 @@
 
                   <div class="register-form" >
                   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;text-align: center;">Add New User</h5>
+                    <h3 class="text-center">Add New User</h3>
                     <div class="form-outline mb-4">
                         <label> LastName</label>
                       <input  type="text" formControlName="LastName"  class="form-control form-control-lg" 
@@ -28,6 +28,17 @@
                         <label>Email</label>
                       <input  type="email" formControlName="email"  class="form-control form-control-lg" 
                        />
+                       <div
+                        *ngIf="
+                            email.invalid &&
+                            (email.dirty || email.touched)
+                        "
+                        class="form-text text-danger"
+                        >
+                        <div *ngIf="email.errors?.['required']">
+                            Field is required
+                        </div>
+                    </div>
                     </div>
                     <div class="form-outline mb-4">
                         <label>Mobile</label>
@@ -55,22 +66,77 @@
                       <input  type="text" formControlName="address"  class="form-control form-control-lg" 
                        />
                     </div>
+                    
                     <div class="form-outline mb-4">
-                        <label> Password</label>
-                      <input  type="password" formControlName="pwd"  class="form-control form-control-lg" 
-                       />
+                      <div class="form-group">
+                        <label for="password"> New password</label>
+                        <br>
+                        <input 
+                            id="newPassword"
+                            type="password"
+                            class="form-control"
+                            formControlName="newPassword"
+                            placeholder="New Password"
+                            class="form-control form-control-lg" 
+                        />
+                        <div
+                        *ngIf="
+                            newPassword.invalid &&
+                            (newPassword.dirty || newPassword.touched)
+                        "
+                        class="form-text text-danger"
+                        >
+                        <div *ngIf="newPassword.errors?.['required']">
+                            Field is required
+                        </div>
+                        <div *ngIf="newPassword.errors?.['pattern']">
+                            Password must contain at least one number, one uppercase and a
+                            lowercase letter and at least 8 characters<br />Password cannot
+                            contain whitespace
+                        </div>
+                        </div>
                     </div>
-                    <div class="form-outline mb-4">
-                      <label> Verify Password</label>
-                    <input  type="password" formControlName="v_pwd"  class="form-control form-control-lg" 
-                     />
-                  </div>
+                </div>
+                <div class="form-outline mb-4">
+                  <div class="form-group">
+                        <label for="password"> Verify New password</label>
+                        <br>
+                        <input
+                                id="confirmPassword"
+                                type="password"
+                                class="form-control"
+                                [ngClass]="confirmPasswordClass"
+                                formControlName="confirmPassword"
+                                class="form-control form-control-lg" 
+                                placeholder="Confirm New Password"/>
+                        <div
+                            *ngIf="
+                                confirmPassword.invalid &&
+                                (confirmPassword.dirty || confirmPassword.touched)
+                            "
+                            class="form-text text-danger"
+                            >
+                        <div *ngIf="confirmPassword.errors?.['required']">
+                            Field is required
+                        </div>
+                        <div *ngIf="confirmPassword.errors?.['pattern']">
+                            Password must contain at least one number, one uppercase and a
+                            lowercase letter and at least 8 characters<br />Password cannot
+                            contain whitespace
+                        </div>
+                        <div *ngIf="confirmPassword.errors?.['confirmedValidator']">
+                            Passwords did not match
+                        </div>
+                        </div>
+                                                
+                 </div>
+                </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Add a photo URL</label>
                         <input class="form-control form-control-lg" type="text"  formControlName="picture" >
                       </div>
                     <div class="form-button mt-3">
-                        <button class="btn text-white btn-lg  btn-primary" type="submit"   style=" width: 232px;position: relative; left: 275px;">
+                        <button class="btn text-white btn-lg  btn-primary" type="submit"   style=" width: 232px;position: relative; left: 275px;"(click)="add()"><i class="fa fa-user-plus fa-fw me-3"></i>
                           Add 
                         </button> 
                     </div>

@@ -21,59 +21,8 @@
 								<input type="text" name="title" class="form-control" formControlName="sender" placeholder="sender" required="required">
 							</div>
 							<div class="form-group col-md-12 mb-2 ">
-								<button name="mobile" class="form-control " placeholder="Mobile" formControlName="myMobile" required="required"  (click)="openModal(template)" >
-									Mobile
-								</button>
-								<ng-template #template>
-									<div class="modal-header" >
-									<h4 class="modal-title" id="modal-basic-title">  Mobile </h4>
-										<button type="button" class="close" (click)="close()">&times;</button>
-									
-									</div>
-									<div class="modal-body">
-										<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm" >
-											<table class="table manage-candidates-top mb-0">
-												<thead class="thead">
-													<tr>
-													<th>Mobile</th>
-													<th class="text-center">Number Of SMS</th>
-													<th class="action text-right">Service </th>
-													</tr>
-												</thead>
-								
-												<tbody >
-													<tr class="candidates-list" *ngFor="let user of "> 
-														<td class="title">
-															
-															<div class="candidate-list-details">
-															<div class="candidate-list-info">
-																<div class="candidate-list-title">
-																	<a class="candidate-list-favourite order-2 text-danger" ></a>
-																	<span class="candidate-list-time order-1">{{user}}</span>
-																</div>
-																<div class="candidate-list-option">
-																<ul class="list-unstyled">
-																	<li><i class="fas fa-envelope "></i>{{user}}</li>
-																	<li><i class="fas fa-map-marker-alt pr-1"></i>{{user}}</li>
-																</ul>
-																</div>
-															</div>
-															</div>
-														</td>
-								
-													</tr>
-													
-												</tbody>
-												</table>
-										</div>
-									</div>
-									<div class="modal-footer">
-									<button type="button" class="btn btn-outline-primary bg-primary text-white">Confirm</button>
-									<button type="button" class="btn btn-outline-dark" (click)="close()">Cancel</button>
-
-
-									</div>
-								</ng-template>
+								<input name="mobile" class="form-control " placeholder="Mobile" formControlName="myMobile" required="required"  >
+						
 
 							</div>
 							<div class="form-group col-md-12 mb-2 ">

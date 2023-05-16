@@ -63,6 +63,8 @@ export class ListuserComponent implements OnInit{
       console.log(respond);
       this.ngOnInit();
       this.alertWithSuccess();
+      this.modalService.hide(); 
+
     });
   }
   alertWithSuccess(){
