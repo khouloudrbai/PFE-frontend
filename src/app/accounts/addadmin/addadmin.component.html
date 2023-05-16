@@ -12,7 +12,7 @@
                 <div class="card-body text-black" >
 
                   <div class="register-form" >
-                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <form [formGroup]="form" >
                     <h3 class="text-center">Add New User</h3>
                     <div class="form-outline mb-4">
                         <label> LastName</label>
@@ -31,13 +31,14 @@
                        <div
                         *ngIf="
                             email.invalid &&
-                            (email.dirty || email.touched)
+                            (email.dirty || email.touched|| this.submitted)
                         "
                         class="form-text text-danger"
                         >
                         <div *ngIf="email.errors?.['required']">
-                            Field is required
-                        </div>
+                          Field is required
+                      </div>
+                        
                     </div>
                     </div>
                     <div class="form-outline mb-4">
@@ -82,7 +83,7 @@
                         <div
                         *ngIf="
                             newPassword.invalid &&
-                            (newPassword.dirty || newPassword.touched)
+                            (newPassword.dirty || newPassword.touched || this.submitted)
                         "
                         class="form-text text-danger"
                         >
@@ -112,7 +113,7 @@
                         <div
                             *ngIf="
                                 confirmPassword.invalid &&
-                                (confirmPassword.dirty || confirmPassword.touched)
+                                (confirmPassword.dirty || confirmPassword.touched || this.submitted)
                             "
                             class="form-text text-danger"
                             >

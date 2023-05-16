@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 import { Router } from '@angular/router';
 
 import { AddadminService } from '../services/addadmin.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addadmin',
@@ -40,7 +41,10 @@ export class AddadminComponent {
   email=new FormControl(null, [
     (c: AbstractControl) => Validators.required(c),Validators.email])
 
-
+    get f(): { [key: string]: AbstractControl } {
+      return this.form.controls;
+    }
+   
 
 constructor(private router:Router,private Addadmin:AddadminService,private formBuilder: FormBuilder){
   this.form = this.formBuilder.group(
@@ -81,33 +85,36 @@ ConfirmedValidator(controlName: string, matchingControlName: string) {
     }
   };
 }
-
-
-  onSubmit(): void {
-    this.submitted = true;
- 
-    if (this.form.invalid) {
-      return;
-    }
-    console.log(this.form.value)
-    
-    
-    console.log(JSON.stringify(this.form.value, null, 2));
-  }
+alert(){
+  Swal.fire("fill the required fields")
+}
   add(){
+    this.submitted = true;
+
+
+    if ( this.form.value.email !==null&& this.form.value.newPassword!==null){
     this.Addadmin.Contact_add(this.id_user,this.form.value.LastName,this.form.value.FirstName,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd,this.form.value.statuts,this.form.value.entry_date,this.form.value.picture).subscribe(
       respond=>{
      console.log(respond)
      console.log(respond.isFailed);
      console.log(respond.code);
+     console.log(this.id_user);
+     console.log(this.form.value.email);
      
-     if(respond.isFailed == false && respond.code === '201' && respond.data)
+
+     if(respond.isFailed == false && respond.code === '201' && respond.data )
      {
       this.router.navigate(['/listuser']);
       
      }
- }) 
+    
+ }) }
+ else {
+  this.alert();
+
+ }
   }
+  
   
 }
 
