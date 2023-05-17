@@ -16,6 +16,8 @@ import { ListuserComponent } from './accounts/listuser/listuser.component';
 import { UserprofileComponent } from './accounts/userprofile/userprofile.component';
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
+import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
+import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 
 import { TestComponent } from './accounts/test/test.component';
 const routes: Routes = [
@@ -35,8 +37,11 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-
   {  path:  'test', component:  TestComponent},
+  {  path:  'confirmpassword', component:  ConfirmpasswordComponent},
+  {  path:  'resetpassword', component:  ResetpasswordComponent},
+
+
 
 
 

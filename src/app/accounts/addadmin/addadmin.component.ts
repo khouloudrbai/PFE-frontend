@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { AddadminService } from '../services/addadmin.service';
 import Swal from 'sweetalert2';
+import { range } from 'rxjs';
 
 @Component({
   selector: 'app-addadmin',
@@ -90,9 +91,13 @@ alert(){
 }
   add(){
     this.submitted = true;
+    // increment to id_user random value each time we add a user
+    this.id_user = Math.floor(Math.random() * 10000000) + 1;
 
-
+    
+    console.log(this.id_user)
     if ( this.form.value.email !==null&& this.form.value.newPassword!==null){
+   
     this.Addadmin.Contact_add(this.id_user,this.form.value.LastName,this.form.value.FirstName,this.form.value.mobile,this.form.value.email,this.form.value.address,this.form.value.pwd,this.form.value.statuts,this.form.value.entry_date,this.form.value.picture).subscribe(
       respond=>{
      console.log(respond)

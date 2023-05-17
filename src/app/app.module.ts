@@ -26,6 +26,8 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestComponent } from './accounts/test/test.component';
+import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
+import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -47,6 +49,8 @@ import { TestComponent } from './accounts/test/test.component';
     JeuxComponent,
 
       TestComponent,
+        ConfirmpasswordComponent,
+        ResetpasswordComponent,
     
      
            
