@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
+import { UserService } from "../services/user.service";
+import Swal from "sweetalert2";
 @Component({
   selector: "my-sidebar",
   templateUrl: "./sidebar.component.html",
@@ -10,8 +12,10 @@ export class SidebarComponent {
   @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   image:any;
-
-  constructor(private router:Router){}
+  email:any;
+  pwd:any;
+  verif:any;
+  constructor(private router:Router,private userService:UserService){}
  
 
 onclick():void{
@@ -21,7 +25,6 @@ logout():void{
   localStorage.removeItem('currentUser');
   this.router.navigate(['./login'])
 }
-name = "Angular Toggle Show Hide";
   showMyContainer: boolean = false;
 
   status: boolean = false;
@@ -44,12 +47,11 @@ name = "Angular Toggle Show Hide";
     console.log(user);
     if(user )
     {
-      
       this.image=JSON.parse(user).picture;
-
-      
+      this.email=JSON.parse(user).mail;
+      this.pwd=JSON.parse(user).pwd;
     }
-   
+   this.verify()
   }
 onmodifie(){
   this.router.navigate(['./modifierprofil']);
@@ -57,6 +59,16 @@ onmodifie(){
 }
 motdpass(){
   this.router.navigate(['./modifiermotdepasse']);
-
+}
+verify(){
+  this.userService.verify(this.email,this.pwd).subscribe
+  (respond=>{
+   console.log(respond.data);
+   this.verif=respond.data;
+  
+  })
+}
+click(){
+  Swal.fire('error')
 }
 }

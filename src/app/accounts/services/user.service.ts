@@ -38,13 +38,12 @@ export class UserService {
       return res;
     }));
   }
-  get_img(id_user:any){
-    console.log(id_user)
-    return this.http.post<any>(this.url + '/User/getimg', {id_user}).pipe(map(res => {
-      console.log(res);
+  verify(email:any,pwd:any){
+    return this.http.post<any>(this.url + '/User/verify', {email,pwd}).pipe(map(res => {
+     // console.log(res);
       return res;
     }));
   }
-
+  
   
 }

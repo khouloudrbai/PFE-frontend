@@ -33,26 +33,33 @@ export class ConfirmpasswordComponent implements OnInit {
     })
    }
    correctcode(){
-    Swal.fire("code is correct") 
+    Swal.fire('Thank you...', 'code is correct', 'success')
+
    }
    notcorrectcode(){
-    Swal.fire("code is incorrect")
+    Swal.fire('Opps', 'code incorrect', 'error')
+
+   }
+   usernotfound(){
+    Swal.fire('Opps', 'User not found ', 'error')
    }
    confirmcode(){ 
-    
     console.log('**********************')
     console.log(this.form.value)
     this.codeService.confirm_code(this.form.value.mobile,this.form.value.code).subscribe
     (respond=>{
      console.log(respond);
-     if(respond.isFailed == false && respond.code === '201' && respond.data )
+     if(respond.isFailed == false && respond.code === '201' && respond.data ) //msg user empty 
      {
       this.correctcode();
-      this.router.navigate(['/resetpassword']);
+      this.router.navigate(['/resetpassword/'+ respond.data.id_user]);
      } 
-     else{
-      this.notcorrectcode();
+     else if (respond.code==='500'&& respond.data.id_user ==0){
+      this.usernotfound();
 
+     }
+     else {
+      this.notcorrectcode()
      }
     })
    }

@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -12,7 +13,7 @@ export class LoginService {
   //chaque requeste lezemha leaders
   headers = new HttpHeaders();
   //tabaath el request w tcapti el responce
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
   Contact_auth( email: any , pwd:any )
   {  
@@ -21,6 +22,8 @@ export class LoginService {
       return res;
     }));
   }
+  
+
  
   
 }

@@ -34,7 +34,16 @@ export class ServicesService {
        res.data
        return res;
      })); 
-       };
+  };
+  get_type_service()
+  {  
+    return this.http.post<any>(this.url + '/service/gettype', {}).pipe(map(res => {
+       console.log(res);
+       console.log(res.data);
+       res.data
+       return res;
+     })); 
+  };
   
 
 

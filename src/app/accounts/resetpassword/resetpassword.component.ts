@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CodeService } from '../services/code.service';
 import Swal from 'sweetalert2';
 
@@ -9,20 +9,44 @@ import Swal from 'sweetalert2';
   templateUrl: './resetpassword.component.html',
   styleUrls: ['./resetpassword.component.css']
 })
-export class ResetpasswordComponent implements OnInit {
+export class ResetpasswordComponent  {
   form!:FormGroup;
   mobile:any;
-  
-  constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService) {
+  passwordsMatching = false;
+  isConfirmPasswordDirty = false;
+  confirmPasswordClass = 'form-control';
+  submitted=false;
+  newPassword = new FormControl(null, [
+    (c: AbstractControl) => Validators.required(c),
+    Validators.pattern(
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+    ),
+    ]);
+  confirmPassword = new FormControl(null, [
+    (c: AbstractControl) => Validators.required(c),
+    Validators.pattern(
+      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&^_-]).{8,}/
+    ),
+    ]);
+    user_id : any
+  constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService,
+    public route : ActivatedRoute) {
     this.form = this.formbuilder.group(
       {
         
         mobile: [ '',[Validators.required,]],
-        newpassword: [ '',[Validators.required,]],
-        confirmnewpassword: [ '',[Validators.required,]],
+        newPassword: this.newPassword,
+        confirmPassword: this.confirmPassword,
       },{
-        validator: this.ConfirmedValidator('newpassword', 'confirmnewpassword'),
+        validator: this.ConfirmedValidator('newPassword', 'confirmPassword'),
       })}
+
+      ngOnInit(){
+        this.user_id = this.route.snapshot.params['id_user'];
+        console.log('this.user_id  ' + this.user_id)
+
+
+      }
 
   ConfirmedValidator(controlName: string, matchingControlName: string) {
     return (formGroup: FormGroup) => {
@@ -41,13 +65,13 @@ export class ResetpasswordComponent implements OnInit {
       }
     };
   }
-  ngOnInit(): void {
-   }
 
    passwordreseted(){
-Swal.fire('password updated')   }
+    Swal.fire('password updated','succes')   }
+
    resetpassword(){ 
-    this.codeService.reset_pwd(this.form.value.newpassword,this.form.value.mobile).subscribe
+    this.submitted=true;
+    this.codeService.reset_pwd(this.user_id,this.form.value.newPassword).subscribe
     (respond=>{
      console.log(respond);
      if(respond.isFailed == false && respond.code === '201' && respond.data)

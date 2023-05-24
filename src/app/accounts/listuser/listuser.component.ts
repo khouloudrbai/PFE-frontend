@@ -77,9 +77,7 @@ export class ListuserComponent implements OnInit{
 
  
 //pagination des pages 
-  get totalPages(): number {
-    return Math.ceil(this.users.length / this.pageSize);
-  }
+ 
 
   get paginatedItems(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
@@ -98,7 +96,26 @@ export class ListuserComponent implements OnInit{
       this.currentPage--;
     }
   }
+  get totalPages(): number {
+    return Math.ceil(this.users.length / this.pageSize);
+  }
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+  
+  getPages(): number[] {
+    const startPage = Math.max(1, this.currentPage - 2);
+    const endPage = Math.min(this.totalPages, this.currentPage + 2);
+    return Array.from({ length: (endPage - startPage) + 1 }, (_, i) => startPage + i);
+  }
+  
   add(){
     this.router.navigate(['./addadmin'])
+  }
+  navigateToLocation(address: string): void {
+    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(mapUrl, '_blank');
   }
 }

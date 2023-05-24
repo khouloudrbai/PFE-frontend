@@ -23,6 +23,21 @@ export class SmsService {
       return res;
     }));
   }
+  sms_prog(  )
+  {  
+    return this.http.post<any>(this.url + '/apisendsms/sms_prog', {}).pipe(map(res => {
+     // console.log(res);
+      return res;
+    }));
+  }
+
+  get_sms(  )
+  {  
+    return this.http.post<any>(this.url + '/apisendsms/getsms', {}).pipe(map(res => {
+     // console.log(res);
+      return res;
+    }));
+  }
   
 
   

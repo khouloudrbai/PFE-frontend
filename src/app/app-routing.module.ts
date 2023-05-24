@@ -18,6 +18,7 @@ import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.comp
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
+import { ProgrammerComponent } from './accounts/programmer/programmer.component';
 
 import { TestComponent } from './accounts/test/test.component';
 const routes: Routes = [
@@ -39,7 +40,9 @@ const routes: Routes = [
   {  path:  'jeux', component:  JeuxComponent},
   {  path:  'test', component:  TestComponent},
   {  path:  'confirmpassword', component:  ConfirmpasswordComponent},
-  {  path:  'resetpassword', component:  ResetpasswordComponent},
+  {  path:  'resetpassword/:id_user', component:  ResetpasswordComponent},
+  {  path:  'programmer', component:  ProgrammerComponent},
+
 
 
 

@@ -4,6 +4,9 @@
   }
 }
 
+.clickable {
+  cursor: pointer;
+}
 
 
 .sidebarMenu{
@@ -119,3 +122,4 @@ line-height: normal;
 .darSideBarAlt{
   width: 60px;
 }
+

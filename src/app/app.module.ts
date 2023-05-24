@@ -28,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestComponent } from './accounts/test/test.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
+import { ProgrammerComponent } from './accounts/programmer/programmer.component';
 
 
 @NgModule({
@@ -47,10 +48,10 @@ import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.c
     UserprofileComponent,
     ConsulteuserComponent,
     JeuxComponent,
-
-      TestComponent,
-        ConfirmpasswordComponent,
-        ResetpasswordComponent,
+    TestComponent,
+    ConfirmpasswordComponent,
+    ResetpasswordComponent,
+    ProgrammerComponent,
     
      
            

@@ -1,12 +1,4 @@
-body{
-    background-color: #f8f9fa!important
-}
-.p-4 {
-    padding: 1.5rem!important;
-}
-.mb-0, .my-0 {
-    margin-bottom: 0!important;
-}
+
 .shadow-sm {
     box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
 }    
@@ -174,3 +166,39 @@ body{
 .user-dashboard-info-box .candidates-list .thumb {
     margin-right: 20px;
 }
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+
+.pagination li.disabled a {
+  color: #c2b7b7;
+  cursor: not-allowed;
+}
+
+.pagination li.disabled a:hover {
+  background-color: #fff;
+  border-color: #ddd;
+}
+.location-item:hover {
+    color: #0d6efd ; 
+    cursor: pointer; 
+  }
+  

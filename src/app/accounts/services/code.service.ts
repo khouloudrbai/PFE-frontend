@@ -32,9 +32,9 @@ export class CodeService {
       return res;
     }));
   }
-  reset_pwd( pwd:any,mobile:any)
+  reset_pwd( id_user:any,pwd:any)
   {  
-    return this.http.post<any>(this.url + '/Password/reset', {pwd,mobile}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/Password/reset', {id_user,pwd}).pipe(map(res => {
      // console.log(res);
       return res;
     }));

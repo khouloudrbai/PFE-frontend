@@ -1,14 +1,26 @@
 <my-sidebar></my-sidebar>
 
-<div class="main-content"  style="background-color: #f1f0f0;" >
+<div class="main-content" style="background-color: #f1f0f0; min-height: 100vh;">
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
 		<form  [formGroup]="form">
 		   <h1><i class="fas  fa-regular fa-gamepad fa-fw me-3" ></i>Services</h1> 
 		   <div class="form-group row mt-4">
 			<label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Keyword</label>
-			<div  class=" col-xl-2">
-				<input type="text" class="form-control"  formControlName="keyword" name="s" id="search-input" placeholder="Keyword"> 
-			</div>
+			<div class=" col-md-2 " > 
+				<input class="form-control" formControlName="libelle_type_service" list="typesList"  placeholder="Type Services">
+				<datalist id="typesList">
+					<table>
+						<tbody>
+						<tr class="candidates-list" *ngFor="let gr of types"> 
+							<td>
+								<option value="{{gr.libelle_type_service}}">
+
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</datalist>
+			</div> 
 				<label  class=" col-sm-3 col-md-2 col-lg-1 mt-2 ">FROM</label>
 				<div  class=" col-xl-2">
 					<input type="date" class="form-control"  formControlName="entry_date" name="s" id="search-input" > 
@@ -35,9 +47,11 @@
 							<thead class="thead">
 								<tr>
 									<th>Game Name</th>
-									<th> ShortCode</th>
+									<th> Type Service</th>
 									<th> Create Date</th>
-									<th>Players</th>
+									<th>Date End</th>
+									<th> Number players</th>
+
 								</tr>
 							</thead>
 
@@ -50,7 +64,7 @@
 									</td>
 									<td>
 										<div class="candidate-list-option">
-										{{group.shortcode}}
+										{{group.type_service}}
 										</div>
 									</td>
 									<td>
@@ -60,17 +74,25 @@
 									</td>
 									<td>
 										<div class="candidate-list-option">
-										{{group.number_gamers}}
+										{{group.date_end}}
 										</div>
 									</td>
 								</tr>
 							</tbody>
 					    </table> 
-						<div class=" mt-3 " style="margin-left: 800px;">
-							<button [disabled]="currentPage === 1" (click)="prevPage()"><i class="fa fa-angle-double-left" aria-hidden="true"></i>
-								Previous</button>
-							<button [disabled]="currentPage === totalPages"  (click)="nextPage()">Next<i class="fa fa-angle-double-right	" aria-hidden="true"></i></button>
-						  </div>
+						<div class="d-flex justify-content-end align-items-center mt-3">
+							<ul class="pagination p-effect">
+								<li [class.disabled]="currentPage === 1">
+								  <a (click)="prevPage()">Previous</a>
+								</li>
+								<li >
+									<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
+								</li>
+								<li [class.disabled]="currentPage === totalPages">
+								  <a (click)="nextPage()">Next</a>
+								</li>
+							  </ul>
+						</div>
 					</div>
 					
 				</div>

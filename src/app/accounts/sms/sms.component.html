@@ -1,48 +1,48 @@
 <my-sidebar></my-sidebar>
-      
-<div class="main-content"  style="background-color: #f1f0f0;" >
 
-<main class="col-md-2 ms-sm-auto col-lg-10 px-md-6"  >
-
-  <section  class="row d-flex justify-content-center align-items-center ">
-    <div class="col col-xl-10 mt-4" >
-<div id="contact" class="contact-area section-padding">
-	<div class="container mb-0  bg-white p-4 shadow-sm">									
-    <br>	
-		<div class="section-title text-center">
-			<h2>SEND SMS</h2>
-		</div>					
-    <div class="row mt-4">
-      <div class="col-md-12">
-				<div class="contact ">
-					<form [formGroup]="form">
-						<div class="row">
+<div class="main-content" style="background-color: #f1f0f0; min-height: 100vh;">
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
+		<div class="container">
+			<div class="row justify-content-center align-items-center">
+			<div class="col-md-10 mt-4">
+				<div id="contact" class="contact-area section-padding">
+				<div class="container bg-white p-4 shadow-sm">
+					<br>
+					<div class="section-title text-center">
+					<h2>SEND SMS</h2>
+					</div>
+					<div class="row mt-4">
+					<div class="col-md-12">
+						<div class="contact">
+						<form [formGroup]="form">
+							<div class="row">
 							<div class="form-group col-md-12 mb-2">
 								<input type="text" name="title" class="form-control" formControlName="sender" placeholder="sender" required="required">
 							</div>
-							<div class="form-group col-md-12 mb-2 ">
-								<input name="mobile" class="form-control " placeholder="Mobile" formControlName="myMobile" required="required"  >
-						
-
+							<div class="form-group col-md-12 mb-2">
+								<input name="mobile" class="form-control" placeholder="Mobile" formControlName="myMobile" required="required">
+								<tag-input [(ngModel)]="items" theme="bootstrap"></tag-input>
+							  </div>
+							<div class="form-group col-md-12 mb-2">
+								<input type="datetime-local" name="date" class="form-control" placeholder="Date" formControlName="myDate" required="required">
 							</div>
-							<div class="form-group col-md-12 mb-2 ">
-								<input type="datetime-local" name="date" class="form-control" placeholder="Date" formControlName="myDate"required="required" >
-							</div>
-							<div class="form-group col-md-12 mb-2 ">
-								<textarea rows="6" name="content" class="form-control" placeholder="Your Message" formControlName="mySms"required="required"></textarea>
+							<div class="form-group col-md-12 mb-2">
+								<textarea rows="6" name="content" class="form-control" placeholder="Your Message" formControlName="mySms" required="required"></textarea>
 							</div>
 							<div class="col-md-12 text-center">
-								<button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!" (click)="send_sms()"> <i class="fa fa-paper-plane" ></i>
-									Send Message</button>
+								<button type="submit" value="Send message" name="submit" id="submitButton" class="btn btn-contact-bg" title="Submit Your Message!" (click)="send_sms()">
+								<i class="fa fa-paper-plane"></i> Send Message
+								</button>
 							</div>
+							</div>
+						</form>
 						</div>
-					</form>
+					</div>
+					</div>
 				</div>
-			
-		</div><!--- END ROW -->
-	</div><!--- END CONTAINER -->	
+				</div>
+			</div>
+			</div>
+		</div>
+	</main>	
 </div>
-</div>
-    </div>
-  </section>
-</main>

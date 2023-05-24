@@ -9,9 +9,11 @@ import { FormBuilder,FormControl, Validators } from '@angular/forms';
 })
 export class JeuxComponent {
    services:any=[];
+   types:any=[];
+   libelle_type_service:any;
  form!:any;
  submitted=false;
- pageSize: number = 3;
+ pageSize: number = 10;
   currentPage: number = 1;
  
 
@@ -19,24 +21,25 @@ export class JeuxComponent {
     this.form = this.formBuilder.group(
       {
        
-        keyword: ['', [ Validators.required,]],
         entry_date: ['', [ Validators.required,]],
         end_date: ['', [ Validators.required,]],
-
+        libelle_type_service: ['', [ Validators.required,]],
         
       })
   }
   ngOnInit(): void {
-    this.getservice()
+    this.getservice();
+    this.getTypeservice();
   }
       
     onclick():void{
 
-      this.servicesService.get_service(this.form.value.keyword,this.form.value.entry_date,this.form.value.end_date).subscribe(respond => {
+      this.servicesService.get_service(this.form.value.libelle_type_service,this.form.value.entry_date,this.form.value.end_date).subscribe(respond => {
       
       console.log(respond.data)
 
       if(respond.isFailed == false && respond.code === '201' && respond.data){
+        console.log(respond.data)
         this.services = respond.data ;
   
         }
@@ -48,11 +51,22 @@ export class JeuxComponent {
 
         if(respond.isFailed == false && respond.code === '201' && respond.data){
           this.services = respond.data ;
-    
+
           }
       
       } )
     }
+    getTypeservice(){ 
+      console.log('testtype')
+      this.servicesService.get_type_service().subscribe(respond => {
+      console.log('testtype',respond.data);
+      console.log(respond.isFailed);
+      console.log(respond.code);
+      if(respond.isFailed == false && respond.code === '201' && respond.data){
+        this.types = respond.data ;
+      } 
+    }
+      )}
     //pagination des pages 
   get totalPages(): number {
     return Math.ceil(this.services.length / this.pageSize);
