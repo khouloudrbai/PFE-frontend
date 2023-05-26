@@ -6,10 +6,14 @@
 		   <h1>	<i class="fas fa-regular fa-table fa-fw me-3"></i> OutBox</h1> 
 		   <div class="form-group row mt-4">
 
-          <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Keyword</label>
+          <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Type</label>
           <div  class=" col-xl-2">
-            <input type="text" class="form-control"  formControlName="keyword" name="s" id="search-input" placeholder="Keyword"> 
-          </div>
+            <input list="typesList" class="form-control" name="status" placeholder="type">
+			<datalist id="typesList">
+			<option value="Delivered">
+			<option value="UnDelivered">
+			</datalist>
+		  </div>
 
             <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2 ">FROM</label>
           <div  class=" col-xl-2">
@@ -41,6 +45,8 @@
 									<th>  SMS</th>
                                     <th> Sent_date</th>
 									<th>Status </th>
+									<th>Etat </th>
+
 								</tr>
 							</thead>
 							<tbody >
@@ -61,9 +67,16 @@
 										</div>
 									</td>
 									<td>
-										<div class="candidate-list-option">
-										{{group.statuts}}
-										</div>
+										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'und' : 'del'">
+											{{ group.statuts === 1 ? 'Undelivered' : 'Delivered' }}
+										  </div>
+										  
+									</td>
+									<td>
+										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'und' : 'del'">
+											{{ group.statuts === 1 ? '.' : '.' }}
+										  </div>
+										  
 									</td>
 								</tr>
 							</tbody>

@@ -11,6 +11,8 @@ export class JeuxComponent {
    services:any=[];
    types:any=[];
    libelle_type_service:any;
+   id_service:any;
+
  form!:any;
  submitted=false;
  pageSize: number = 10;
@@ -41,6 +43,15 @@ export class JeuxComponent {
       if(respond.isFailed == false && respond.code === '201' && respond.data){
         console.log(respond.data)
         this.services = respond.data ;
+        for (let i = 0; i < this.services.length; i++) {
+          this.services[i].number = 0; // Add a new column with an empty value
+          this.servicesService.get_number_players(this.services[i].id_service).subscribe(respond => {
+            if(respond.isFailed == false && respond.code === '201' && respond.data){
+                this.services[i].number=respond.data
+            }
+          
+          })
+        }
   
         }
 
@@ -51,10 +62,23 @@ export class JeuxComponent {
 
         if(respond.isFailed == false && respond.code === '201' && respond.data){
           this.services = respond.data ;
-
+          for (let i = 0; i < this.services.length; i++) {
+            this.services[i].number = 0; // Add a new column with an empty value
+            this.servicesService.get_number_players(this.services[i].id_service).subscribe(respond => {
+              if(respond.isFailed == false && respond.code === '201' && respond.data){
+                  this.services[i].number=respond.data
+              }
+            
+            })
           }
-      
-      } )
+          console.log('test',this.services)
+
+         
+      } })
+    
+   
+
+
     }
     getTypeservice(){ 
       console.log('testtype')

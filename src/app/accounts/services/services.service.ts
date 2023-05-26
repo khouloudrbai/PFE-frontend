@@ -44,6 +44,13 @@ export class ServicesService {
        return res;
      })); 
   };
+
+  get_number_players(id_service:any)
+  {  
+    return this.http.post<any>(this.url + '/service/joueurperservice', {id_service}).pipe(map(res => {
+       return res;
+     })); 
+  };
   
 
 
