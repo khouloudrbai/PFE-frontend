@@ -12,8 +12,9 @@ import { SmsService } from '../services/sms.service';
 export class OutboxComponent {
   sms:any=[];
   form!:any;
+  keyword:any;
   submitted=false;
-  pageSize: number = 3;
+  pageSize: number = 10;
    currentPage: number = 1;
   
  
@@ -32,9 +33,25 @@ export class OutboxComponent {
      this.getsms()
    }
        
-     onclick():void{
- 
-     }
+   onclick():void{
+     this.smsService.get_sms_detail(this.form.value.keyword,this.form.value.entry_date,this.form.value.end_date).subscribe(respond=>
+      
+      {
+        console.log(respond.isFailed)    
+        console.log(respond.data)    
+        console.log(respond.code)    
+
+
+
+        if(respond.isFailed==false && respond.code==='201'&& respond.data){
+              this.sms = respond.data ;
+        }
+       console.log(this.sms)
+     })
+    }
+
+
+
      getsms(){ 
        this.smsService.get_sms().subscribe(respond => {
  
@@ -42,7 +59,8 @@ export class OutboxComponent {
            this.sms = respond.data ;
      
            }
-       
+           console.log(this.sms)
+
        } )
      }
      //pagination des pages 

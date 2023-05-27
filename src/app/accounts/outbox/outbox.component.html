@@ -8,10 +8,10 @@
 
           <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Type</label>
           <div  class=" col-xl-2">
-            <input list="typesList" class="form-control" name="status" placeholder="type">
+            <input list="typesList" class="form-control" formControlName="keyword" name="status" placeholder="type">
 			<datalist id="typesList">
 			<option value="Delivered">
-			<option value="UnDelivered">
+			<option value="Undelivered">
 			</datalist>
 		  </div>
 
@@ -67,15 +67,17 @@
 										</div>
 									</td>
 									<td>
-										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'und' : 'del'">
-											{{ group.statuts === 1 ? 'Undelivered' : 'Delivered' }}
+										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'del' : 'und'">
+											{{ group.statuts === 1 ? 'Delivered' : 'Undelivered' }}
 										  </div>
 										  
 									</td>
 									<td>
-										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'und' : 'del'">
-											{{ group.statuts === 1 ? '.' : '.' }}
+										 <div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'ptv' : 'ptr'">
+											{{ group.statuts === 1 ? ' ' : ' ' }}
 										  </div>
+										 
+
 										  
 									</td>
 								</tr>

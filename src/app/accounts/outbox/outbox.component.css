@@ -110,3 +110,30 @@
 
 
 }
+
+.ptv {
+
+  color:#19d895;
+  background-color: #19d895;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+ 
+}
+
+.ptr {
+
+  color:red;
+  background-color: red;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+ 
+}
+

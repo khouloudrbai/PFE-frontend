@@ -38,6 +38,14 @@ export class SmsService {
       return res;
     }));
   }
+
+  get_sms_detail( keyword:any,entry_date:any,end_date:any )
+  {  
+    return this.http.post<any>(this.url + '/apisendsms/smsdetail', {keyword,entry_date,end_date}).pipe(map(res => {
+      console.log(res);
+      return res;
+    }));
+  }
   
 
   
