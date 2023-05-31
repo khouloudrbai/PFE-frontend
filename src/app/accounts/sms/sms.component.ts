@@ -64,9 +64,8 @@ ngOnInit(): void {
         const timeDifference = selectedDateTime - currentDateTime;
   
         // Navigate to another page while counting down to the SMS sending
-        this.router.navigate(['/acceuil']);
+       // this.router.navigate(['/acceuil']);
   
-        setTimeout(() => {
           this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.form.value.sender).subscribe(respond => {
             console.log(respond);
             console.log(respond.statusCode);
@@ -79,9 +78,8 @@ ngOnInit(): void {
             }
   
             // Navigate back to the homepage after SMS sending is completed
-            this.router.navigate(['/acceuil']);
+           // this.router.navigate(['/acceuil']);
           });
-        }, timeDifference);
       }
     } else {
       this.alertWithNoSuccess();

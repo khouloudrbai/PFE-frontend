@@ -29,8 +29,7 @@ import { TestComponent } from './accounts/test/test.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 import { ProgrammerComponent } from './accounts/programmer/programmer.component';
-
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +70,7 @@ import { ProgrammerComponent } from './accounts/programmer/programmer.component'
     
     
   ],
-  providers: [LoginService],
+  providers: [LoginService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

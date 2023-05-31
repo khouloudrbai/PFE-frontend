@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { DashboardService } from '../services/dashboard.service';
 import { Chart } from 'chart.js/auto';
 import { StatistiqueService } from '../services/statistique.service';
-
-
+import { DatePipe } from '@angular/common';
+ 
 @Component({
   selector: 'app-acceuil',
   templateUrl: './acceuil.component.html',
@@ -21,29 +20,37 @@ export class AcceuilComponent implements OnInit {
   chart: any;
   chartline:any;
   label: string[] = [];
+  labeljr: any=[];
+  nbser: any[] = [];
   num: any[] = [];
+
+  numjr: any[] = [];
+  numsms: any;
   index=1;
-  constructor(public dashboardService:DashboardService,public statistiqueService:StatistiqueService){}
+  endDate:any;
+  p_begin_date:any;
+  p_end_date:any;
+
+  constructor(public dashboardService:DashboardService,public statistiqueService:StatistiqueService,private datePipe: DatePipe){}
 
   currentDate: Date = new Date();
 
   
    ngOnInit(): void {
+    this.p_begin_date ='2023-01-01 00:00:00';
+    this.p_end_date ='2023-06-01 00:00:00';
     this.get_number_players();
     this.get_number_services();
     this.get_number_players_ajr();
-    this.createChart();
-    this.createChartline();
-   this.createChartline2();
-   this.get_service_statistics();
-   
-    
-}
+    this.getJoueurStat();
+    this.getSmsStat()
+    this.JoueurpieChart()
+  }
 
+ 
+  
   get_number_players(){
    this.dashboardService.get_number_players().subscribe(respond=>{
-    console.log(respond)
-    console.log(respond.data)
     if(respond.isFailed == false && respond.code === '201' && respond.data)
      { 
       this.player_count = respond.data;
@@ -53,131 +60,188 @@ export class AcceuilComponent implements OnInit {
 
   get_number_services(){
     this.dashboardService.get_number_services().subscribe(respond=>{
-     console.log(respond)
-     console.log(respond.data)
+
      if(respond.isFailed == false && respond.code === '201' && respond.data)
       { 
         this.service_count = respond.data;
 
       }
     })
-   }
+  }
 
-   get_number_players_ajr(){
+  get_number_players_ajr(){
     this.dashboardService.get_number_players_ajr().subscribe(respond=>{
-     console.log(respond)
-     console.log(respond.data)
      if(respond.isFailed == false && respond.code === '201' && respond.data)
       { 
        this.player_count_ajr = respond.data;
       }
     })
-   }
-   
- 
- 
-
- 
- 
-   createChart(){
- 
-     this.statistiqueService.Get_joueur_perservice().subscribe(response => { 
-   console.log(response.data); 
-   this.label = response.data.map((game: { libelle: string }) => game.libelle); 
-   this.num = response.data.map((game: { number_gamers : string }) => game.number_gamers); 
-   console.log(this.num);
-   console.log(this.label);
- 
-   
-   this.chart = new Chart("MyChart", {
-     type: 'pie', 
- 
-     data: {
-       labels: this.label,
-        datasets: [{
-         label: 'Number gamers of service ',
-         data: this.num,
-         backgroundColor: [
-           "rgba(255, 0, 0, 0.5)",
-           "rgba(100, 255, 0, 0.5)",
-             "rgba(200, 50, 255, 0.5)",
-             "rgba(0, 100, 255, 0.5)"
-         ],
-         hoverOffset: 4
- }],
-     },
- 
-    //  options: {
-    //    aspectRatio:2.5
-    //  }
-   });
-   })
   }
 
- //chartline 1
- createChartline(){
-  
-  this.chartline = new Chart("MyChartt", {
-    type: 'line', //this denotes tha type of chart
-    data: {// values on X-Axis
-      labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-               '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+ 
+CreateChartJoueurs(labels:any,data:any)
+{
+  this.chartline = new Chart("playersChart", {
+    type: 'line', 
+    data: {
+      labels: labels, 
        datasets: [
         {
-          label: "SMS",
-          data: ['467','576', '572', '79', '92',
-               '574', '573', '576'],
-               backgroundColor:"rgba(0,0,255,1.0)",
-               borderColor: "rgba(0,0,255,0.1)",
-                }
+          type: 'line', 
+          label: "players",
+          data:data,
+          fill:true,
+          borderColor : 'rgb(54,162,235)',
+            backgroundColor:"blue",
+        }
       ]
     },
-    options: {
-      
-    },
-    
 
-    
+
   });
+}
+
+getJoueurStat(){
+  let labels : any[]=[];
+  let data : any[]=[];
+    this.statistiqueService.Get_joueur_perdate(this.p_begin_date,this.p_end_date).subscribe(respond => { 
+      console.log('********************************************')
+       console.log(respond.data);
+       if(respond && respond.data && respond.data.length  >0 )
+       {
+        respond.data.forEach((element:any) => {
+          labels.push(this.datePipe.transform(element.entry_date , 'yyyy-MM-dd'))
+          data.push(element.nbr_joueur)
+          
+         });
+         console.log(labels);
+         console.log(data)
+         this.CreateChartJoueurs(labels,data);
+      }
+      
+    else 
+    {
+      labels = [];
+      data = [];
+    }
+       })
+          
+ 
  }
- //chartline 2
- createChartline2(){
-  
-   this.chartline = new Chart("MyCharttt", {
-     type: 'bar', //this denotes tha type of chart
-  
-     data: {// values on X-Axis
-       labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-                '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+
+
+
+ CreateChartSMS(labelssms:any,datasms:any)
+ {
+   this.chartline = new Chart("SMSChart", {
+     data: {
+       labels: labelssms, 
         datasets: [
          {
-           label: "Players",
-           data: ['467','576', '572', '79', '92',
-                '574', '573', '576'],
-           backgroundColor: 'red'
+          type: 'bar', 
+          label: "SMS",
+           data:datasms,
+           borderColor : 'rgb(54,162,235)',
+             backgroundColor:"blue",
          }
        ]
      },
-    //  options: {
-    //    aspectRatio:2.5
-    //  }
-     
+ 
+ 
    });
-  }
+ }
+ getSmsStat(){
+  let labelssms : any[]=[];
+  let datasms : any[]=[];
+    this.statistiqueService.Get_sm_perdate(this.p_begin_date,this.p_end_date).subscribe(respond => { 
+      console.log('********************************************')
+       console.log(respond.data);
+       if(respond && respond.data && respond.data.length  >0 )
+       {
+        respond.data.forEach((element:any) => {
+          labelssms.push(this.datePipe.transform(element.entry_date , 'yyyy-MM-dd'))
+          datasms.push(element.nbr_sms)
+          
+         });
+         console.log(labelssms);
+         console.log(datasms)
+         this.CreateChartSMS(labelssms,datasms);
+      }
+      
+    else 
+    {
+      labelssms = [];
+      datasms = [];
+    }
+       })
+          
+ 
+ }
+
+
+ CreateChartJoueurParService(labelservice:any,dataservice:any)
+ {
+   this.chartline = new Chart("JoueurPerServiceChart", {
+     data: {
+       labels: labelservice, 
+        datasets: [
+         {
+          type: 'pie', 
+          label: "Joueur Par Service",
+           data:dataservice,
+           backgroundColor: [
+            "rgba(255, 0, 0, 0.5)",
+            "rgba(100, 255, 0, 0.5)",
+              "rgba(200, 50, 255, 0.5)",
+              "rgba(0, 100, 255, 0.5)"
+          ],
+          hoverOffset: 4
+         }
+       ]
+     },
  
  
- 
-  get_service_statistics(){
-   this.statistiqueService.get_service_statistics().subscribe(respond=>{
-    console.log(respond)
-    console.log(respond.data)
-    if(respond.isFailed == false && respond.code === '201' && respond.data)
-     { 
-       this.services = respond.data;
- 
+   });
+ }
+
+ JoueurpieChart(){
+   
+    let labelservice : any[]=[];
+    let dataservice : any[]=[];
+   
+       this.statistiqueService.Get_joueur_perservice().subscribe(respond => { 
+       
+        console.log('********************************************')
+        console.log(respond.data);
+        if(respond && respond.data && respond.data.length  >0 )
+        {
+         respond.data.forEach((element:any) => {
+          labelservice.push(element.libelle)
+          dataservice.push(element.v_number)
+
+           
+          });
+          console.log(labelservice);
+          console.log(dataservice)
+          this.CreateChartJoueurParService(labelservice,dataservice);
+       }
+       
+     else 
+     {
+      labelservice = [];
+      dataservice = [];
      }
-   })
-  }
+
+  })
+     
+ 
+      
+}
+ 
+ 
+ 
+ 
+  
   
    
 

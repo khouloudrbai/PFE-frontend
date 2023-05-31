@@ -8,7 +8,7 @@
             <div class="container-fluid">
               <div class="main">
                   <div class="row sparkboxes mt-4">
-                  <div class="col-md-4">
+                  <div class="col-md-4"> 
                     <div class="box1 shadow-lg">
                         <div class="box">
                             <h3 >{{player_count}}</h3>
@@ -59,19 +59,14 @@
               <!-- first row --------------------------------------------------------------->
               <div class="row">
                 <!-- Area Chart -------------------------------------------------------->
-                <div class="col-xl-12 col-lg-12">
+                <div class="col-lg-12">
                   <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">SMS Overview</h6>
+                        <h6 class="m-0 font-weight-bold text-primary"> Players Overview</h6>
                     </div>
                     <div class="card-body">
-                      <div class="chart-area">
-                        <div class="chartjs-size-monitor">
-                          <div class="chartjs-size-monitor-expand">
-                            <div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                      <canvas  id="MyChartt" >{{ chartline }}</canvas>
-                      </div>
+                      <canvas  id="playersChart" height="100" ></canvas>
                     </div>
                   </div>
                 </div>
@@ -83,10 +78,10 @@
                 <div class="col-lg-12 mb-4">
                   <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                      <h6 class="m-0 font-weight-bold text-primary">Players</h6>
+                      <h6 class="m-0 font-weight-bold text-primary">SMS Overview</h6>
                   </div>
                 <div class="card-body">
-                  <canvas   id="MyCharttt" ></canvas>
+                  <canvas   id="SMSChart" height="100"  ></canvas> 
                 </div>
               
               </div>
@@ -94,13 +89,12 @@
                 <!-- Pie chart ------------------------------------------------------------------>
                 <div class="col-xl-6 col-lg-6">
                   <div class="card shadow mb-4">
-                      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                      <div class="card-header py-3 ">
                           <h6 class="m-0 font-weight-bold text-primary"> Players per Service</h6>
                           
                       </div>
-                      <div class="card-body" style="min-height:400px;" >
-                              <canvas id="MyChart"  ></canvas>
-                        
+                      <div class="card-body"  >
+                          <canvas id="JoueurPerServiceChart"  ></canvas> 
                       </div>
                   </div>
               </div>

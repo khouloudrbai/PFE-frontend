@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../services/user.service";
 import Swal from "sweetalert2";
+import { Location } from "@angular/common";
+
 @Component({
   selector: "my-sidebar",
   templateUrl: "./sidebar.component.html",
@@ -15,16 +17,22 @@ export class SidebarComponent {
   email:any;
   pwd:any;
   verif:any;
-  constructor(private router:Router,private userService:UserService){}
+  constructor(private router:Router,private userService:UserService,private location:Location){}
  
 
 onclick():void{
 this.router.navigate(['./profile']);
 }
-logout():void{
-  localStorage.removeItem('currentUser');
-  this.router.navigate(['./login'])
+
+
+logout(): void {
+  sessionStorage.removeItem('user');
+  this.router.navigate(['/login']); 
+  this.location.replaceState('/');
+
+
 }
+
   showMyContainer: boolean = false;
 
   status: boolean = false;

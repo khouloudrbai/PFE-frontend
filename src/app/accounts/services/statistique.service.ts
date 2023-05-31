@@ -14,20 +14,32 @@ export class StatistiqueService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Get_joueur_perservice()
+  Get_id_service()
   {  
-    return this.http.post<any>(this.url + '/Service/joueurperservice', {}).pipe(map(res => {
-       console.log(res);
-       res.data
+    return this.http.post<any>(this.url + '/Service/getserviceid', {}).pipe(map(res => {
        return res;
      }));    
   };
 
-  get_service_statistics()
+  Get_joueur_perservice()
   {  
-    return this.http.post<any>(this.url + '/Service/getserviceStat', {}).pipe(map(res => {
-       console.log(res);
-       res.data
+    return this.http.post<any>(this.url + '/Service/joueurperservice', {}).pipe(map(res => {
+     
+       return res;
+     }));    
+  };
+
+  Get_joueur_perdate(date_begin:any,date_end:any)
+  {  
+    return this.http.post<any>(this.url + '/player/joueurperperiode', {date_begin,date_end}).pipe(map(res => {
+
+       return res;
+     }));    
+  };
+  Get_sm_perdate(date_begin:any,date_end:any)
+  {  
+    return this.http.post<any>(this.url + '/apisendsms/smsperperiode', {date_begin,date_end}).pipe(map(res => {
+
        return res;
      }));    
   };

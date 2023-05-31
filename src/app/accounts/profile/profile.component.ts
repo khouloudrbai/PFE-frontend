@@ -98,7 +98,7 @@ export class ProfileComponent implements OnInit {
           this.id_user = JSON.parse(user).id_user ;
         }
         console.log(this.id_user)
-        this.userService.get_one_user(this.id_user).subscribe(respond=>{
+        this.userService.get_one_user(parseInt(this.id_user)).subscribe(respond=>{
             console.log(respond);
 
             if(respond.isFailed == false && respond.code === '201' && respond.data)
@@ -163,6 +163,8 @@ export class ProfileComponent implements OnInit {
   }
   })
  }
+
+
 }
 
 

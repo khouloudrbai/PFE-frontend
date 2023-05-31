@@ -24,6 +24,7 @@
     "@mdi/light-font": "^0.2.63",
     "bootstrap": "^5.2.3",
     "chart.js": "^4.3.0",
+    "jwt-decode": "^3.1.2",
     "ngx-bootstrap": "^10.2.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.7.2",

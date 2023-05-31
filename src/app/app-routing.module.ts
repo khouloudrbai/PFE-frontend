@@ -21,13 +21,13 @@ import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.c
 import { ProgrammerComponent } from './accounts/programmer/programmer.component';
 
 import { TestComponent } from './accounts/test/test.component';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {  path:  'login', component:  LoginComponent},
+  {  path:  'login', component:  LoginComponent },
   {  path:  'acceuil', component:  AcceuilComponent},
-  {  path:  'table', component:  TableComponent},
+  {  path:  'table', component:  TableComponent,},
   {  path:  'profile', component:  ProfileComponent},
- // {  path:  'test', component:  TestComponent},
   {  path:  'addadmin', component:  AddadminComponent},
   {  path:  'sms', component:  SmsComponent},
   {  path:  'details/:id_player', component:  DetailsComponent},
