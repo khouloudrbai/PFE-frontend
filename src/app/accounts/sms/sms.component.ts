@@ -12,7 +12,8 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class SmsComponent implements OnInit{
   form!:FormGroup;
-  items:any;
+  items:any; 
+  sender='TunSMS Test';
   constructor(private smsService:SmsService,private formBuilder:FormBuilder,private router:Router,public modalRef: BsModalRef,private modalService: BsModalService)
   {this.form = this.formBuilder.group(
     {
@@ -33,12 +34,11 @@ ngOnInit(): void {
   console.log(msisdn)
    this.form.setValue({
     myMobile:msisdn,
-    sender:'',
+    sender:'TunSMS Test',
     mySms:'',
     myDate:'',
 
   })
-
 
 }
   alertWithSuccess(){
@@ -52,21 +52,10 @@ ngOnInit(): void {
 
   send_sms() { 
      sessionStorage.setItem('user',JSON.stringify(this.form.value.myDate));  
+    if (this.form.value.myMobile !== "" && this.form.value.mySms !== "" ) {
 
-    if (this.form.value.myMobile !== "" && this.form.value.mySms !== "" && this.form.value.sender !== "") {
-      const selectedDateTime = new Date(this.form.value.myDate).getTime();
-      const currentDateTime = new Date().getTime();
-  
-      if (selectedDateTime <= currentDateTime) {
-        // Selected date is in the past, show error alert
-        this.alertWithNoSuccess();
-      } else {
-        const timeDifference = selectedDateTime - currentDateTime;
-  
-        // Navigate to another page while counting down to the SMS sending
-       // this.router.navigate(['/acceuil']);
-  
-          this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.form.value.sender).subscribe(respond => {
+
+          this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.sender).subscribe(respond => {
             console.log(respond);
             console.log(respond.statusCode);
             console.log(respond.success);
@@ -76,23 +65,16 @@ ngOnInit(): void {
             } else {
               this.alertWithNoSuccess();
             }
-  
-            // Navigate back to the homepage after SMS sending is completed
-           // this.router.navigate(['/acceuil']);
+
           });
       }
-    } else {
-      this.alertWithNoSuccess();
-    }
+      else{
+        this.alertWithNoSuccess()
+      }
+    
   }
   
-  
-  public openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template); 
-  } 
-  close() {
-    this.modalService.hide(); 
-}
+
 
 }
  

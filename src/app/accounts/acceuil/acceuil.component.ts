@@ -92,7 +92,7 @@ CreateChartJoueurs(labels:any,data:any)
           data:data,
           fill:true,
           borderColor : 'rgb(54,162,235)',
-            backgroundColor:"blue",
+            backgroundColor:"#ABDCFF",
         }
       ]
     },
@@ -142,7 +142,7 @@ getJoueurStat(){
           label: "SMS",
            data:datasms,
            borderColor : 'rgb(54,162,235)',
-             backgroundColor:"blue",
+             backgroundColor:"#EE9AE5",
          }
        ]
      },
@@ -193,7 +193,9 @@ getJoueurStat(){
             "rgba(255, 0, 0, 0.5)",
             "rgba(100, 255, 0, 0.5)",
               "rgba(200, 50, 255, 0.5)",
-              "rgba(0, 100, 255, 0.5)"
+              "rgba(0, 100, 255, 0.5)",
+              "#FFD3A5",
+              "#ABDCFF"
           ],
           hoverOffset: 4
          }

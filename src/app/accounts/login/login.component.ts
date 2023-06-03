@@ -68,7 +68,6 @@ onLoginSubmit(): void {
   }
 
   this.loginService.Contact_auth(this.loginForm.value.email, this.loginForm.value.pwd).subscribe(respond => {
-    console.log('***********************************************');
     const token = respond.data?.token; // Check if token is present
     console.log(token);
 
