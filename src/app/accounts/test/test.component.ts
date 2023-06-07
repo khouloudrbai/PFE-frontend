@@ -1,64 +1,83 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
-import { Chart } from 'chart.js';
-import { DashboardService } from '../services/dashboard.service';
-import { StatistiqueService } from '../services/statistique.service';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Router } from "@angular/router";
+import { UserService } from "../services/user.service";
+import Swal from "sweetalert2";
+import { Location } from "@angular/common";
+
 
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.css']
 })
-export class TestComponent  {
-  title = 'Select/ Unselect All Checkboxes in Angular - FreakyJolly.com';
-  masterSelected:boolean;
-  checklist:any;
-  checkedList:any;
+export class TestComponent  { 
+  @Input() isExpanded: boolean = false;
+  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(){
-      this.masterSelected = false;
-      this.checklist = [
-        {id:1,value:'Elenor Anderson',isSelected:false},
-        {id:2,value:'Caden Kunze',isSelected:true},
-        {id:3,value:'Ms. Hortense Zulauf',isSelected:true},
-        {id:4,value:'Grady Reichert',isSelected:false},
-        {id:5,value:'Dejon Olson',isSelected:false},
-        {id:6,value:'Jamir Pfannerstill',isSelected:false},
-        {id:7,value:'Aracely Renner DVM',isSelected:false},
-        {id:8,value:'Genoveva Luettgen',isSelected:false}
-      ];
-      this.getCheckedItemList();
-  }
+  image:any;
+  email:any;
+  pwd:any;
+  verif:any;
+  constructor(private router:Router,private userService:UserService,private location:Location){}
+ 
 
-  // The master checkbox will check/ uncheck all items
-  checkUncheckAll() {
-    for (var i = 0; i < this.checklist.length; i++) {
-      this.checklist[i].isSelected = this.masterSelected;
+onclick():void{
+this.router.navigate(['./profile']);
+}
+
+
+logout(): void {
+  sessionStorage.removeItem('user');
+  this.router.navigate(['/login']); 
+  this.location.replaceState('/');
+
+
+}
+
+  showMyContainer: boolean = false;
+
+  status: boolean = false;
+  statusLink: boolean = false;
+  clickEvent() {
+    this.status = !this.status;
+    //this.statusLink = !this.statusLink;
+
+    if (this.statusLink) {
+      setTimeout(() => {
+        this.statusLink = false;
+      }, 230);
+    } else {
+      this.statusLink = true;
     }
-    this.getCheckedItemList();
   }
+  ngOnInit(): void {
 
-  // Check All Checkbox Checked
-  isAllSelected() {
-    this.masterSelected = this.checklist.every(function(item:any) {
-        return item.isSelected == true;
-      })
-    this.getCheckedItemList();
-  }
-
-  // Get List of Checked Items
-  getCheckedItemList(){
-    this.checkedList = [];
-    for (var i = 0; i < this.checklist.length; i++) {
-      if(this.checklist[i].isSelected)
-      this.checkedList.push(this.checklist[i]);
+    let user = sessionStorage.getItem('user');
+    console.log(user);
+    if(user )
+    {
+      this.image=JSON.parse(user).picture;
+      this.email=JSON.parse(user).mail;
+      this.pwd=JSON.parse(user).pwd;
     }
-    this.checkedList = JSON.stringify(this.checkedList);
-    
-
-
+   this.verify()
   }
+onmodifie(){
+  this.router.navigate(['./modifierprofil']);
 
+}
+motdpass(){
+  this.router.navigate(['./modifiermotdepasse']);
+}
+verify(){
+  this.userService.verify(this.email,this.pwd).subscribe
+  (respond=>{
+   console.log(respond.data);
+   this.verif=respond.data;
+  
+  })
+}
+click(){
+  Swal.fire('error')
+}
 }

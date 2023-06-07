@@ -1,7 +1,10 @@
-<my-sidebar></my-sidebar>
+<div class="sidebar">
 
-<div class="main-content" style="background-color: #f1f0f0; min-height: 100vh;">
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
+	<my-sidebar></my-sidebar>
+  
+  </div>
+  
+  <div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
 		<form  [formGroup]="form">
 		   <h1>	<i class="fas fa-regular fa-table fa-fw me-3"></i> OutBox</h1> 
 		   <div class="form-group row mt-4">
@@ -50,7 +53,7 @@
 								</tr>
 							</thead>
 							<tbody >
-								<tr class="candidates-list" *ngFor="let group of sms"> 
+								<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
 									<td class="title">
 											 <div class="candidate-list-title">
 										        {{group.mobile}}
@@ -86,19 +89,19 @@
 						<div class="d-flex justify-content-end align-items-center mt-3">
 							<ul class="pagination p-effect">
 								<li [class.disabled]="currentPage === 1">
-								  <a (click)="prevPage()">Previous</a>
+									<a (click)="prevPage()">Previous</a>
 								</li>
 								<li >
 									<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
 								</li>
 								<li [class.disabled]="currentPage === totalPages">
-								  <a (click)="nextPage()">Next</a>
+									<a (click)="nextPage()">Next</a>
 								</li>
-							  </ul>
+							</ul>		
 						</div>
+						  
 					</div>
 				</div>	
 			</div>
 		</div>
-	</main>
 </div>

@@ -4,7 +4,7 @@ import { SmsService } from '../services/sms.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-sms',
   templateUrl: './sms.component.html',
@@ -14,7 +14,9 @@ export class SmsComponent implements OnInit{
   form!:FormGroup;
   items:any; 
   sender='TunSMS Test';
-  constructor(private smsService:SmsService,private formBuilder:FormBuilder,private router:Router,public modalRef: BsModalRef,private modalService: BsModalService)
+  currentdate:any;
+  date:any;
+  constructor(private smsService:SmsService,private formBuilder:FormBuilder,private router:Router,public modalRef: BsModalRef,private modalService: BsModalService,public datepipe:DatePipe)
   {this.form = this.formBuilder.group(
     {
      
@@ -39,6 +41,10 @@ ngOnInit(): void {
     myDate:'',
 
   })
+this.currentdate=new Date();
+this.currentdate=this.datepipe.transform(this.currentdate, 'yyyy-MM-ddTHH:mm:ss')
+
+console.log(this.currentdate)
 
 }
   alertWithSuccess(){
@@ -50,31 +56,43 @@ ngOnInit(): void {
     this.router.navigate(['./sms'])
   }
 
-  send_sms() { 
-     sessionStorage.setItem('user',JSON.stringify(this.form.value.myDate));  
-    if (this.form.value.myMobile !== "" && this.form.value.mySms !== "" ) {
-
-
-          this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.sender).subscribe(respond => {
-            console.log(respond);
-            console.log(respond.statusCode);
-            console.log(respond.success);
-  
-            if (respond.statusCode == '200') {
-              this.alertWithSuccess();
-            } else {
-              this.alertWithNoSuccess();
-            }
-
-          });
-      }
-      else{
-        this.alertWithNoSuccess()
-      }
+  send_sms() {
+    this.date = this.datepipe.transform(this.form.value.myDate, 'yyyy-MM-ddTHH:mm:ss');
+    console.log(this.date);
+    if (this.form.value.myMobile !== "" && this.form.value.mySms !== "") {
+      if (this.date !== null && this.date !== this.currentdate) {
+        this.smsService.sms_prog(this.form.value.myMobile, this.form.value.mySms, this.sender, this.date).subscribe(respond => {
+          console.log(respond);
+          console.log(respond.message);
     
+          if (respond.success == true) {
+            this.alertWithSuccess();
+            this.router.navigate(['/acceuil']);
+          } else {
+            this.alertWithNoSuccess();
+          }
+        });
+      } else {
+        this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.sender, this.date).subscribe(respond => {
+          console.log(respond.message);
+          console.log(respond.statusCode);
+          console.log(respond.success);
+    
+          if (respond.statusCode == '200') {
+            this.alertWithSuccess();
+          } else {
+            this.alertWithNoSuccess();
+          }
+        });
+      }
+    }
+      else {
+      this.alertWithNoSuccess();
+    }
   }
   
-
-
+    
+   
 }
+
  

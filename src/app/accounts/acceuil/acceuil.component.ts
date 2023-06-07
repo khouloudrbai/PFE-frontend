@@ -37,8 +37,14 @@ export class AcceuilComponent implements OnInit {
 
   
    ngOnInit(): void {
-    this.p_begin_date ='2023-01-01 00:00:00';
-    this.p_end_date ='2023-06-01 00:00:00';
+    //get the last 6 months data 
+    this.p_begin_date = new Date();
+    this.p_begin_date.setMonth(this.p_begin_date.getMonth() - 6);
+    this.p_begin_date = this.datePipe.transform(this.p_begin_date, 'yyyy-MM-dd HH:mm:ss');
+    
+    this.p_end_date = new Date();
+    this.p_end_date = this.datePipe.transform(this.p_end_date, 'yyyy-MM-dd HH:mm:ss');
+
     this.get_number_players();
     this.get_number_services();
     this.get_number_players_ajr();

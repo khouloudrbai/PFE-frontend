@@ -17,7 +17,7 @@ export class ListuserComponent implements OnInit{
   pageSize: number = 3;
   currentPage: number = 1;
   IsmodelShow:any;
-    // {1}
+
   constructor(private userService: UserService ,private router: Router,private modalService: BsModalService,public modalRef: BsModalRef) {}
 
   ngOnInit() {
@@ -114,6 +114,7 @@ export class ListuserComponent implements OnInit{
   add(){
     this.router.navigate(['./addadmin'])
   }
+  
   navigateToLocation(address: string): void {
     const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
     window.open(mapUrl, '_blank');

@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import jwt_decode from 'jwt-decode';
-import { Token } from '@angular/compiler';
 
 
 @Component({

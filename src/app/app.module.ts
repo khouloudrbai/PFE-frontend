@@ -28,7 +28,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TestComponent } from './accounts/test/test.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
-import { ProgrammerComponent } from './accounts/programmer/programmer.component';
 import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
@@ -50,7 +49,7 @@ import { DatePipe } from '@angular/common';
     TestComponent,
     ConfirmpasswordComponent,
     ResetpasswordComponent,
-    ProgrammerComponent,
+  
     
      
            

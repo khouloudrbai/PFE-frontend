@@ -14,9 +14,9 @@ export class PlayerService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  get_player(service_libelle :any,libelle_type_service:any,entry_date:any,date_end:any)
+  get_player(service_libelle :any,type_service_libelle:any,entry_date:any,date_end:any)
   {  
-    return this.http.post<any>(this.url + '/player/get', {service_libelle,libelle_type_service,entry_date,date_end}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/player/get', {service_libelle,type_service_libelle,entry_date,date_end}).pipe(map(res => {
        console.log(res);
        console.log(res.data);
        res.data

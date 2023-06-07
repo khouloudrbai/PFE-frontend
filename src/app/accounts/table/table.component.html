@@ -1,6 +1,10 @@
-<my-sidebar></my-sidebar>
-<div class="main-content" style="background-color: #f1f0f0; min-height: 100vh;">
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" >
+<div class="sidebar">
+
+	<my-sidebar></my-sidebar>
+  
+  </div>
+  
+  <div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
 		<form [formGroup]="form">
             <h1> <i class="fas fa-regular fa-users fa-fw me-3" ></i>Players</h1>
 			<div class="row bootstrap snippets bootdeys mt-4 "> 
@@ -65,12 +69,14 @@
 								<th> Mobile</th>
 								<th >Services</th>
 								<th>Entry Date</th>
-								<th class="action text-right">Detail</th>
+								<th>Type service</th>
+
 
 							</tr>
 						</thead>
 						<tbody >
-							<tr class="candidates-list" *ngFor="let group of players"> 
+							<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
+
 
 								<td class="title">
 									<div class="candidate-list-details">
@@ -95,11 +101,8 @@
 								   <i class=" fa fa-gamepad "></i>{{group.service}}
 								</td>
 								<td>{{group.entry_date}}</td>
-								<td>
-									<ul class="list-unstyled mb-0 d-flex justify-content-end">
-										<li><a  class="text-primary" data-toggle="tooltip" title="" data-original-title="view" (click)="consulter(group.id_player)" ><i class="far fa-eye"></i></a></li>
-									</ul>
-								</td>
+								<td>{{group.type}}</td>
+
 							</tr>
 						</tbody>
 					</table>
@@ -137,5 +140,4 @@
 		<div class="col-md-6">
 			<code></code>
 		  </div>
-	</main>
 </div>

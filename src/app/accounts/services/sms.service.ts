@@ -14,19 +14,18 @@ export class SmsService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Send_SMS( mobile:any,sms:any,sender:any )
+  Send_SMS( mobile:any,sms:any,sender:any,date:any)
   {  
 
     console.log(mobile +'  ',sms + '  ',sender)
-    return this.http.post<any>(this.url + '/apisendsms/send-sms', {mobile,sms,sender}).pipe(map(res => {
-     // console.log(res);
+    return this.http.post<any>(this.url + '/apisendsms/send-sms', {mobile,sms,sender,date}).pipe(map(res => {
+     console.log(res);
       return res;
     }));
   }
-  sms_prog(  )
+  sms_prog( mobile:any,sms:any,sender:any,myDate:any )
   {  
-    return this.http.post<any>(this.url + '/apisendsms/sms_prog', {}).pipe(map(res => {
-     // console.log(res);
+    return this.http.post<any>(this.url + '/apisendsms/schedule-sms', {mobile,sms,sender,myDate}).pipe(map(res => {
       return res;
     }));
   }
