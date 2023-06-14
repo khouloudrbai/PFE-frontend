@@ -25,8 +25,9 @@ export class ListuserComponent implements OnInit{
   }
 
   getuser() { 
+    console.log(this.id_user)
     this.userService.get_user(this.id_user.toString()).subscribe(respond => {
-      console.log(respond);
+      console.log(respond.data);
       console.log(respond.isFailed);
       console.log(respond.code);
       if(respond.isFailed == false && respond.code === '201' && respond.data){
@@ -47,7 +48,7 @@ export class ListuserComponent implements OnInit{
   modifier(id_user: any) {
     console.log(id_user)
     this.userService.get_one_user(id_user).subscribe(respond => {
-      console.log(respond);
+      console.log('modifier',respond.data);
       sessionStorage.setItem('id',JSON.stringify(respond.data));
     });
     this.router.navigate(['./userprofile/'+ id_user])

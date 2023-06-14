@@ -65,7 +65,6 @@ onLoginSubmit(): void {
   if (this.loginForm.invalid) {
     return;
   }
-
   this.loginService.Contact_auth(this.loginForm.value.email, this.loginForm.value.pwd).subscribe(respond => {
     const token = respond.data?.token; // Check if token is present
     console.log(token);
@@ -103,15 +102,5 @@ onLoginSubmit(): void {
   console.log(JSON.stringify(this.loginForm.value, null, 2));
 }
 
- 
 
- onReset(): void {
-   this.submitted = false;
-   this.loginForm.reset();
- }
-
- forget():void {
-  this.router.navigate(['/motdepasse']);
- }
- 
 }

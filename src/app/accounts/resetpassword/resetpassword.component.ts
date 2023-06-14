@@ -71,7 +71,7 @@ export class ResetpasswordComponent  {
 
    resetpassword(){ 
     this.submitted=true;
-    this.codeService.reset_pwd(this.user_id,this.form.value.newPassword).subscribe
+    this.codeService.reset_pwd(this.form.value.newPassword,this.user_id).subscribe
     (respond=>{
      console.log(respond);
      if(respond.isFailed == false && respond.code === '201' && respond.data)

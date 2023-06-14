@@ -53,7 +53,8 @@ export class ProfileComponent implements OnInit {
         firstname:['',[Validators.required],],
         lastname:['',[Validators.required],],
         old_pwd:['',[Validators.required],],
-      
+        entry_date:['',[Validators.required],],
+
         picture:['',[Validators.required],],  
         newPassword: this.newPassword,
         confirmPassword: this.confirmPassword,
@@ -99,7 +100,7 @@ export class ProfileComponent implements OnInit {
         }
         console.log(this.id_user)
         this.userService.get_one_user(parseInt(this.id_user)).subscribe(respond=>{
-            console.log(respond);
+            console.log(respond.data);
 
             if(respond.isFailed == false && respond.code === '201' && respond.data)
             {
@@ -112,6 +113,8 @@ export class ProfileComponent implements OnInit {
                 lastname:respond.data[0].lastname,
 
                 picture:respond.data[0].picture,
+                entry_date:respond.data[0].entry_date,
+
               })
                this.image=respond.data[0].picture;
       }

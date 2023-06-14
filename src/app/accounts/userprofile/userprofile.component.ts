@@ -35,8 +35,9 @@ image:any;
         address: [ '',[Validators.required,]],
         firstname:['',[Validators.required],],
         lastname:['',[Validators.required],],
-
-        picture:['',[Validators.required],]
+       
+        picture:['',[Validators.required],],
+        entry_date:['',[Validators.required],]
 
       })
   }
@@ -53,7 +54,7 @@ image:any;
 
     this.userService.get_user(this.user_id.toString()).subscribe(respond => {
 
-    console.log(respond);
+    console.log(respond.data);
 
     if(respond.isFailed == false && respond.code === '201' && respond.data)
       {
@@ -64,8 +65,10 @@ image:any;
           address:respond.data[0].address,
           firstname:respond.data[0].firstname,
           lastname:respond.data[0].lastname,
-
+           
           picture:respond.data[0].picture,
+          entry_date:respond.data[0].entry_date,
+
         })
       this.id_user=respond.data[0].id_user;
       this.image=respond.data[0].picture;

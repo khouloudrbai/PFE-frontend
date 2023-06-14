@@ -4,9 +4,7 @@
   }
 }
 
-.clickable {
-  cursor: pointer;
-}
+
 
 
 .sidebarMenu{
@@ -35,6 +33,7 @@ header {
   width:100%;
 
 }
+
 
  .rounded-circle{
   width: 100%;
@@ -126,14 +125,7 @@ line-height: normal;
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  font-family: Roboto;
-  height: 100%;
-}
+
 
 .hide {
   display: none;
@@ -205,15 +197,6 @@ body {
   transition: text-indent 400ms ease-in-out;
 }
 
-.head-nav svg {
-  position: relative;
-  max-width: 80px;
-  max-height: 30px;
-  z-index: 1;
-  fill: #fefefe;
-  background: #ED1C5B;
-  transition: 400ms;
-}
 
 @media screen and (max-width: 768px) {
   .head-nav ul {

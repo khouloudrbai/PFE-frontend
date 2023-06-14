@@ -31,7 +31,9 @@ developerPic : any;
         mobile: [ '',[Validators.required,]],
         address: [ '',[Validators.required,]],
         firstname:['',[Validators.required],],
-        picture:['',[Validators.required],]
+        picture:['',[Validators.required],],
+        entry_date:['',[Validators.required],]
+
 
       })
   }
@@ -59,6 +61,8 @@ developerPic : any;
             address:respond.data[0].address,
             firstname:respond.data[0].firstname,
             picture:respond.data[0].picture,
+            entry_date:respond.data[0].entry_date,
+
           })
     
         this.developerPic = respond.data[0].picture;

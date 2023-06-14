@@ -13,18 +13,15 @@ export class ConfirmpasswordComponent implements OnInit {
   form!:FormGroup;
  
   constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService) {
-  
-  }
-
-  ngOnInit(): void {
-
     this.form = this.formbuilder.group(
       {
         mobile: [ '',[Validators.required,]],
         code: [ '',[Validators.required,]],
 
     })
+  }
 
+  ngOnInit(): void {
     let msisdn = sessionStorage.getItem('resetpwdmobile');
 
     this.form.setValue({
@@ -32,13 +29,12 @@ export class ConfirmpasswordComponent implements OnInit {
       code:''
     })
    }
+
    correctcode(){
     Swal.fire('Thank you...', 'code is correct', 'success')
-
    }
    notcorrectcode(){
     Swal.fire('Opps', 'code incorrect', 'error')
-
    }
    usernotfound(){
     Swal.fire('Opps', 'User not found ', 'error')
