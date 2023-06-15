@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardService } from '../services/dashboard.service';
 import { Chart } from 'chart.js/auto';
 import { StatistiqueService } from '../services/statistique.service';
 import { DatePipe } from '@angular/common';
@@ -31,7 +30,7 @@ export class AcceuilComponent implements OnInit {
   p_begin_date:any;
   p_end_date:any;
 
-  constructor(public dashboardService:DashboardService,public statistiqueService:StatistiqueService,private datePipe: DatePipe){}
+  constructor(public statistiqueService:StatistiqueService,private datePipe: DatePipe){}
 
   currentDate: Date = new Date();
 
@@ -56,7 +55,7 @@ export class AcceuilComponent implements OnInit {
  
   
   get_number_players(){
-   this.dashboardService.get_number_players().subscribe(respond=>{
+   this.statistiqueService.get_number_players().subscribe(respond=>{
     if(respond.isFailed == false && respond.code === '201' && respond.data)
      { 
       this.player_count = respond.data;
@@ -65,7 +64,7 @@ export class AcceuilComponent implements OnInit {
   }
 
   get_number_services(){
-    this.dashboardService.get_number_services().subscribe(respond=>{
+    this.statistiqueService.get_number_services().subscribe(respond=>{
 
      if(respond.isFailed == false && respond.code === '201' && respond.data)
       { 
@@ -76,7 +75,7 @@ export class AcceuilComponent implements OnInit {
   }
 
   get_number_players_ajr(){
-    this.dashboardService.get_number_players_ajr().subscribe(respond=>{
+    this.statistiqueService.get_number_players_ajr().subscribe(respond=>{
      if(respond.isFailed == false && respond.code === '201' && respond.data)
       { 
        this.player_count_ajr = respond.data;
@@ -245,14 +244,6 @@ getJoueurStat(){
  
       
 }
- 
- 
- 
- 
-  
-  
-   
 
- 
 }
 

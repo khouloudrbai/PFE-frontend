@@ -16,7 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { AppBoostrapModule } from './accounts/app-bootstrap/app-bootstrap.module';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
-import { DetailsComponent } from './accounts/details/details.component';
 import { OutboxComponent } from './accounts/outbox/outbox.component';
 import { SidebarComponent } from './accounts/sidebar/sidebar.component';
 import { MotdepasseComponent } from './accounts/motdepasse/motdepasse.component';
@@ -39,7 +38,6 @@ import { HeaderComponent } from './accounts/header/header.component';
     ProfileComponent,
     AddadminComponent,
     SmsComponent,
-    DetailsComponent,
     OutboxComponent,
     SidebarComponent,
     MotdepasseComponent,

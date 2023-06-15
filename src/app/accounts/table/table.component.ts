@@ -1,6 +1,5 @@
 import { Component,OnInit,VERSION } from '@angular/core';
 import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { PlayerService } from '../services/playerservice';
 import { ServicesService } from '../services/services.service';
 import { FormGroup ,FormBuilder, Validators} from '@angular/forms';
@@ -92,17 +91,7 @@ export class TableComponent implements OnInit {
     } 
   }
     )}
-    
-    consulter(id_player:any){
-      console.log(id_player)
-      this.playerservice.get_joueur(id_player).subscribe(respond => {
-        console.log('testliste service',respond.data);
-        sessionStorage.setItem('id',JSON.stringify(respond.data));
-        
-      });
-      this.router.navigate(['./details/'+ id_player])
   
-    }
 
     getservice(){ 
       console.log('test')

@@ -14,12 +14,35 @@ export class StatistiqueService {
   //tabaath el request w tcapti el responce
   constructor(private http: HttpClient) { }
 
-  Get_id_service()
+  get_number_players()
   {  
-    return this.http.post<any>(this.url + '/Service/getserviceid', {}).pipe(map(res => {
+    return this.http.post<any>(this.url + '/Player/numberjoueur', {}).pipe(map(res => {
+       console.log(res);
+       res.data
        return res;
      }));    
   };
+  
+  get_number_services()
+  {  
+    return this.http.post<any>(this.url + '/Service/numberservice', {}).pipe(map(res => {
+       console.log(res);
+       res.data
+       return res;
+     }));    
+  };
+
+  get_number_players_ajr()
+  {  
+    return this.http.post<any>(this.url + '/Player/numberjoueurajr', {}).pipe(map(res => {
+       console.log(res);
+       res.data
+       return res;
+     }));    
+  };
+
+
+
 
   Get_joueur_perservice()
   {  

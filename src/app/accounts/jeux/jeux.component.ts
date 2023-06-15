@@ -9,14 +9,13 @@ import { StatistiqueService } from '../services/statistique.service';
   styleUrls: ['./jeux.component.css']
 })
 export class JeuxComponent {
-   services:any=[];
-   types:any=[];
-   libelle_type_service:any;
-   id_service:any;
-
- form!:any;
- submitted=false;
- pageSize: number = 10;
+  services:any=[];
+  types:any=[];
+  libelle_type_service:any;
+  id_service:any;
+  form!:any;
+  submitted=false;
+  pageSize: number = 10;
   currentPage: number = 1;
  
 
@@ -81,13 +80,8 @@ export class JeuxComponent {
           for (let i = 0; i < this.services.length; i++) {
               this.services[i].number=number[i];  
           }
-
-         
       } })
     
-   
-
-
     }
     getTypeservice(){ 
       console.log('testtype')

@@ -8,7 +8,6 @@ import { ProfileComponent } from './accounts/profile/profile.component';
 //import { TestComponent } from './accounts/test/test.component';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
-import { DetailsComponent } from './accounts/details/details.component';
 import { OutboxComponent } from './accounts/outbox/outbox.component';
 import { SidebarComponent } from './accounts/sidebar/sidebar.component';
 import { MotdepasseComponent } from './accounts/motdepasse/motdepasse.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   {  path:  'profile', component:  ProfileComponent},
   {  path:  'addadmin', component:  AddadminComponent},
   {  path:  'sms', component:  SmsComponent},
-  {  path:  'details/:id_player', component:  DetailsComponent},
   {  path:  'outbox', component:  OutboxComponent},
   {  path:  'sidebar', component:  SidebarComponent},
   {  path:  'motdepasse', component:  MotdepasseComponent},
