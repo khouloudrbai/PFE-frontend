@@ -5,7 +5,6 @@ import { LoginComponent } from './accounts/login/login.component';
 import { AppComponent } from './app.component';
 import { TableComponent } from './accounts/table/table.component';
 import { ProfileComponent } from './accounts/profile/profile.component';
-//import { TestComponent } from './accounts/test/test.component';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
 import { OutboxComponent } from './accounts/outbox/outbox.component';
@@ -18,7 +17,6 @@ import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 
-import { TestComponent } from './accounts/test/test.component';
 import { HeaderComponent } from './accounts/header/header.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -35,7 +33,6 @@ const routes: Routes = [
   {  path:  'userprofile/:id_user', component:  UserprofileComponent},
   {  path:  'consulteruser/:id_user', component:  ConsulteuserComponent},
   {  path:  'jeux', component:  JeuxComponent},
-  {  path:  'test', component:  TestComponent},
   {  path:  'confirmpassword', component:  ConfirmpasswordComponent},
   {  path:  'resetpassword/:id_user', component:  ResetpasswordComponent},
   {  path:  'header', component:  HeaderComponent},

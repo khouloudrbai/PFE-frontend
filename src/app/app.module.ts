@@ -10,7 +10,6 @@ import { TableComponent } from './accounts/table/table.component';
 import {HttpClientModule} from'@angular/common/http';
 import { LoginService } from './accounts/services/login.service';
 import { ProfileComponent } from './accounts/profile/profile.component';
-//import { TestComponent } from './accounts/test/test.component';
 import { FormsModule } from '@angular/forms';
 
 import { AppBoostrapModule } from './accounts/app-bootstrap/app-bootstrap.module';
@@ -24,7 +23,6 @@ import { UserprofileComponent } from './accounts/userprofile/userprofile.compone
 import { ConsulteuserComponent } from './accounts/consulteuser/consulteuser.component';
 import { JeuxComponent } from './accounts/jeux/jeux.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TestComponent } from './accounts/test/test.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 import { DatePipe } from '@angular/common';
@@ -45,7 +43,6 @@ import { HeaderComponent } from './accounts/header/header.component';
     UserprofileComponent,
     ConsulteuserComponent,
     JeuxComponent,
-    TestComponent,
     ConfirmpasswordComponent,
     ResetpasswordComponent,
     HeaderComponent,

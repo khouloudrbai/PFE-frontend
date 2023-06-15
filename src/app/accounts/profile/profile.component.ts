@@ -1,5 +1,5 @@
-import {Component, OnInit, TemplateRef} from '@angular/core';
-import { FormGroup,FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn, FormControl } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import { FormGroup,FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProfileService } from '../services/profile.service';
 import { UserService } from '../services/user.service';
