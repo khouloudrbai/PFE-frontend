@@ -20,7 +20,7 @@ import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpass
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 
 import { TestComponent } from './accounts/test/test.component';
-
+import { HeaderComponent } from './accounts/header/header.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent },
@@ -40,7 +40,7 @@ const routes: Routes = [
   {  path:  'test', component:  TestComponent},
   {  path:  'confirmpassword', component:  ConfirmpasswordComponent},
   {  path:  'resetpassword/:id_user', component:  ResetpasswordComponent},
-
+  {  path:  'header', component:  HeaderComponent},
 
 
 

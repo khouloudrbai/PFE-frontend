@@ -1,0 +1,26 @@
+<header class="bg-dark">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-lg-end">
+        <div class="dropdown text-end">
+          <a class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <img src="{{image}}" alt="picture" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+            <li>
+              <a class="dropdown-item" (click)="onclick()">
+                <i class="fa fa-user"></i>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" (click)="logout()">
+                <i class="fa fa-sign-out"></i>
+                Sign out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+</header>

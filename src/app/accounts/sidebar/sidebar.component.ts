@@ -20,18 +20,7 @@ export class SidebarComponent {
   constructor(private router:Router,private userService:UserService,private location:Location){}
  
 
-onclick():void{
-this.router.navigate(['./profile']);
-}
 
-
-logout(): void {
-  sessionStorage.removeItem('user');
-  this.router.navigate(['/login']); 
-  this.location.replaceState('/');
-
-
-}
 
   showMyContainer: boolean = false;
 

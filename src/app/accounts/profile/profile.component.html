@@ -1,182 +1,184 @@
-<div class="sidebar">
 
+    <app-header></app-header>
+
+<div class="sidebar">
     <my-sidebar></my-sidebar>
-  
-  </div>
-  
-  <div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
-        <section  class="vh-100" >
-            <div  class=" container py-5 h-100" >
-                <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-                    <div class="row gutters">
-                        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                            <div class="card h-100">
-                                <div class="card-body">                         
-                                    <div class="account-settings" >
-                                        <div class="user-profile" >
-                                            <div class="user-avatar" >
-                                            <img src="{{image}}" alt="picture" >
-                                            </div>
-                                            <h5 class="user-name"> </h5>
-                                            <input type="text" readonly class="form-control-plaintext" formControlName="firstname"  value="Full Name ">
-                                            <input type="text" readonly class="form-control-plaintext" formControlName="lastname"  value="Full Name ">
-                                            <input type="text" readonly class="form-control-plaintext" formControlName ="email" value="email ">
-                                        </div>
+</div>
+
+<div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
+<section  class="vh-100" >
+    <div  class=" container py-5 h-100" >
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row gutters">
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">                         
+                            <div class="account-settings" >
+                                <div class="user-profile" >
+                                    <div class="user-avatar" >
+                                    <img src="{{image}}" alt="picture" >
                                     </div>
+                                    <h5 class="user-name"> </h5>
+                                    <input type="text" readonly class="form-control-plaintext" formControlName="firstname"  value="Full Name ">
+                                    <input type="text" readonly class="form-control-plaintext" formControlName="lastname"  value="Full Name ">
+                                    <input type="text" readonly class="form-control-plaintext" formControlName ="email" value="email ">
                                 </div>
                             </div>
                         </div>
-                        <div class=" col-lg-8 col-md-12 col-sm-12 col-12">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <div class="row gutters">
-                                        <div class="bd-example">
-                                            <nav>
-                                                <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-                                                <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-Profile" aria-selected="true">Profile</button>
-                                                <button class="nav-link" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-password" type="button" role="tab" aria-controls="nav-password" aria-selected="false">password</button>
-                                                </div>
-                                            </nav>
-                                            <div class="tab-content" id="nav-tabContent">
-                                                <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                                    <div class="row gutters">
-                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                        <h6 class="mb-2 text-primary">Personal Details</h6>
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="name">First Name</label>
-                                                        <input type="firstname"   class="form-control" formControlName="firstname"  placeholder="first name">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="eMail">Email</label>
-                                                            <input type="email" readonly class="form-control" formControlName="email"  placeholder="email">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="phone">Phone</label>
-                                                            <input type="text"   class="form-control" formControlName="mobile"  placeholder="mobile">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-">
-                                                        <div class="form-group">
-                                                            <label for="address"> Address</label>
-                                                            <input type="text"  class="form-control" formControlName="address"  placeholder="Address">
-                                                        </div>
-                                                    </div> 
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-">
-                                                        <div class="form-group">
-                                                            <label for="address"> Entry_date</label>
-                                                            <input type="text"  class="form-control" formControlName="entry_date"  placeholder="entry_date">
-                                                        </div>
-                                                    </div> 
-                                                    <div >
-                                                        <div class="form-group">
-                                                            <label for="address"> Picture URL</label>
-                                                            <input type="text"  class="form-control" formControlName="picture"  placeholder="picture">
-                                                        </div>
-                                                    </div>
-                                                            
-                                                </div>   
-                                                </div>
-                                                <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
-                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                        <h6 class="mt-3 mb-2 text-primary">Password</h6>           
+                    </div>
+                </div>
+                <div class=" col-lg-8 col-md-12 col-sm-12 col-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="bd-example">
+                                    <nav>
+                                        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                                        <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-Profile" aria-selected="true">Profile</button>
+                                        <button class="nav-link" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-password" type="button" role="tab" aria-controls="nav-password" aria-selected="false">password</button>
 
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                        <div class="form-group">
-                                                            <label for="password">Old Password</label>                <br/>
-
-                                                            <input type="password" class="form-control"  placeholder="Old password" formControlName="old_pwd">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="password"> New password</label>
-                                                        <br>
-                                                        <input 
-                                                            id="newPassword"
-                                                            type="password"
-                                                            class="form-control"
-                                                            formControlName="newPassword"
-                                                            placeholder="New Password"
-                                                        />
-                                                        <div
-                                                        *ngIf="
-                                                            newPassword.invalid &&
-                                                            (newPassword.dirty || newPassword.touched)
-                                                        "
-                                                        class="form-text text-danger"
-                                                        >
-                                                        <div *ngIf="newPassword.errors?.['required']">
-                                                            Field is required
-                                                        </div>
-                                                        <div *ngIf="newPassword.errors?.['pattern']">
-                                                            Password must contain at least one number, one uppercase and a
-                                                            lowercase letter and at least 8 characters<br />Password cannot
-                                                            contain whitespace
-                                                        </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                    <div class="form-group">
-                                                        <label for="password"> Verify New password</label>
-                                                        <br>
-                                                        <input
-                                                                id="confirmPassword"
-                                                                type="password"
-                                                                class="form-control"
-                                                                [ngClass]="confirmPasswordClass"
-                                                                formControlName="confirmPassword"
-                                                                #cpw
-                                                                placeholder="Confirm New Password"/>
-                                                        <div
-                                                            *ngIf="
-                                                                confirmPassword.invalid &&
-                                                                (confirmPassword.dirty || confirmPassword.touched)
-                                                            "
-                                                            class="form-text text-danger"
-                                                            >
-                                                        <div *ngIf="confirmPassword.errors?.['required']">
-                                                            Field is required
-                                                        </div>
-                                                        <div *ngIf="confirmPassword.errors?.['pattern']">
-                                                            Password must contain at least one number, one uppercase and a
-                                                            lowercase letter and at least 8 characters<br />Password cannot
-                                                            contain whitespace
-                                                        </div>
-                                                        <div *ngIf="confirmPassword.errors?.['confirmedValidator']">
-                                                            Passwords did not match
-                                                        </div>
-                                                    </div>                    
-                                                    </div>
-                                                </div>
-                                            </div>        
-                                            </div>
                                         </div>
-                                        <div class="row gutters">
-                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4" >
-                                                <div class="text-right">
-                                                    <button type="button" class="btn btn-secondary " style="margin-right: 20px;" (click)="cancel()"> <i class="fa fa-times" ></i>
-                                                    Cancel</button>
-                                                    <button type="submit" class="btn btn-primary"  style="margin-right: 20px;" (click)="save()"  >  <i class="fa fa-floppy-o " ></i>
-                                                    Save </button>
-                                                    <button type="submit" class="btn btn-primary" (click)="savepwd()" > <i class="fa fa-floppy-o fa-fw me-1" > </i>Save Password </button>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                            <div class="row gutters">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <h6 class="mb-2 text-primary">Personal Details</h6>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                            <div class="form-group">
+                                                <label for="name">First Name</label>
+                                                <input type="firstname"   class="form-control" formControlName="firstname"  placeholder="first name">
                                                 </div>
                                             </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="eMail">Email</label>
+                                                    <input type="email" readonly class="form-control" formControlName="email"  placeholder="email">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone</label>
+                                                    <input type="text"   class="form-control" formControlName="mobile"  placeholder="mobile">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-">
+                                                <div class="form-group">
+                                                    <label for="address"> Address</label>
+                                                    <input type="text"  class="form-control" formControlName="address"  placeholder="Address">
+                                                </div>
+                                            </div> 
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-">
+                                                <div class="form-group">
+                                                    <label for="address"> Entry_date</label>
+                                                    <input type="text"  class="form-control" formControlName="entry_date"  placeholder="entry_date">
+                                                </div>
+                                            </div> 
+                                            <div >
+                                                <div class="form-group">
+                                                    <label for="address"> Picture URL</label>
+                                                    <input type="text"  class="form-control" formControlName="picture"  placeholder="picture">
+                                                </div>
+                                            </div>
+                                                    
+                                        </div>   
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <h6 class="mt-3 mb-2 text-primary">Password</h6>           
+
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                        <label for="password">Old Password</label>                <br/>
+
+                                        <input type="password" class="form-control"  placeholder="Old password" formControlName="old_pwd">
+                                        </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                        <label for="password"> New password</label>
+                                        <br>
+                                        <input 
+                                        id="newPassword"
+                                        type="password"
+                                        class="form-control"
+                                        formControlName="newPassword"
+                                        placeholder="New Password"
+                                        />
+                                        <div
+                                        *ngIf="
+                                        newPassword.invalid &&
+                                        (newPassword.dirty || newPassword.touched)
+                                        "
+                                        class="form-text text-danger"
+                                        >
+                                        <div *ngIf="newPassword.errors?.['required']">
+                                        Field is required
+                                        </div>
+                                        <div *ngIf="newPassword.errors?.['pattern']">
+                                        Password must contain at least one number, one uppercase and a
+                                        lowercase letter and at least 8 characters<br />Password cannot
+                                        contain whitespace
+                                        </div>
+                                        </div>
+
+                                        </div>
+                                        </div>
+                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                        <label for="password"> Verify New password</label>
+                                        <br>
+                                        <input
+                                        id="confirmPassword"
+                                        type="password"
+                                        class="form-control"
+                                        [ngClass]="confirmPasswordClass"
+                                        formControlName="confirmPassword"
+                                        #cpw
+                                        placeholder="Confirm New Password"/>
+                                        <div
+                                        *ngIf="
+                                        confirmPassword.invalid &&
+                                        (confirmPassword.dirty || confirmPassword.touched)
+                                        "
+                                        class="form-text text-danger"
+                                        >
+                                        <div *ngIf="confirmPassword.errors?.['required']">
+                                        Field is required
+                                        </div>
+                                        <div *ngIf="confirmPassword.errors?.['pattern']">
+                                        Password must contain at least one number, one uppercase and a
+                                        lowercase letter and at least 8 characters<br />Password cannot
+                                        contain whitespace
+                                        </div>
+                                        <div *ngIf="confirmPassword.errors?.['confirmedValidator']">
+                                        Passwords did not match
+                                        </div>
+                                        </div>                    
+                                        </div>
+                                        </div>
+                                        </div>        
+                                    </div>
+                                </div>
+                                <div class="row gutters">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt-4" >
+                                        <div class="text-right">
+                                            <button type="button" class="btn btn-secondary " style="margin-right: 20px;" (click)="cancel()"> <i class="fa fa-times" ></i>
+                                            Cancel</button>
+                                            <button type="submit" class="btn btn-primary"  style="margin-right: 20px;" (click)="save()"  >  <i class="fa fa-floppy-o " ></i>
+                                            Save </button>
+                                            <button type="submit" class="btn btn-primary" (click)="savepwd()" > <i class="fa fa-floppy-o fa-fw me-1" > </i>Save Password </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </section>
+        </form>
     </div>
+</section>
+</div>

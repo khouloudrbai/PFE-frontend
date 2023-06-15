@@ -29,6 +29,7 @@ import { TestComponent } from './accounts/test/test.component';
 import { ConfirmpasswordComponent } from './accounts/confirmpassword/confirmpassword.component';
 import { ResetpasswordComponent } from './accounts/resetpassword/resetpassword.component';
 import { DatePipe } from '@angular/common';
+import { HeaderComponent } from './accounts/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { DatePipe } from '@angular/common';
     TestComponent,
     ConfirmpasswordComponent,
     ResetpasswordComponent,
+    HeaderComponent,
   
     
      
