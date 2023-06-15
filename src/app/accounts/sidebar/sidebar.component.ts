@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Router } from "@angular/router";
 import { UserService } from "../services/user.service";
-import Swal from "sweetalert2";
 import { Location } from "@angular/common";
 
 @Component({
@@ -10,8 +9,6 @@ import { Location } from "@angular/common";
   styleUrls: ["./sidebar.component.css"]
 }) 
 export class SidebarComponent { 
-  @Input() isExpanded: boolean = false;
-  @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   image:any;
   email:any;
@@ -20,24 +17,6 @@ export class SidebarComponent {
   constructor(private router:Router,private userService:UserService,private location:Location){}
  
 
-
-
-  showMyContainer: boolean = false;
-
-  status: boolean = false;
-  statusLink: boolean = false;
-  clickEvent() {
-    this.status = !this.status;
-    //this.statusLink = !this.statusLink;
-
-    if (this.statusLink) {
-      setTimeout(() => {
-        this.statusLink = false;
-      }, 230);
-    } else {
-      this.statusLink = true;
-    }
-  }
   ngOnInit(): void {
 
     let user = sessionStorage.getItem('user');
@@ -50,13 +29,7 @@ export class SidebarComponent {
     }
    this.verify()
   }
-onmodifie(){
-  this.router.navigate(['./modifierprofil']);
 
-}
-motdpass(){
-  this.router.navigate(['./modifiermotdepasse']);
-}
 verify(){
   this.userService.verify(this.email,this.pwd).subscribe
   (respond=>{
@@ -65,7 +38,5 @@ verify(){
   
   })
 }
-click(){
-  Swal.fire('error')
-}
+
 }
