@@ -106,7 +106,7 @@ export class ProfileComponent implements OnInit {
             {
 
               this.form.patchValue({
-                  email: respond.data[0].mail ,
+                email: respond.data[0].mail ,
                 mobile:respond.data[0].mobile,
                 address:respond.data[0].address,
                 firstname:respond.data[0].firstname,
@@ -131,14 +131,13 @@ export class ProfileComponent implements OnInit {
 
   save(){ 
     this.profileService.Contact_update(this.id_user,this.form.value.mobile,this.form.value.firstname,this.form.value.email,this.form.value.address,this.form.value.picture).subscribe
-    (respond=>{
-     console.log(respond);
- 
-     
+    (respond=>{ 
      if(respond.isFailed == false && respond.code === '201' && respond.data)
      {
          this.GetUserInfo();
-         this.alertWithSuccess()
+         this.alertWithSuccess();
+         window.location.reload();
+
      } 
     })
   }

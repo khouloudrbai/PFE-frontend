@@ -5,139 +5,140 @@
 </div>
   
 <div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
-		<form [formGroup]="form">
-            <h1> <i class="fas fa-regular fa-users fa-fw me-3" ></i>Players</h1>
-			<div class="row bootstrap snippets bootdeys mt-4 "> 
-				<div class=" col-md-3" > 
-					<input class="form-control" formControlName="service_libelle" list="servicesList" id="Services" placeholder="Services">
-					<datalist id="servicesList">
-						<table>
-							<tbody>
-								<tr class="candidates-list" *ngFor="let item of services"> 
-									<td>
-										<option value="{{item.libelle}}">
-
-									</td>
-								</tr>
-						    </tbody>
-					    </table>
-					</datalist>
-				</div> 
-
-				<div class=" col-md-3 " > 
-					<input class="form-control" formControlName="libelle_type_service" list="typesList"  placeholder="Type Services">
-					<datalist id="typesList">
-						<table>
-							<tbody>
-								<tr class="candidates-list" *ngFor="let gr of types"> 
-									<td>
-										<option value="{{gr.libelle_type_service}}">
-
-									</td>
-								</tr>
-						    </tbody>
-					    </table>
-					</datalist>
-				</div>
-				<div class="col-md-2" > 
-				  <input type="date" class="form-control" formControlName="entry_date" name="s" id="search-input" placeholder="entry date"> 
-				</div>
-				<div class="col-md-2" > 
-				  <input type="date" class="form-control"  formControlName="date_end" name="s"  id="search-input" placeholder="date end"> 
-			    </div> 
-			    <div class="col-md-2" > 
-			      <button type="submit"  name="submit" class="btn btn-primary b2 " (click)="onclick()" >
-					<i  class="fa fa-search fa-fw me-1"></i>Search 
-				   </button>
-			    </div> 
-			</div>
-	    </form>
-		<div class="row mt-4">
-			<div class="col-md-12">
-				<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-					<div class="form-check form-switch " style="margin-left:950px">
-						<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"[(ngModel)]="masterSelected" name="list_name" value="m1"
-						(change)="checkUncheckAll()" />
-						<label class="form-check-label" for="flexSwitchCheckDefault">
-							<strong>{{ masterSelected ? 'Unselect All' : 'Select All' }}</strong>
-						  </label>					  </div>
-					<table class="table manage-candidates-top mb-0 mt-3">
-						<thead class="thead">
-							<tr>
-						        <th>check</th>
-								<th>User Name</th>
-								<th> Mobile</th>
-								<th >Services</th>
-								<th>Entry Date</th>
-								<th>Type service</th>
-
-
-							</tr>
-						</thead>
-						<tbody >
-							<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
-
-
-								<td class="title">
-									<div class="candidate-list-details">
-										<div class="candidate-list-info">
-											<div class="candidate-list-title">
-												<label class="container">
-													<input type="checkbox" checked="checked" [(ngModel)]="group.isSelected" name="list_name"
-													value="{{group.id_service}}" (change)="isAllSelected()" />
-													<div class="checkmark"></div>
-													</label>
-											</div>
-
-										</div>
-									</div>
-								</td>
-								<td class="candidate-list-favourite-time text-center">
-									{{group.firstname}}
-								</td>
-
-								<td>{{group.mobile}}</td>
+	<form [formGroup]="form">
+		<h1> <i class="fas fa-regular fa-users fa-fw me-3" ></i>Players</h1>
+		<div class="row bootstrap snippets bootdeys mt-4 "> 
+			<!-- service list----------------------------------------------------- -->
+			<div class=" col-md-3" > 
+				<input class="form-control" formControlName="service_libelle" list="servicesList" id="Services" placeholder="Services">
+				<datalist id="servicesList">
+					<table>
+						<tbody>
+							<tr class="candidates-list" *ngFor="let item of services"> 
 								<td>
-								   <i class=" fa fa-gamepad "></i>{{group.service}}
+									<option value="{{item.libelle}}">
 								</td>
-								<td>{{group.entry_date}}</td>
-								<td>{{group.type}}</td>
-
 							</tr>
 						</tbody>
 					</table>
-					<div class="d-flex justify-content-end align-items-center mt-3">
-						
-						  <ul class="pagination p-effect">
-							<li [class.disabled]="currentPage === 1">
-							  <a (click)="prevPage()">Previous</a>
-							</li>
-							<li >
-								<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
-							</li>
-							<li [class.disabled]="currentPage === totalPages">
-							  <a (click)="nextPage()">Next</a>
-							</li>
-						  </ul>
-					</div>
-				
-					<div class="text-center">
+				</datalist>
+			</div> 
+			<!-- players list----------------------------------------------------- -->
+
+			<div class=" col-md-3 " > 
+				<input class="form-control" formControlName="libelle_type_service" list="typesList"  placeholder="Type Services">
+				<datalist id="typesList">
+					<table>
+						<tbody>
+							<tr class="candidates-list" *ngFor="let gr of types"> 
+								<td>
+									<option value="{{gr.libelle_type_service}}">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</datalist>
+			</div>
+			<!-- les dates ---------------------------------------------------- -->
+
+			<div class="col-md-2" > 
+				<input type="date" class="form-control" formControlName="entry_date" name="s" id="search-input" placeholder="entry date"> 
+			</div>
+			<div class="col-md-2" > 
+				<input type="date" class="form-control"  formControlName="date_end" name="s"  id="search-input" placeholder="date end"> 
+			</div> 
+			<div class="col-md-2" > 
+				<button type="submit"  name="submit" class="btn btn-primary b2 " (click)="onclick()" >
+				<i  class="fa fa-search fa-fw me-1"></i>Search 
+				</button>
+			</div> 
+		</div>
+	</form>
+	<div class="row mt-4">
+		<div class="col-md-12">
+			<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+				<div class="form-check form-switch " style="margin-left:950px">
+					<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"[(ngModel)]="masterSelected" name="list_name" value="m1"
+					(change)="checkUncheckAll()" />
+					<label class="form-check-label" for="flexSwitchCheckDefault">
+						<strong>{{ masterSelected ? 'Unselect All' : 'Select All' }}</strong>
+						</label>					 
+				</div>
+				<table class="table manage-candidates-top mb-0 mt-3">
+					<thead class="thead">
+						<tr>
+							<th>check</th>
+							<th>User Name</th>
+							<th> Mobile</th>
+							<th >Services</th>
+							<th>Entry Date</th>
+							<th>Type service</th>
+
+
+						</tr>
+					</thead>
+					<tbody >
+						<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
+							<!-- check mark------------- -->
+							<td class="title">
+								<div class="candidate-list-details">
+									<div class="candidate-list-info">
+										<div class="candidate-list-title">
+											<label class="container">
+												<input type="checkbox" checked="checked" [(ngModel)]="group.isSelected" name="list_name"
+												value="{{group.id_service}}" (change)="isAllSelected()" />
+												<div class="checkmark"></div>
+											</label>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td class="candidate-list-favourite-time text-center">
+								{{group.firstname}}
+							</td>
+
+							<td>{{group.mobile}}</td>
+							<td>
+								<i class=" fa fa-gamepad "></i>{{group.service}}
+							</td>
+							<td>{{group.entry_date}}</td>
+							<td>{{group.type}}</td>
+
+						</tr>
+					</tbody>
+				</table>
+
+				<!-- pagination ------------------------------------------------------- -->
+				<div class="d-flex justify-content-end align-items-center mt-3">
+					
+						<ul class="pagination p-effect">
+						<li [class.disabled]="currentPage === 1">
+							<a (click)="prevPage()">Previous</a>
+						</li>
+						<li >
+							<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
+						</li>
+						<li [class.disabled]="currentPage === totalPages">
+							<a (click)="nextPage()">Next</a>
+						</li>
+						</ul>
+				</div>
+			
+				<div class="text-center">
 					<button class="b2" (click)="send()" style="margin-left:  420px;;">
+						<!-- svg to design the button  -->
 						<div class="svg-wrapper-1 text-center">
-						  <div class="svg-wrapper">
+						<div class="svg-wrapper">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" >
-							  <path fill="none" d="M0 0h24v24H0z"></path>
-							  <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+							<path fill="none" d="M0 0h24v24H0z"></path>
+							<path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
 							</svg>
-						  </div>
+						</div>
 						</div>
 						<span>Send</span>
-					  </button>
-					</div>
+					</button>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6">
-			<code></code>
-		  </div>
+	</div>
 </div>

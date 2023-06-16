@@ -77,11 +77,8 @@ export class TableComponent implements OnInit {
 
 
   onclick():void{ 
-    
     this.submitted = true;
-
     console.log(this.form.value)
-
     this.playerservice.get_player(this.form.value.service_libelle,this.form.value.libelle_type_service,this.form.value.entry_date,this.form.value.date_end).subscribe(respond => {
     console.log(respond);
     console.log(respond.isFailed);
@@ -89,8 +86,8 @@ export class TableComponent implements OnInit {
     if(respond.isFailed == false && respond.code === '201' && respond.data){
       this.players = respond.data ;
     } 
-  }
-    )}
+  })
+}
   
 
     getservice(){ 
@@ -100,8 +97,8 @@ export class TableComponent implements OnInit {
       if(respond.isFailed == false && respond.code === '201' && respond.data){
         this.services = respond.data ;
       } 
-    }
-      )}
+    })
+  }
       getTypeservice(){ 
         console.log('testtype')
         this.servicesService.get_type_service().subscribe(respond => {
@@ -111,8 +108,8 @@ export class TableComponent implements OnInit {
         if(respond.isFailed == false && respond.code === '201' && respond.data){
           this.types = respond.data ;
         } 
-      }
-        )}
+      })
+    }
 
 get_player(){
       this.playerservice.get_list_player().subscribe(respond => {
@@ -122,8 +119,7 @@ get_player(){
         if(respond.isFailed == false && respond.code === '201' && respond.data){
           this.players = respond.data ;
         }
-      }
-        )
+      })
 }
 
 //send sms

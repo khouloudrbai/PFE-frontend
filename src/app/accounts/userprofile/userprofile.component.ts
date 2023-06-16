@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProfileService } from '../services/profile.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BsModalRef,BsModalService } from 'ngx-bootstrap/modal';
 import { UserService } from '../services/user.service';
 import Swal from 'sweetalert2';
 
@@ -19,13 +18,13 @@ export class UserprofileComponent implements OnInit {
   email!:string;
   address!:string;
   id_user:any;
- firstname!:any;
- lastname:any;
- picture!:any;
-user_id:any;
-image:any;
+  firstname!:any;
+  lastname:any;
+  picture!:any;
+  user_id:any;
+  image:any;
 
-  constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,
+  constructor(private router:Router,public profileService:ProfileService,
     private formbuilder:FormBuilder,public route : ActivatedRoute, public userService : UserService) {
     this.form = this.formbuilder.group(
       {
@@ -92,8 +91,8 @@ image:any;
       this.alertWithSuccess();
       this.getuser()
      }
- }) 
-  }
+     }) 
+ }
   return(){
     this.router.navigate(['./listuser'])
   }

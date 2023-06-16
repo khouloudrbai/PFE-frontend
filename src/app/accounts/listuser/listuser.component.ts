@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
 })
 export class ListuserComponent implements OnInit{
   users: any = [];
-  user: any;
   id_user: any = '';
   pageSize: number = 3;
   currentPage: number = 1;
@@ -76,6 +75,16 @@ export class ListuserComponent implements OnInit{
     this.modalService.hide(); 
 }
 
+
+add(){
+  this.router.navigate(['./addadmin'])
+}
+
+navigateToLocation(address: string): void {
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  window.open(mapUrl, '_blank');
+}
+
  
 //pagination des pages 
  
@@ -112,12 +121,5 @@ export class ListuserComponent implements OnInit{
     return Array.from({ length: (endPage - startPage) + 1 }, (_, i) => startPage + i);
   }
   
-  add(){
-    this.router.navigate(['./addadmin'])
-  }
-  
-  navigateToLocation(address: string): void {
-    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    window.open(mapUrl, '_blank');
-  }
+ 
 }

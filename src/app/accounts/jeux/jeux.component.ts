@@ -37,20 +37,20 @@ export class JeuxComponent {
 
   numberplayers(){
     
-    let dataservice : any[]=[];
+    let number : any[]=[];
    
     this.statistiqueService.Get_joueur_perservice().subscribe(respond => { 
 
      if(respond && respond.data && respond.data.length  >0 )
      {
        respond.data.forEach((element:any) => {
-       dataservice.push(element.v_number)
+        number.push(element.v_number)
 
         
        });
     }
      })
-     return dataservice
+     return number
   }
   
   onclick():void{
@@ -84,9 +84,7 @@ export class JeuxComponent {
     
     }
     getTypeservice(){ 
-      console.log('testtype')
       this.servicesService.get_type_service().subscribe(respond => {
-      console.log('testtype',respond.data);
       console.log(respond.isFailed);
       console.log(respond.code);
       if(respond.isFailed == false && respond.code === '201' && respond.data){
@@ -94,6 +92,7 @@ export class JeuxComponent {
       } 
     }
       )}
+      
     //pagination des pages 
   get totalPages(): number {
     return Math.ceil(this.services.length / this.pageSize);

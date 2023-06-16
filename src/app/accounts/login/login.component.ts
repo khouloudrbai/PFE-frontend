@@ -7,7 +7,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import jwt_decode from 'jwt-decode';
 
 
@@ -16,7 +15,7 @@ import jwt_decode from 'jwt-decode';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit,CanActivate  {
+export class LoginComponent implements OnInit  {
  
   email!: string;
   pwd!:string;
@@ -39,24 +38,16 @@ export class LoginComponent implements OnInit,CanActivate  {
 
  ngOnInit(): void {
  }
+
+ //retourne les contrôles du formulaire loginForm
  get f(): { [key: string]: AbstractControl } {
    return this.loginForm.controls;
  }
 
- canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-  const user = sessionStorage.getItem('user');
-  if (user) {
-    // User is already logged in, prevent navigation to login page
-    this.router.navigate(['/acceuil']);
-    return false;
-  }
-  return true;
-}
 
 
 decodeToken(token: string): void {
   const decodedToken: any = jwt_decode(token);
-  console.log(decodedToken);
 }
 
 onLoginSubmit(): void {
@@ -67,11 +58,9 @@ onLoginSubmit(): void {
   }
   this.loginService.Contact_auth(this.loginForm.value.email, this.loginForm.value.pwd).subscribe(respond => {
     const token = respond.data?.token; // Check if token is present
-    console.log(token);
-
+    console.log(token)
     if (token) {
       const decodedToken: any = jwt_decode(token);
-      console.log('decodeeeeeeeeeeeeeeeeeeeeeeeeeee',decodedToken);
 
       if (decodedToken && decodedToken.id_user) {
         this.alertErrorPwd = false;
@@ -98,9 +87,5 @@ onLoginSubmit(): void {
       this.alertErrorPwd = true;
     }
   });
-
-  console.log(JSON.stringify(this.loginForm.value, null, 2));
 }
-
-
 }

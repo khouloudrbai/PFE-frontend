@@ -3,105 +3,102 @@
 <div class="sidebar">
 	<my-sidebar></my-sidebar>
 </div>
-  
-  <div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
-		<form  [formGroup]="form">
-		   <h1>	<i class="fas fa-regular fa-table fa-fw me-3"></i> OutBox</h1> 
-		   <div class="form-group row mt-4">
 
-          <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Type</label>
-          <div  class=" col-xl-2">
-            <input list="typesList" class="form-control" formControlName="keyword" name="status" placeholder="type">
-			<datalist id="typesList">
-			<option value="Delivered">
-			<option value="Undelivered">
-			</datalist>
-		  </div>
+<div class="wrap-all-the-things"style="background-color: #f1f0f0; min-height: 100vh;">
+	<form  [formGroup]="form">
+		<h1>	<i class="fas fa-regular fa-table fa-fw me-3"></i> OutBox</h1> 
+		<div class="form-group row mt-4">
 
-            <label  class=" col-sm-3 col-md-2 col-lg-1 mt-2 ">FROM</label>
-          <div  class=" col-xl-2">
-            <input type="date" class="form-control"  formControlName="entry_date" name="s" id="search-input" > 
-          </div>
-
-          <label  class=" col-sm-3 col-md-2 col-lg-1  mt-2">TO</label>
-          <div  class=" col-xl-2 ">
-          <input type="date" class="form-control"  formControlName="end_date" name="s" id="search-input" > 
-          </div>
-            
-          <div  class=" col-xl-2  ">
-          <button _ngcontent-hgq-c6="" class="form-control btn btn-primary" type="submit" (click)="onclick()">
-            <i  class="fa fa-search"></i> Search </button>
-          </div>
-					   
-			 </div>
-	  </form>
-		 
-		<div class=" mt-4" >
-           <h1>	<i class="fa fa-list-ul" aria-hidden="true"></i> Result</h1> 
-			 <div class="card mt-4">
-				<div class="col-md-12">
-					<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-						<table class="table manage-candidates-top mb-0">
-							<thead class="thead">
-								<tr>
-									<th> Mobile</th>
-									<th>  SMS</th>
-                                    <th> Sent_date</th>
-									<th>Status </th>
-									<th>Etat </th>
-
-								</tr>
-							</thead>
-							<tbody >
-								<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
-									<td class="title">
-											 <div class="candidate-list-title">
-										        {{group.mobile}}
-											</div>
-									</td>
-									<td>
-										<div class="candidate-list-option">
-										{{group.sms}}
-										</div>
-									</td>
-									<td>
-										<div class="candidate-list-option">
-										{{group.send_date}}
-										</div>
-									</td>
-									<td>
-										<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'del' : 'und'">
-											{{ group.statuts === 1 ? 'Delivered' : 'Undelivered' }}
-										  </div>
-										  
-									</td>
-									<td>
-										 <div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'ptv' : 'ptr'">
-											{{ group.statuts === 1 ? ' ' : ' ' }}
-										  </div>
-										 
-
-										  
-									</td>
-								</tr>
-							</tbody>
-					    </table> 
-						<div class="d-flex justify-content-end align-items-center mt-3">
-							<ul class="pagination p-effect">
-								<li [class.disabled]="currentPage === 1">
-									<a (click)="prevPage()">Previous</a>
-								</li>
-								<li >
-									<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
-								</li>
-								<li [class.disabled]="currentPage === totalPages">
-									<a (click)="nextPage()">Next</a>
-								</li>
-							</ul>		
-						</div>
-						  
-					</div>
-				</div>	
+			<label  class=" col-sm-3 col-md-2 col-lg-1 mt-2">Type</label>
+			<div  class=" col-xl-2">
+				<input list="typesList" class="form-control" formControlName="keyword" name="status" placeholder="type">
+				<datalist id="typesList">
+					<option value="Delivered">
+					<option value="Undelivered">
+				</datalist>
 			</div>
+
+			<label  class=" col-sm-3 col-md-2 col-lg-1 mt-2 ">FROM</label>
+			<div  class=" col-xl-2">
+				<input type="date" class="form-control"  formControlName="entry_date" name="s" id="search-input" > 
+			</div>
+
+			<label  class=" col-sm-3 col-md-2 col-lg-1  mt-2">TO</label>
+			<div  class=" col-xl-2 ">
+				<input type="date" class="form-control"  formControlName="end_date" name="s" id="search-input" > 
+			</div>
+
+			<div  class=" col-xl-2  ">
+				<button _ngcontent-hgq-c6="" class="form-control btn btn-primary" type="submit" (click)="onclick()">
+				<i  class="fa fa-search"></i> Search </button>
+			</div>
+				
 		</div>
+	</form>
+		
+	<div class=" mt-4" >
+		<h1>	<i class="fa fa-list-ul" aria-hidden="true"></i> Result</h1> 
+		<div class="card mt-4">
+			<div class="col-md-12">
+				<div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
+					<table class="table manage-candidates-top mb-0">
+						<thead class="thead">
+							<tr>
+								<th> Mobile</th>
+								<th>  SMS</th>
+								<th> Sent_date</th>
+								<th>Status </th>
+								<th>Etat </th>
+
+							</tr>
+						</thead>
+						<tbody >
+							<tr class="candidates-list" *ngFor="let group of paginatedItems"> 
+								<td class="title">
+									<div class="candidate-list-title">
+										{{group.mobile}}
+									</div>
+								</td>
+								<td>
+									<div class="candidate-list-option">
+									{{group.sms}}
+									</div>
+								</td>
+								<td>
+									<div class="candidate-list-option">
+									{{group.send_date}}
+									</div>
+								</td>
+								<td>
+									<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'del' : 'und'">
+										{{ group.statuts === 1 ? 'Delivered' : 'Undelivered' }}
+									</div>			
+								</td>
+								<td>
+									<div class="candidate-list-option" [ngClass]="group.statuts === 1 ? 'ptv' : 'ptr'">
+									{{ group.statuts === 1 ? ' ' : ' ' }}
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table> 
+					<!-- pagination -------------------------------------------------------------->
+					<div class="d-flex justify-content-end align-items-center mt-3">
+						<ul class="pagination p-effect">
+							<li [class.disabled]="currentPage === 1">
+								<a (click)="prevPage()">Previous</a>
+							</li>
+							<li >
+								<a  style="background-color:#0d6efd ;   border-color: #0d6efd;color: white;">{{ currentPage }}</a>
+							</li>
+							<li [class.disabled]="currentPage === totalPages">
+								<a (click)="nextPage()">Next</a>
+							</li>
+						</ul>		
+					</div>
+						
+				</div>
+			</div>	
+		</div>
+	</div>
 </div>

@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
   templateUrl: './confirmpassword.component.html',
   styleUrls: ['./confirmpassword.component.css']
 })
+
+
 export class ConfirmpasswordComponent implements OnInit {
   form!:FormGroup;
  

@@ -17,11 +17,7 @@ export class OutboxComponent {
   pageSize: number = 10;
   currentPage: number = 1;
   
-  constructor(
-    private router: Router,
-    private smsService: SmsService,
-    private formBuilder: FormBuilder
-  ) {
+  constructor(private router: Router,private smsService: SmsService,private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
       keyword: ['', [ Validators.required ]],
       entry_date: ['', [ Validators.required ]],
@@ -34,14 +30,8 @@ export class OutboxComponent {
   }
        
   onclick(): void {
-    this.smsService.get_sms_detail(
-      this.form.value.keyword,
-      this.form.value.entry_date,
-      this.form.value.end_date
-    ).subscribe(respond => {
-      console.log(respond.isFailed);
+    this.smsService.get_sms_detail(this.form.value.keyword,this.form.value.entry_date,this.form.value.end_date).subscribe(respond => {
       console.log(respond.data);
-      console.log(respond.code);
 
       if (respond.isFailed == false && respond.code === '201' && respond.data) {
         this.sms = respond.data;
@@ -58,7 +48,7 @@ export class OutboxComponent {
       }
     });
   }
-
+//pagination des pages 
   get paginatedItems(): any[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = Math.min(startIndex + this.pageSize, this.sms.length);
