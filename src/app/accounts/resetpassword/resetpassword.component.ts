@@ -29,8 +29,7 @@ export class ResetpasswordComponent  {
     ),
     ]);
     user_id : any
-  constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService,
-    public route : ActivatedRoute) {
+  constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService,public route : ActivatedRoute) {
     this.form = this.formbuilder.group(
       {
         

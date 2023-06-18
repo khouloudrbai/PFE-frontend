@@ -46,9 +46,6 @@ export class LoginComponent implements OnInit  {
 
 
 
-decodeToken(token: string): void {
-  const decodedToken: any = jwt_decode(token);
-}
 
 onLoginSubmit(): void {
   this.submitted = true;

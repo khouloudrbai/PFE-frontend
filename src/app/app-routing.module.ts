@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AcceuilComponent } from './accounts/acceuil/acceuil.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { AppComponent } from './app.component';
-import { TableComponent } from './accounts/table/table.component';
+import { JoueurComponent } from './accounts/joueur/joueur.component';
 import { ProfileComponent } from './accounts/profile/profile.component';
 import { AddadminComponent } from './accounts/addadmin/addadmin.component';
 import { SmsComponent } from './accounts/sms/sms.component';
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {  path:  'login', component:  LoginComponent },
   {  path:  'acceuil', component:  AcceuilComponent},
-  {  path:  'table', component:  TableComponent,},
+  {  path:  'joueur', component:  JoueurComponent,},
   {  path:  'profile', component:  ProfileComponent},
   {  path:  'addadmin', component:  AddadminComponent},
   {  path:  'sms', component:  SmsComponent},

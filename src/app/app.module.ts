@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './accounts/login/login.component';
 import { AcceuilComponent } from './accounts/acceuil/acceuil.component';
 import { RouterModule } from '@angular/router';
-import { TableComponent } from './accounts/table/table.component';
+import { JoueurComponent } from './accounts/joueur/joueur.component';
 import {HttpClientModule} from'@angular/common/http';
 import { LoginService } from './accounts/services/login.service';
 import { ProfileComponent } from './accounts/profile/profile.component';
@@ -31,7 +31,7 @@ import { HeaderComponent } from './accounts/header/header.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    TableComponent,
+    JoueurComponent,
     AcceuilComponent,
     ProfileComponent,
     AddadminComponent,

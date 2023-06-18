@@ -22,7 +22,6 @@ export class SmsComponent implements OnInit{
      
       myMobile: ['', [ Validators.required,]],
       sender: ['', [ Validators.required,]],
-
       mySms: ['', [ Validators.required,]],
       myDate: ['', [ Validators.required,]],
 
@@ -60,6 +59,7 @@ console.log(this.currentdate)
     this.date = this.datepipe.transform(this.form.value.myDate, 'yyyy-MM-ddTHH:mm:ss');
     console.log(this.date);
     if (this.form.value.myMobile !== "" && this.form.value.mySms !== "") {
+      //programmer sms
       if (this.date !== null && this.date !== this.currentdate) {
         this.smsService.sms_prog(this.form.value.myMobile, this.form.value.mySms, this.sender, this.date).subscribe(respond => {
           console.log(respond);
@@ -72,7 +72,9 @@ console.log(this.currentdate)
             this.alertWithNoSuccess();
           }
         });
-      } else {
+      }
+      //send sms now
+      else {
         this.smsService.Send_SMS(this.form.value.myMobile, this.form.value.mySms, this.sender, this.date).subscribe(respond => {
           console.log(respond.message);
           console.log(respond.statusCode);
