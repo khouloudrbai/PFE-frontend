@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CodeService } from '../services/code.service';
-import { AbstractControl, FormBuilder ,FormGroup, Validators} from '@angular/forms';
+import {FormBuilder ,FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -14,24 +14,23 @@ export class MotdepasseComponent implements OnInit {
   mobile!:string;
  
 
-  constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService) {
-    this.form = this.formbuilder.group(
-      {
-        mobile: [ '',[Validators.required,]],
-    })
-  }
+constructor(private router:Router,private formbuilder:FormBuilder,public codeService:CodeService) {
+  this.form = this.formbuilder.group(
+    {
+      mobile: [ '',[Validators.required,]],
+  })
+}
 
-  ngOnInit(): void {
-   }
+ngOnInit(): void {}
 
-   alertcodesent(){
-    Swal.fire('Thank you...', 'code is sent to your number ', 'success')
-   }
-   alert(){
-    Swal.fire('Opps', 'mobile incorrect', 'error')
-   }
+alertcodesent(){
+  Swal.fire('Thank you...', 'code is sent to your number ', 'success')
+}
+alert(){
+  Swal.fire('Opps', 'mobile incorrect', 'error')
+}
    
-   sendcode(){  
+sendcode(){  
     if (this.form.value.mobile){
     this.codeService.add_code(this.form.value.mobile).subscribe
     (respond=>{
