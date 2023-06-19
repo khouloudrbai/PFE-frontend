@@ -20,7 +20,7 @@ export class ConsulteuserComponent implements OnInit {
  firstname!:any;
  picture!:any;
 user_id:any;
-developerPic : any;
+pic : any;
   constructor(private modalService: BsModalService,private router:Router,public profileService:ProfileService,
     private formbuilder:FormBuilder,public route : ActivatedRoute, public userService : UserService) {
     this.form = this.formbuilder.group(
@@ -65,17 +65,11 @@ developerPic : any;
 
           })
     
-        this.developerPic = respond.data[0].picture;
+        this.pic = respond.data[0].picture;
       }}
       )}
-  onSubmit(): void {
-    this.submitted = true;
-    console.log(this.form.value)
 
-    if (this.form.invalid) {
-      return;
-    }
-  }
+  
   
 onreturn():void{
   this.router.navigate(['./listuser'])

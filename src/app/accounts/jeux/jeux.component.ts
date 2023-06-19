@@ -53,7 +53,7 @@ export class JeuxComponent {
      return number
   }
   
-  onclick():void{
+  onclick(){
     let number=this.numberplayers()
 
       this.servicesService.get_service(this.form.value.libelle_type_service,this.form.value.entry_date,this.form.value.end_date).subscribe(respond => {

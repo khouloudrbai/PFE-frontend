@@ -18,9 +18,9 @@ export class UserprofileComponent implements OnInit {
   email!:string;
   address!:string;
   id_user:any;
-  firstname!:any;
+  firstname:any;
   lastname:any;
-  picture!:any;
+  picture:any;
   user_id:any;
   image:any;
 
